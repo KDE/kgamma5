@@ -245,7 +245,7 @@ void KGamma::setupUI() {
 
     screenselect = new QComboBox( options );
     for ( int i = 0; i < ScreenCount; i++ )
-      screenselect->insertItem( i18n("Screen %1").arg(i) );
+      screenselect->insertItem( i18n("Screen %1").arg(i+1) );
     screenselect->setCurrentItem(currentScreen);
     connect(screenselect, SIGNAL(activated(int)), SLOT(changeScreen(int)));
 
