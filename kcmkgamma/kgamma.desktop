@@ -87,3 +87,4 @@ X-KDE-FactoryName=kgamma
 X-KDE-Library=kgamma
 X-KDE-ModuleType=Library
 X-KDE-Test-Module=true
+Categories=QT;KDE;X-KDE-Settings-Hardware;
