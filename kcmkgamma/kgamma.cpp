@@ -176,7 +176,7 @@ void KGamma::setupUI() {
   xf86cfgbox = new QCheckBox( i18n("Save settings to XF86Config"), options );
   connect(xf86cfgbox, SIGNAL(clicked()), SLOT(changeConfig()));
 
-  syncbox = new QCheckBox( i18n("Sync Screens"), options );
+  syncbox = new QCheckBox( i18n("Sync screens"), options );
   connect(syncbox, SIGNAL(clicked()), SLOT(SyncScreens()));
   connect(syncbox, SIGNAL(clicked()), SLOT(Changed()));
 
