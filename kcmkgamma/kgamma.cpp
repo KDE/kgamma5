@@ -99,6 +99,7 @@ KGamma::~KGamma() {
 void KGamma::setupUI() {
   QBoxLayout *topLayout = new QVBoxLayout(this, 8, 8);
 
+  //TabWidget for the pictures
   QTabWidget *folder = new QTabWidget(this);
   folder->setFocusPolicy(NoFocus);
   QPixmap background;
@@ -143,35 +144,63 @@ void KGamma::setupUI() {
 
   topLayout->addWidget(folder);
 
-  gctrl = new GammaCtrl(this, "gamma", i18n("Gamma:"), xv);
-  gctrl->setMargin(8);
-  gctrl->setFrameStyle(QFrame::Box|QFrame::Sunken);
+  //Sliders for gamma correction
+  QFrame *frame1 = new QFrame(this);
+  frame1->setFrameStyle ( QFrame::Box | QFrame::Sunken );
+
+  QFrame *frame2 = new QFrame(this);
+  frame2->setFrameStyle ( QFrame::Box | QFrame::Sunken );
+
+  QLabel *gammalabel = new QLabel(this);
+  gammalabel->setText(i18n("Gamma:"));
+
+  QLabel *redlabel = new QLabel(this);
+  redlabel->setText(i18n("Red:"));
+
+  QLabel *greenlabel = new QLabel(this);
+  greenlabel->setText(i18n("Green:"));
+
+  QLabel *bluelabel = new QLabel(this);
+  bluelabel->setText(i18n("Blue:"));
+
+  gctrl = new GammaCtrl(this, xv);
   connect(gctrl, SIGNAL(gammaChanged(int)), SLOT(Changed()));
   connect(gctrl, SIGNAL(gammaChanged(int)), SLOT(SyncScreens()));
 
-  QVBox *rgbctrl = new QVBox(this);
-  rgbctrl->setMargin(8);
-  rgbctrl->setSpacing(2);
-  rgbctrl->setFrameStyle(QFrame::Box|QFrame::Sunken);
-
-  rgctrl = new GammaCtrl(rgbctrl,"red",i18n("Red:"),xv,XVidExtWrap::Red);
+  rgctrl = new GammaCtrl(this, xv, XVidExtWrap::Red);
   connect(rgctrl, SIGNAL(gammaChanged(int)), SLOT(Changed()));
   connect(rgctrl, SIGNAL(gammaChanged(int)), SLOT(SyncScreens()));
   connect(gctrl, SIGNAL(gammaChanged(int)), rgctrl, SLOT(setCtrl(int)));
   connect(rgctrl, SIGNAL(gammaChanged(int)), gctrl, SLOT(suspend()));
 
-  ggctrl = new GammaCtrl(rgbctrl,"green",i18n("Green:"),xv,XVidExtWrap::Green);
+  ggctrl = new GammaCtrl(this, xv, XVidExtWrap::Green);
   connect(ggctrl, SIGNAL(gammaChanged(int)), SLOT(Changed()));
   connect(ggctrl, SIGNAL(gammaChanged(int)), SLOT(SyncScreens()));
   connect(gctrl, SIGNAL(gammaChanged(int)), ggctrl, SLOT(setCtrl(int)));
   connect(ggctrl, SIGNAL(gammaChanged(int)), gctrl, SLOT(suspend()));
 
-  bgctrl = new GammaCtrl(rgbctrl,"blue",i18n("Blue:"),xv,XVidExtWrap::Blue);
+  bgctrl = new GammaCtrl(this, xv, XVidExtWrap::Blue);
   connect(bgctrl, SIGNAL(gammaChanged(int)), SLOT(Changed()));
   connect(bgctrl, SIGNAL(gammaChanged(int)), SLOT(SyncScreens()));
   connect(gctrl, SIGNAL(gammaChanged(int)), bgctrl, SLOT(setCtrl(int)));
   connect(bgctrl, SIGNAL(gammaChanged(int)), gctrl, SLOT(suspend()));
 
+  QGridLayout *grid = new QGridLayout(4, 9);
+  grid->setSpacing(8);
+  grid->addMultiCellWidget(frame1, 0, 2, 0, 3);
+  grid->addMultiCellWidget(frame2, 4, 8, 0, 3);
+  grid->addWidget(gammalabel, 1, 1, Qt::AlignRight);
+  grid->addWidget(redlabel, 5, 1, Qt::AlignRight);
+  grid->addWidget(greenlabel, 6, 1, Qt::AlignRight);
+  grid->addWidget(bluelabel, 7, 1, Qt::AlignRight);
+  grid->addWidget(gctrl, 1, 2);
+  grid->addWidget(rgctrl, 5, 2);
+  grid->addWidget(ggctrl, 6, 2);
+  grid->addWidget(bgctrl, 7, 2);
+
+  topLayout->addLayout(grid);
+
+  //Options
   QHBox *options = new QHBox(this);
 
   xf86cfgbox = new QCheckBox( i18n("Save settings to XF86Config"), options );
@@ -192,8 +221,6 @@ void KGamma::setupUI() {
   options->setStretchFactor( syncbox, 1 );
   options->setStretchFactor( screenselect, 1 );
 
-  topLayout->addWidget(gctrl);
-  topLayout->addWidget(rgbctrl);
   topLayout->addWidget(options);
 }
 

@@ -25,7 +25,7 @@
 #include <qslider.h>
 
 class QString;
-class QLineEdit;
+class DisplayNumber;
 class XVidExtWrap;
 
 class GammaCtrl : public QHBox  {
@@ -33,9 +33,9 @@ class GammaCtrl : public QHBox  {
   Q_OBJECT
   public:
     /** construktor */
-    GammaCtrl(QWidget *parent=0, const char *name=0, QString label="", \
-      XVidExtWrap *xvid=0, int channel=0, const QString& mingamma="0.40", \
-      const QString& maxgamma="3.50", const QString& setgamma="1.00");
+    GammaCtrl(QWidget *parent=0, XVidExtWrap *xvid=0, int channel=0, \
+      const QString& mingamma="0.40", const QString& maxgamma="3.50", \
+      const QString& setgamma="1.00", const char *name=0 );
     /** destruktor */
     ~GammaCtrl();
     /** Return the current gamma value with precision prec */
@@ -50,7 +50,7 @@ class GammaCtrl : public QHBox  {
   private:
     QString mgamma;
     QSlider *slider;
-    QLineEdit *textfield;
+    DisplayNumber *textfield;
     bool suspended, changed;
     int gchannel, oldpos;
     double ming;

@@ -21,11 +21,12 @@
 
 #include "gammactrl.h"
 #include "xvidextwrap.h"
+#include "displaynumber.h"
 #include "gammactrl.moc"
 
-GammaCtrl::GammaCtrl(QWidget *parent, const char *name, QString label, \
-  XVidExtWrap *xvid, int channel, const QString& mingamma, \
-  const QString& maxgamma, const QString& setgamma) : QHBox(parent, name)
+GammaCtrl::GammaCtrl(QWidget *parent, XVidExtWrap *xvid, int channel, \
+  const QString& mingamma, const QString& maxgamma, const QString& setgamma, \
+  const char *name) : QHBox(parent, name)
 {
   int maxslider = (int)( ( maxgamma.toDouble() - mingamma.toDouble() \
                   + 0.0005 ) * 20 );
@@ -44,11 +45,6 @@ GammaCtrl::GammaCtrl(QWidget *parent, const char *name, QString label, \
 
   setSpacing(8);
 
-  QLabel *textlabel = new QLabel(this);
-  textlabel->setFixedWidth(60);
-  textlabel->setAlignment(AlignRight);
-  textlabel->setText(label);
-
   slider = new QSlider(Horizontal, this);
   slider->setFixedHeight(24);
   slider->setTickmarks(QSlider::Below);
@@ -58,12 +54,7 @@ GammaCtrl::GammaCtrl(QWidget *parent, const char *name, QString label, \
   connect(slider, SIGNAL(valueChanged(int)), SLOT(setGamma(int)));
   connect(slider, SIGNAL(sliderPressed()), SLOT(pressed()));
 
-  textfield = new QLineEdit(this);
-  textfield->setFocusPolicy(NoFocus);
-  textfield->setMaxLength(4);
-  textfield->setFixedWidth(45);
-  textfield->setMinimumHeight(28);
-  textfield->setReadOnly(true);
+  textfield = new DisplayNumber(this, 4, 2);
   textfield->setText(setgamma);
 
 }
@@ -107,7 +98,7 @@ QString GammaCtrl::gamma(int prec){
 void GammaCtrl::setGamma(int sliderpos){
   if (sliderpos != oldpos || changed) {
     xv->setGamma(gchannel, ming+(float)(slider->value())*0.05);
-    textfield->setText(gamma(2));
+    textfield->setNum(xv->getGamma(gchannel));
     oldpos = sliderpos;
     changed=false;
     emit gammaChanged(sliderpos);
@@ -122,7 +113,7 @@ void GammaCtrl::setCtrl(int sliderpos){
   }
   oldpos = sliderpos;
   slider->setValue(sliderpos);
-  textfield->setText(gamma(2));
+  textfield->setNum(xv->getGamma(gchannel));
 }
 
 /** Slot: disable textfield */
