@@ -29,7 +29,7 @@
 #include <qcheckbox.h>
 #include <qcombobox.h>
 
-#include <kstddirs.h>
+#include <kstandarddirs.h>
 #include <kconfig.h>
 #include <klocale.h>
 #include <kglobal.h>
