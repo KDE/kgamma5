@@ -33,6 +33,7 @@
 #include <kglobal.h>
 #include <kprocess.h>
 #include <kdialog.h>
+#include <kgenericfactory.h>
 
 #include "config.h"
 #include "xf86configpath.h"
@@ -41,7 +42,10 @@
 #include "kgamma.h"
 #include "kgamma.moc"
 
-KGamma::KGamma(QWidget *parent, const char *name)
+typedef KGenericFactory<KGamma, QWidget> KGammaFactory;
+K_EXPORT_COMPONENT_FACTORY ( kcm_kgamma, KGammaFactory( "kcmkgamma" ) )
+
+KGamma::KGamma(QWidget *parent, const char *name, const QStringList&)
     :KCModule(parent,name)
 {
   bool ok;
@@ -577,13 +581,6 @@ QString KGamma::quickHelp() const
 
 extern "C"
 {
-
-  KCModule *create_kgamma(QWidget *parent, const char *name)
-  {
-    KGlobal::locale()->insertCatalogue("kgamma");
-    return new KGamma(parent, name);
-  }
-
   // Restore the user gamma settings
   void init_kgamma()
   {
