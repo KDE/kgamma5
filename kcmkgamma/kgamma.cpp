@@ -175,7 +175,7 @@ void KGamma::setupUI() {
     pic6->setAlignment(AlignCenter);
     stack->addWidget( pic6, 5 );
 
-    topLayout->addWidget(stack);
+    topLayout->addWidget(stack, 10);
 
     //Sliders for gamma correction
     QFrame *frame1 = new QFrame(this);
@@ -304,7 +304,7 @@ void KGamma::load() {
     }
     xv->setScreen(currentScreen);
 
-    emit changed(false);
+    setChanged(false);
   }
 }
 
@@ -350,7 +350,7 @@ void KGamma::save() {
     config->sync();
     delete config;
     saved = true;
-    emit changed(false);
+    setChanged(false);
   }
 }
 
