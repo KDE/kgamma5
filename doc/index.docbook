@@ -60,7 +60,7 @@ settings, your display (websites, images, etc.) will look the same on your
 monitor as on other monitors.</para>
 <para>&kgamma; allows you to alter the monitor's gamma correction of
 XFree86. But that's not all to do. For good results you have to set the
-correct brightness, contrast and colour balance of your monitor. This
+correct brightness, contrast and color balance of your monitor. This
 may be difficult and you have to repeat every step several times.
 For perfect results you need really good (and expensive) hardware.</para>
 <para>This are system settings, please do not use &kgamma; to manipulate your
@@ -90,13 +90,13 @@ to the same gamma values, enable the 'Sync screens' option. On systems with only
 one screen this option will take no effect.</para>
 </sect1>
 
-<sect1 id="Grey-Scale">
-<title>Grey Scale Test Image</title>
+<sect1 id="Gray-Scale">
+<title>Gray Scale Test Image</title>
 <para>You should be able to see the following:</para>
 
 <itemizedlist>
 <listitem>
-<para>A grey scale with 20 different sections</para>
+<para>A gray scale with 20 different sections</para>
 </listitem>
 <listitem>
 <para>The darkest section pure black</para>
@@ -105,14 +105,14 @@ one screen this option will take no effect.</para>
 <para>The lightest section pure white</para>
 </listitem>
 <listitem>
-<para>No hint of any colour in the grey tones</para>
+<para>No hint of any color in the gray tones</para>
 </listitem>
 </itemizedlist>
 
 <para>If you can't see all of the 20 sections, use your monitors contrast settings
 or the "Gamma" slider of &kgamma; to correct this. If black is not pure black,
 try to darken the monitor, if white is not pure white, try to lighten
-it. If you see any colours in the grey tones alter the colour balance settings of
+it. If you see any colors in the gray tones alter the color balance settings of
 your monitor or the "Red", "Green" and "Blue" slider of &kgamma;.</para>
 </sect1>
 
@@ -122,7 +122,7 @@ your monitor or the "Red", "Green" and "Blue" slider of &kgamma;.</para>
 You should be able to see three strips, each with 16 sections of red,
 green or blue tones. The darkest sections should be pure black, the brightest
 should be pure red, green or blue. If you don't see all sections of
-a colour strip, try to lighten or darken this colour.</para>
+a color strip, try to lighten or darken this color.</para>
 </sect1>
 
 <sect1 id="CMY-Scale">
@@ -149,28 +149,28 @@ should be pure cyan, magenta or yellow.</para>
 <title>Advanced Test Images</title>
 <para>
 The following three pictures shows you the abilities of your monitor at
-three points of the grey spectrum. If you can't see all of the details,
+three points of the gray spectrum. If you can't see all of the details,
 don't be worry, or buy better hardware.
 </para>
-<sect2 id="dark-grey">
-<title>Dark Grey Test Image</title>
+<sect2 id="dark-gray">
+<title>Dark Gray Test Image</title>
 <para>
-You should be able to see 10 different rectangles of dark grey within a
+You should be able to see 10 different rectangles of dark gray within a
 black box. The chart shows you 1% steps from black.
 </para>
 </sect2>
-<sect2 id="mid-grey">
-<title>Mid Grey Test Image</title>
+<sect2 id="mid-gray">
+<title>Mid Gray Test Image</title>
 <para>
-This picture shows you 11 grey rectangles within a 50% grey box. You should be
+This picture shows you 11 gray rectangles within a 50% gray box. You should be
 able to see all of the rectangles exept the middle one. The rectangles represent
-the steps from 45% to 55% grey.
+the steps from 45% to 55% gray.
 </para>
 </sect2>
-<sect2 id="light-grey">
-<title>Light Grey Test Image</title>
+<sect2 id="light-gray">
+<title>Light Gray Test Image</title>
 <para>
-You should be able to see 10 different rectangles of light grey within a white box.
+You should be able to see 10 different rectangles of light gray within a white box.
 The chart shows you 1% steps from white.
 </para>
 </sect2>
