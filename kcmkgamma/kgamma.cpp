@@ -365,7 +365,10 @@ void KGamma::defaults() {
       gctrl->setGamma("1.00");
     }
     xv->setScreen(currentScreen);
+
   }
+  xf86cfgbox->setChecked(false);
+  syncbox->setChecked(false);
 }
 
 bool KGamma::loadSettings() {
