@@ -193,10 +193,10 @@ void KGamma::setupUI() {
 
     //Sliders for gamma correction
     QFrame *frame1 = new QFrame(this);
-    frame1->setFrameStyle ( QFrame::Box | QFrame::Sunken );
+    frame1->setFrameStyle( QFrame::GroupBoxPanel | QFrame::Plain );
 
     QFrame *frame2 = new QFrame(this);
-    frame2->setFrameStyle ( QFrame::Box | QFrame::Sunken );
+    frame2->setFrameStyle( QFrame::GroupBoxPanel | QFrame::Plain );
 
     QLabel *gammalabel = new QLabel(this);
     gammalabel->setText(i18n("Gamma:"));
