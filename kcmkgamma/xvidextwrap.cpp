@@ -14,7 +14,6 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#include <stdio.h>
 #include <X11/Xos.h>
 #include <X11/Xlib.h>
 #include <X11/Xutil.h>
@@ -48,7 +47,7 @@ XVidExtWrap::XVidExtWrap(bool* OK, const char* displayname) {
     *OK = true;
   }
   else {
-    fprintf (stderr, "KGamma: unable to open display %s\n", displayname);
+    cerr << "KGamma: unable to open display " << displayname << endl;
     *OK = false;
   }
 }
@@ -106,7 +105,7 @@ void XVidExtWrap::setGamma(int channel, float gam) {
 
   if ( gam >= mingamma && gam <= maxgamma ) {
     if (!XF86VidModeGetGamma(dpy, screen, &gamma))
-      fprintf(stderr, "KGamma: Unable to query gamma correction\n");
+      cerr << "KGamma: Unable to query gamma correction" << endl;
     else {
       switch (channel) {
         case Value:
@@ -121,7 +120,7 @@ void XVidExtWrap::setGamma(int channel, float gam) {
           gamma.blue = gam;
       };
       if (!XF86VidModeSetGamma(dpy, screen, &gamma))
-        fprintf(stderr, "KGamma: Unable to set gamma correction\n");
+        cerr << "KGamma: Unable to set gamma correction" << endl;
       else
         XFlush(dpy);
     }
@@ -133,7 +132,7 @@ float XVidExtWrap::getGamma(int channel) {
   float gam = 0;
 
   if (!XF86VidModeGetGamma(dpy, screen, &gamma))
-    fprintf(stderr, "KGamma: Unable to query gamma correction\n");
+    cerr << "KGamma: Unable to query gamma correction" << endl;
   else {
     switch (channel) {
       case Value:
