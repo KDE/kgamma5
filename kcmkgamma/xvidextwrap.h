@@ -43,9 +43,9 @@ class XVidExtWrap {
     /** Returns the current screen */
     int getScreen() { return screen; };
     /** Sets the gamma value on the current screen */
-    void setGamma( int channel, float gam );
+    void setGamma( int channel, float gam, bool *OK = NULL );
     /** Gets the gamma value of the current screen */
-    float getGamma( int channel );
+    float getGamma( int channel, bool *OK = NULL );
     /** Limits the possible gamma values (default 0.1-10.0) */
     void setGammaLimits( float min, float max );
 

@@ -102,12 +102,14 @@ const char* XVidExtWrap::DisplayName() {
   return DisplayString(dpy);
 }
 
-void XVidExtWrap::setGamma(int channel, float gam) {
+void XVidExtWrap::setGamma(int channel, float gam, bool* OK) {
   XF86VidModeGamma gamma;
 
   if ( gam >= mingamma && gam <= maxgamma ) {
-    if (!XF86VidModeGetGamma(dpy, screen, &gamma))
+    if (!XF86VidModeGetGamma(dpy, screen, &gamma)) {
       kdDebug() << "KGamma: Unable to query gamma correction" << endl;
+      if ( OK ) *OK = false;
+    }
     else {
       switch (channel) {
         case Value:
@@ -121,20 +123,26 @@ void XVidExtWrap::setGamma(int channel, float gam) {
         case Blue:
           gamma.blue = gam;
       };
-      if (!XF86VidModeSetGamma(dpy, screen, &gamma))
+      if (!XF86VidModeSetGamma(dpy, screen, &gamma)) {
         kdDebug() << "KGamma: Unable to set gamma correction" << endl;
-      else
+        if ( OK ) *OK = false;
+      }
+      else {
         XFlush(dpy);
+        if ( OK ) *OK = true;
+      }
     }
   }
 }
 
-float XVidExtWrap::getGamma(int channel) {
+float XVidExtWrap::getGamma(int channel, bool* OK) {
   XF86VidModeGamma gamma;
   float gam = 0;
 
-  if (!XF86VidModeGetGamma(dpy, screen, &gamma))
+  if (!XF86VidModeGetGamma(dpy, screen, &gamma)) {
     kdDebug() << "KGamma: Unable to query gamma correction" << endl;
+    if ( OK ) *OK = false;
+  }
   else {
     switch (channel) {
       case Value:
@@ -146,6 +154,7 @@ float XVidExtWrap::getGamma(int channel) {
       case Blue:
         gam = gamma.blue;
     };
+    if ( OK ) *OK = true;
   }
   return(gam);
 }

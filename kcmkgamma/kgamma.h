@@ -63,7 +63,7 @@ class KGamma: public KCModule
       void changeScreen(int sn);
 
     private:
-      bool saved;
+      bool saved, GammaCorrection;
       int ScreenCount, currentScreen;
       QStringList rgamma, ggamma, bgamma;
       QValueList<int> assign;
