@@ -339,42 +339,44 @@ bool KGamma::loadSystemSettings() {
       s = (t.readLine()).simplifyWhiteSpace();
       QStringList words = QStringList::split(' ', s);
 
-      if ( words[0] == "Section" ) {
-        if ( (Section = words[1]) == "\"Monitor\"" ) gm = false;
-      }
-      else if ( words[0] == "EndSection" ) {
-        if ( Section == "\"Monitor\"" && !gm ) {
-          Gamma << "";
-          gm = false;
+      if ( !words.empty() ) {
+        if ( words[0] == "Section" && words.size() > 1 ) {
+          if ( (Section = words[1]) == "\"Monitor\"" ) gm = false;
         }
-        Section = "";
-      }
-      else if ( words[0] == "Identifier" ) {
-        if ( Section == "\"Monitor\"" ) Monitor << words[1];
-        else if ( Section == "\"Screen\"" ) Screen << words[1];
-      }
-      else if ( words[0] == "Screen" ) {
-        if ( Section == "\"ServerLayout\"" ) {
-          bool ok;
-          int i = words[1].toInt(&ok);
-          if ( ok ) {
-            ScreenNr << i;
-            ScreenLayout << words[2];
+        else if ( words[0] == "EndSection" ) {
+          if ( Section == "\"Monitor\"" && !gm ) {
+            Gamma << "";
+            gm = false;
           }
-          else {
-            ScreenNr << sn++;
-            ScreenLayout << words[1];
+          Section = "";
+        }
+        else if ( words[0] == "Identifier" && words.size() > 1 ) {
+          if ( Section == "\"Monitor\"" ) Monitor << words[1];
+          else if ( Section == "\"Screen\"" ) Screen << words[1];
+        }
+        else if ( words[0] == "Screen" && words.size() > 1 ) {
+          if ( Section == "\"ServerLayout\"" ) {
+            bool ok;
+            int i = words[1].toInt(&ok);
+            if ( ok && words.size() > 2 ) {
+              ScreenNr << i;
+              ScreenLayout << words[2];
+            }
+            else {
+              ScreenNr << sn++;
+              ScreenLayout << words[1];
+            }
           }
         }
-      }
-      else if ( words[0] == "Monitor" ) {
-        if ( Section == "\"Screen\"" )
-          ScreenMonitor << words[1];
-      }
-      else if ( words[0] == "Gamma" ) {
-        if ( Section == "\"Monitor\"" ) {
-          Gamma << s;
-          gm = true;
+        else if ( words[0] == "Monitor" && words.size() > 1 ) {
+          if ( Section == "\"Screen\"" )
+            ScreenMonitor << words[1];
+        }
+        else if ( words[0] == "Gamma" ) {
+          if ( Section == "\"Monitor\"" ) {
+            Gamma << s;
+            gm = true;
+          }
         }
       }
     } // End while

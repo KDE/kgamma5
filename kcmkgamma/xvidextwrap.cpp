@@ -72,11 +72,14 @@ int XVidExtWrap::_ScreenCount() {
       stringstream ss(s);
       while (ss >> buf) words.push_back(buf);  // Split "s" into words
 
-      if ( words[0] == "Section" && words[1] == "\"ServerLayout\"" )
-        section = true;
-      else if ( words[0] == "EndSection" )
-        section = false;
-      if ( section && words[0] == "Screen" ) ++count;
+      if ( !words.empty() ) {
+        if ( words[0] == "Section" && words.size() > 1 ) {
+          if ( words[1] == "\"ServerLayout\"" ) section = true;
+        }
+        else if ( words[0] == "EndSection" )
+           section = false;
+        if ( section && words[0] == "Screen" ) ++count;
+      }
     } //end while
     in.close();
 
