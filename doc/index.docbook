@@ -163,7 +163,7 @@ black box. The chart shows you 1% steps from black.
 <title>Mid Gray Test Image</title>
 <para>
 This picture shows you 11 gray rectangles within a 50% gray box. You should be
-able to see all of the rectangles exept the middle one. The rectangles represent
+able to see all of the rectangles except the middle one. The rectangles represent
 the steps from 45% to 55% gray.
 </para>
 </sect2>
