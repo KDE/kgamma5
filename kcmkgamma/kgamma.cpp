@@ -308,7 +308,7 @@ void KGamma::load() {
     }
     xv->setScreen(currentScreen);
 
-    setChanged(false);
+    emit changed(false);
   }
 }
 
@@ -354,7 +354,7 @@ void KGamma::save() {
     config->sync();
     delete config;
     saved = true;
-    setChanged(false);
+    emit changed(false);
   }
 }
 

@@ -52,7 +52,7 @@ class KGamma: public KCModule
 
     private slots:
       /** Called if the user changesd something */
-      void Changed() { setChanged(true); }
+      void Changed() { emit changed(true); }
       /** Called if the user marked or unmarked the XF86Config checkbox */
       void changeConfig();
       /** Called if the user marked or unmarked the sync screen checkbox */
