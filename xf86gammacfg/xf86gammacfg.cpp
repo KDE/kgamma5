@@ -18,9 +18,9 @@
 #include <stdio.h>
 
 #include <stdlib.h>
-#include <iostream.h>
-#include <fstream.h>
 
+#include <iostream>
+#include <fstream>
 #include <string>
 #include <vector>
 #include <sstream>
@@ -48,23 +48,23 @@ int main(int argc, char *argv[])
     searchPaths.push_back("/usr/X11R6/lib/X11/XF86Config-4");
     searchPaths.push_back("/usr/X11R6/lib/X11/XF86Config");
 
-    vector<string>::iterator it = searchPaths.begin();
+    std::vector<string>::iterator it = searchPaths.begin();
     for (; it != searchPaths.end(); ++it ) {
       //Try to open file
-      ifstream in( (*it).c_str() );
+      std::ifstream in( (*it).c_str() );
             
       if ( in.is_open() ) {
-        ofstream out( ( (*it) + ".tmp" ).c_str() );
+        std::ofstream out( ( (*it) + ".tmp" ).c_str() );
         if ( out.is_open() ) {
-          string s, buf;
-          vector<string> words;
+          std::string s, buf;
+          std::vector<string> words;
         
           while (getline(in, s,'\n')) {
-            words.clear();
-            stringstream ss(s);
-            while (ss >> buf) words.push_back(buf);
-
             if (!cpyonly) {
+              words.clear();
+              std::stringstream ss(s);
+              while (ss >> buf) words.push_back(buf);
+
               if ( words[0] == "Section" && words[1] == "\"Monitor\"" ) {
                 secmon = true;
                 out << s << endl;
