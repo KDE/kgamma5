@@ -18,9 +18,7 @@
 #define KGAMMA_H_
 
 #include <kcmodule.h>
-#include <qfileinfo.h> //forward declaration doesn't work for that (why?)
 
-class QString;
 class GammaCtrl;
 class QCheckBox;
 class QComboBox;
@@ -54,7 +52,7 @@ class KGamma: public KCModule
 
     private slots:
       /** Called if the user changesd something */
-      void Changed() { emit changed(true); };
+      void Changed() { setChanged(true); }
       /** Called if the user marked or unmarked the XF86Config checkbox */
       void changeConfig();
       /** Called if the user marked or unmarked the sync screen checkbox */
