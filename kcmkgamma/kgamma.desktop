@@ -96,5 +96,5 @@ X-KDE-FactoryName=kgamma
 X-KDE-Library=kgamma
 X-KDE-ModuleType=Library
 X-KDE-Test-Module=true
-NoDisplay=false
+NoDisplay=true
 Categories=Qt;KDE;Settings;X-KDE-settings-peripherals;
