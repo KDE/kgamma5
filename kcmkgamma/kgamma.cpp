@@ -92,6 +92,7 @@ KGamma::~KGamma() {
       xv->setGamma( XVidExtWrap::Green, gbak[i] );
       xv->setGamma( XVidExtWrap::Blue, bbak[i] );
     }
+  delete rootProcess;
 }
 
 /** User interface */
