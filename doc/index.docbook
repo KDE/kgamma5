@@ -1,0 +1,228 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1.2-Based Variant V1.1//EN"
+ "dtd/kdex.dtd" [
+  <!ENTITY kgamma '<application>KGamma</application>'>
+  <!ENTITY kappname "&kgamma;">
+  <!ENTITY package "kdegraphics">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % English "INCLUDE"><!-- change language only here -->
+]>
+
+<!-- ................................................................ -->
+
+<!-- The language must NOT be changed here. -->
+<book lang="&language;">
+<title>The KGamma Handbook</title>
+
+<bookinfo>
+<authorgroup>
+<author>
+<firstname>Michael</firstname>
+<surname>v.Ostheim</surname>
+<affiliation>
+<address><email>ostheimm@users.berlios.de</email></address>
+</affiliation>
+</author>
+</authorgroup>
+
+<!-- TRANS:ROLES_OF_TRANSLATORS -->
+<copyright>
+<year>2001, 2002</year>
+<holder>Michael v.Ostheim</holder>
+</copyright>
+<!-- Translators: put here the copyright notice of the translation -->
+
+<legalnotice>&FDLNotice;</legalnotice>
+<date>11/08/2002</date>
+<releaseinfo>0.90.20</releaseinfo>
+
+<!-- Abstract about this handbook -->
+<abstract>
+<para>&kgamma; is a simple tool to calibrate your monitor.</para>
+</abstract>
+
+<keywordset>
+<keyword>KDE</keyword>
+<keyword>KGamma</keyword>
+<keyword>Monitor</keyword>
+<keyword>Calibration</keyword>
+<keyword>Gamma</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title>Introduction</title>
+
+<para>This document describes &kgamma; version 0.9.2</para>
+<para>&kgamma; is a tool for monitor calibration. This makes it possible
+that your work (websites, images etc.) looks equal on somebody else's monitor,
+and that somebody else's work looks not different on your monitor.</para>
+<para>&kgamma; allows you to alter the monitor's gamma correction of
+XFree86. But that's not all to do. For good results you have to set the
+correct brightness, contrast and colour balance of your monitor. This
+may be difficult and you have to repeat every step several times.
+For perfect results you need really good (and expensive) hardware.</para>
+<para>This are system settings, please do not use &kgamma; to manipulate your
+image files.</para>
+</chapter>
+
+<chapter id="using-kgamma">
+<title>Using KGamma</title>
+<sect1 id="Setting-Gamma">
+<title>Setting Gamma Correction</title>
+<para>To correct the gamma settings system wide, check the checkbox 'Store settings to
+XF86Config'. These settings will be restored at next XFree86 startup. You need root access
+to store to this file. This is, for example, useful for those who do not work exclusively
+with KDE.</para>
+<para>To correct the gamma settings for the currently logged in user, leave that checkbox
+unchecked. These user settings will be restored at next KDE startup and replace
+the system gamma settings. Every user has it's own settings.</para>
+<para>Use the four sliders to define the gamma correction either as a single
+value, or separately for the red, green and blue components. The XFree86
+default setting for gamma is 1.00 (Mac 1.80, WinXX 2.20). The test images helps
+you to find proper settings.</para>
+</sect1>
+
+<sect1 id="Grey-Scale">
+<title>Grey Scale Test Image</title>
+<para>You should be able to see the following:</para>
+
+<itemizedlist>
+<listitem>
+<para>A grey scale with 20 different sections</para>
+</listitem>
+<listitem>
+<para>The darkest section pure black</para>
+</listitem>
+<listitem>
+<para>The lightest section pure white</para>
+</listitem>
+<listitem>
+<para>No hint of any colour in the grey tones</para>
+</listitem>
+</itemizedlist>
+
+<para>If you can't see all of the 20 sections, use your monitors contrast settings
+or the "Gamma" slider of &kgamma; to correct this. If black is not pure black,
+try to darken the monitor, if white is not pure white, try to lighten
+it. If you see any colours in the grey tones alter the colour balance settings of
+your monitor or the "Red", "Green" and "Blue" slider of &kgamma;.</para>
+</sect1>
+
+<sect1 id="RGB-Scale">
+<title>RGB Scale Test Image</title>
+<para>
+You should be able to see three strips, each with 16 sections of red,
+green or blue tones. The darkest sections should be pure black, the brightest
+should be pure red, green or blue. If you don't see all sections of
+a colour strip, try to lighten or darken this colour.</para>
+</sect1>
+
+<sect1 id="CMY-Scale">
+<title>CMY Scale Test Image</title>
+<para>
+You should be able to see three strips, each with 11 sections of cyan,
+magenta or yellow tones. The brightest sections should be pure white, the darkest
+should be pure cyan, magenta or yellow.</para>
+
+<itemizedlist>
+<listitem>
+<para>If you can't see all cyan sections, try to lighten or darken red</para>
+</listitem>
+<listitem>
+<para>If you can't see all magenta sections, try to lighten or darken green</para>
+</listitem>
+<listitem>
+<para>If you can't see all yellow sections, try to lighten or darken blue</para>
+</listitem>
+</itemizedlist>
+</sect1>
+
+<sect1 id="advanced">
+<title>Advanced Test Images</title>
+<para>
+The following three pictures shows you the abilities of your monitor at
+three points of the grey spectrum. If you can't see all of the details,
+don't be worry, or buy better hardware.
+</para>
+<sect2 id="dark-grey">
+<title>Dark Grey Test Image</title>
+<para>
+You should be able to see 10 different rectangles of dark grey within a
+black box. The chart shows you 1% steps from black.
+</para>
+</sect2>
+<sect2 id="mid-grey">
+<title>Mid Grey Test Image</title>
+<para>
+This picture shows you 11 grey rectangles within a 50% grey box. You should be
+able to see all of the rectangles exept the middle one. The rectangles represent
+the steps from 45% to 55% grey.
+</para>
+</sect2>
+<sect2 id="light-grey">
+<title>Light Grey Test Image</title>
+<para>
+You should be able to see 10 different rectangles of light grey within a white box.
+The chart shows you 1% steps from white.
+</para>
+</sect2>
+</sect1>
+
+</chapter>
+
+<chapter id="credits">
+<title>Credits and License</title>
+
+<para>
+&kgamma;
+</para>
+<para>
+Program copyright 2001, 2002 Michael v.Ostheim <email>ostheimm@users.berlios.de</email>
+</para>
+
+<para>
+Documentation copyright 2001, 2002 Michael v.Ostheim <email>ostheimm@users.berlios.de</email>
+</para>
+
+<!-- TRANS:CREDIT_FOR_TRANSLATORS -->
+
+&underFDL;           <!-- FDL: do not remove. -->
+&underGPL;        	 <!-- GPL License -->
+</chapter>
+
+<appendix id="installation">
+<title>Installation</title>
+
+<para>&kgamma;'s home site is
+<ulink url="http://kgamma.berlios.de/index2.php">http://kgamma.berlios.de/index2.php</ulink>
+</para>
+
+<sect1 id="compilation">
+<title>Compilation and Installation</title>
+
+<para>
+In order to compile and install &kgamma; on your system, type the following in the base
+directory of the &kgamma; distribution:
+<screen>
+<prompt>%</prompt> <userinput><command>./configure</command></userinput>
+<prompt>%</prompt> <userinput><command>make</command></userinput>
+<prompt>%</prompt> <userinput><command>make install</command></userinput>
+</screen>
+</para>
+
+</sect1>
+</appendix>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+-->

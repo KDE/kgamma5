@@ -1,0 +1,24 @@
+[Desktop Entry]
+Comment=A monitor calibration tool
+Comment[de]=Ein Monitor Kalibrierungstool
+Comment[es]=Utilidad para calibrar el monitor
+
+Name=Monitor Gamma
+Name[de]=Monitor Gamma
+
+DocPath=kgamma
+Exec=kcmshell kgamma
+Icon=kgamma
+Keywords=KGamma, kgamma, Gamma, gamma
+
+SwallowExec=
+SwallowTitle=
+Terminal=false
+TerminalOptions=
+Type=Application
+X-KDE-Init=kgamma
+X-KDE-FactoryName=kgamma
+X-KDE-Library=kgamma
+X-KDE-ModuleType=Library
+X-KDE-SubstituteUID=
+X-KDE-Username=
