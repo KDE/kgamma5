@@ -18,7 +18,7 @@ AC_CACHE_VAL(ac_cv_lib_vm,
  [ac_save_LIBS="$LIBS"
   kgamma_save_CFLAGS=$CFLAGS
  CFLAGS="$CFLAGS $all_includes"
- LIBS="-L/usr/X11R6/lib -lXxf86vm -lXext -lX11"
+ LIBS="-L$x_libraries -lXxf86vm -lXext -lX11"
  AC_TRY_LINK( [
               #include <X11/Xlib.h>
               #include <X11/Xatom.h>
@@ -42,7 +42,7 @@ if eval "test ! \"`echo $ac_cv_lib_vm`\" = no"; then
     [ac_save_LIBS="$LIBS"
     kgamma_save_CFLAGS=$CFLAGS
     CFLAGS="$CFLAGS $all_includes"
-    LIBS="-L/usr/X11R6/lib -lXxf86vm -lXext -lX11"
+    LIBS="-L$x_libraries -lXxf86vm -lXext -lX11"
     AC_TRY_LINK( [],
                 [XF86VidModeGetGamma();],
                  [AC_MSG_RESULT(yes)
