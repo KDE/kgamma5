@@ -262,7 +262,7 @@ void KGamma::setupUI() {
   }
   else {
     QLabel *error = new QLabel(this);
-    error->setText(i18n("Sorry, gamma correction is not supported by your"
+    error->setText(i18n("Gamma correction is not supported by your"
     " graphics hardware or driver."));
     error->setAlignment(AlignCenter);
     topLayout->addWidget(error);
