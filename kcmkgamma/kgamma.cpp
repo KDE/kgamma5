@@ -143,7 +143,7 @@ void KGamma::setupUI() {
     background.load(locate("data", "kgamma/pics/background.png"));
 
     QLabel *pic1 = new QLabel(stack);
-    pic1->setMinimumSize(570, 220);
+    pic1->setMinimumSize(530, 171);
     pic1->setBackgroundPixmap(background);
     pic1->setPixmap(QPixmap(locate("data", "kgamma/pics/greyscale.png")));
     pic1->setAlignment(AlignCenter);
