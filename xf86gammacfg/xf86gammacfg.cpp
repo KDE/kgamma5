@@ -65,28 +65,32 @@ int main(int argc, char *argv[])
               std::stringstream ss(s);
               while (ss >> buf) words.push_back(buf);
 
-              if ( words[0] == "Section" && words[1] == "\"Monitor\"" ) {
-                secmon = true;
-                out << s << endl;
-                continue;
-              }
-              if ( secmon ) {
-                if ( words[0] == "Gamma" ) {
-                  out << "  Gamma   " << argv[3*Screen+1] << "  " << \
-                      argv[3*Screen+2]<< "  " << argv[3*Screen+3];
-                  out << "  # created by KGamma" << endl;
-                  cpyonly = success = ( ++Screen == ScreenCount );
-                  secmon = false;
-                  continue;
+              if ( !words.empty() ) {
+                if ( words[0] == "Section" && words.size() > 1 ) {
+                  if ( words[1] == "\"Monitor\"" ) {
+                    secmon = true;
+                    out << s << endl;
+                    continue;
+                  }
                 }
-                if ( words[0] == "EndSection" ) {
-                  out << "  Gamma   " << argv[3*Screen+1] << "  " << \
-                      argv[3*Screen+2]<< "  " << argv[3*Screen+3];
-                  out << "  # created by KGamma" << endl;
-                  out << s << endl;
-                  cpyonly = success = ( ++Screen == ScreenCount );
-                   secmon = false;
-                  continue;
+                if ( secmon ) {
+                  if ( words[0] == "Gamma" ) {
+                    out << "  Gamma   " << argv[3*Screen+1] << "  " << \
+                        argv[3*Screen+2]<< "  " << argv[3*Screen+3];
+                    out << "  # created by KGamma" << endl;
+                    cpyonly = success = ( ++Screen == ScreenCount );
+                    secmon = false;
+                    continue;
+                  }
+                  if ( words[0] == "EndSection" ) {
+                    out << "  Gamma   " << argv[3*Screen+1] << "  " << \
+                        argv[3*Screen+2]<< "  " << argv[3*Screen+3];
+                    out << "  # created by KGamma" << endl;
+                    out << s << endl;
+                    cpyonly = success = ( ++Screen == ScreenCount );
+                    secmon = false;
+                    continue;
+                  }
                 }
               }
             }
