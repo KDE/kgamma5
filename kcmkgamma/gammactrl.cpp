@@ -22,7 +22,7 @@
 
 #include "gammactrl.h"
 #include "xvidextwrap.h"
-
+#include "gammactrl.moc"
 
 GammaCtrl::GammaCtrl(QWidget *parent, const char *name, QString label, \
   XVidExtWrap *xvid, int channel, const QString& mingamma, \
@@ -61,7 +61,7 @@ GammaCtrl::GammaCtrl(QWidget *parent, const char *name, QString label, \
 
   textfield = new QLineEdit(this);
   textfield->setFocusPolicy(NoFocus);
-  textfield->setMaxLength(4);		
+  textfield->setMaxLength(4);
   textfield->setFixedWidth(45);
   textfield->setMinimumHeight(28);
   textfield->setReadOnly(true);

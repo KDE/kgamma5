@@ -41,9 +41,10 @@
 #include "gammactrl.h"
 #include "xvidextwrap.h"
 #include "kgamma.h"
+#include "kgamma.moc"
 
-
-KGamma::KGamma(QWidget *parent, const char *name):KCModule(parent,name)
+KGamma::KGamma(QWidget *parent, const char *name)
+    :KCModule(parent,name)
 {
   bool ok;
   xv = new XVidExtWrap(&ok, NULL);
@@ -84,8 +85,8 @@ KGamma::~KGamma() {
   // Restore the old gamma settings, if the user has not saved
   // and there is no valid kgammarc.
   // Existing user settings overwrite system settings
-  if ( loadUserSettings() ) load(); 
-  else if ( !saved ) 
+  if ( loadUserSettings() ) load();
+  else if ( !saved )
     for (int i = 0; i < ScreenCount; i++ ) {
       xv->setScreen(i);
       xv->setGamma( XVidExtWrap::Red, rbak[i] );
@@ -190,7 +191,7 @@ void KGamma::setupUI() {
   options->setStretchFactor( xf86cfgbox, 10 );
   options->setStretchFactor( syncbox, 1 );
   options->setStretchFactor( screenselect, 1 );
-  
+
   topLayout->addWidget(gctrl);
   topLayout->addWidget(rgbctrl);
   topLayout->addWidget(options);
@@ -251,7 +252,7 @@ void KGamma::save() {
   config->setGroup("SyncBox");
   if ( syncbox->isChecked() ) config->writeEntry("sync", "yes");
   else config->writeEntry("sync", "no");
-  
+
   if ( !xf86cfgbox->isChecked() ) { //write gamma settings to the users config
     for (int i = 0; i < ScreenCount; i++) {
       config->setGroup( QString("Screen %1").arg(i) );
@@ -274,7 +275,7 @@ void KGamma::save() {
       rootProcess->clearArguments();
       *rootProcess << "kdesu" << Arguments;
       rootProcess->start();
-    }     
+    }
   }
   config->sync();
   delete config;
@@ -295,7 +296,7 @@ bool KGamma::loadSettings() {
   config->setGroup("ConfigFile");
   QString ConfigFile( config->readEntry("use") );
   config->setGroup("SyncBox");
-  if ( config->readEntry("sync") == "yes" ) syncbox->setChecked(true);   
+  if ( config->readEntry("sync") == "yes" ) syncbox->setChecked(true);
   delete config;
 
   if ( ConfigFile == "XF86Config" ) {  // parse XF86Config
@@ -326,15 +327,15 @@ bool KGamma::loadSystemSettings() {
   QValueList<int> ScreenNr;
   QString Section;
   XF86ConfigPath Path;
-    
+
   QFile f( Path.get() );
   if ( f.open(IO_ReadOnly) ) {
     QTextStream t( &f );
     QString s;
     int sn = 0;
     bool gm = false;
-    
-    // Analyse Screen<->Monitor assignments of multi-head configurations      
+
+    // Analyse Screen<->Monitor assignments of multi-head configurations
     while ( !t.eof() ) {
       s = (t.readLine()).simplifyWhiteSpace();
       QStringList words = QStringList::split(' ', s);
@@ -387,16 +388,16 @@ bool KGamma::loadSystemSettings() {
         if ( ScreenLayout[i] == Screen[j] ) {
           for ( int k = 0; k < ScreenCount; k++ ) {
             if ( Monitor[k] == ScreenMonitor[j] )
-              assign[ScreenNr[i]] = k;  
+              assign[ScreenNr[i]] = k;
           }
         }
       }
     }
- 
+
     // Extract gamma values
     for ( int i = 0; i < ScreenCount; i++) {
       rgamma[i] = ggamma[i] = bgamma[i] = "";
-      
+
       QStringList words = QStringList::split(' ', Gamma[assign[i]]);
       QStringList::ConstIterator it = words.begin();
       if ( words.size() < 4 )
@@ -431,7 +432,7 @@ bool KGamma::validateGammaValues() {
 
 void KGamma::changeConfig() {
   bool Ok = false;
-  
+
   if ( xf86cfgbox->isChecked() ) Ok = loadSystemSettings();
   else Ok = loadUserSettings();
 
@@ -470,7 +471,7 @@ void KGamma::changeScreen(int sn) {
 
   xv->setScreen(sn);
   currentScreen = sn;
-  
+
   red.setNum(xv->getGamma(XVidExtWrap::Red), 'f', 2);
   green.setNum(xv->getGamma(XVidExtWrap::Green), 'f', 2);
   blue.setNum(xv->getGamma(XVidExtWrap::Blue), 'f', 2);
@@ -516,7 +517,7 @@ extern "C"
   {
     bool ok;
     XVidExtWrap xv(&ok);
-    
+
     if (ok) {
       xv.setGammaLimits(0.4, 3.5);
       float rgamma, ggamma, bgamma;
