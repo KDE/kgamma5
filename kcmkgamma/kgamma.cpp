@@ -21,12 +21,11 @@
 #include <qpixmap.h>
 #include <qstring.h>
 #include <qlayout.h>
-#include <qtabwidget.h>
-#include <qvbox.h>
 #include <qstringlist.h>
 #include <qdir.h>
 #include <qcheckbox.h>
 #include <qcombobox.h>
+#include <qwidgetstack.h>
 
 #include <kstandarddirs.h>
 #include <kconfig.h>
@@ -112,50 +111,70 @@ void KGamma::setupUI() {
   QBoxLayout *topLayout = new QVBoxLayout(this, 0, KDialog::spacingHint());
 
   if (GammaCorrection) {
-    //TabWidget for the pictures
-    QTabWidget *folder = new QTabWidget(this);
-    folder->setFocusPolicy(NoFocus);
+    QHBoxLayout *hbox = new QHBoxLayout( topLayout );
+    QLabel *label = new QLabel( i18n( "&Select preview:" ) , this);
+    QComboBox *combo = new QComboBox( this );
+    label->setBuddy( combo );
+
+    QStringList list;
+    list << i18n( "Gray Scale" )
+         << i18n( "RGB Scale" )
+         << i18n( "CMY Scale" )
+         << i18n( "Dark Gray" )
+         << i18n( "Mid Gray" )
+         << i18n( "Light Gray" );
+    combo->insertStringList( list );
+
+    hbox->addWidget( label );
+    hbox->addWidget( combo );
+    hbox->addStretch();
+
+    QWidgetStack *stack = new QWidgetStack( this );
+    stack->setFrameStyle( QFrame::Box | QFrame::Raised );
+
+    connect( combo, SIGNAL( activated( int ) ), stack, SLOT( raiseWidget( int ) ) );
+
     QPixmap background;
     background.load(locate("data", "kgamma/pics/background.png"));
 
-    QLabel *pic1 = new QLabel(this);
+    QLabel *pic1 = new QLabel(stack);
     pic1->setMinimumSize(570, 220);
     pic1->setBackgroundPixmap(background);
     pic1->setPixmap(QPixmap(locate("data", "kgamma/pics/greyscale.png")));
     pic1->setAlignment(AlignCenter);
-    folder->addTab(pic1, i18n("Gray Scale"));
+    stack->addWidget( pic1 );
 
-    QLabel *pic2 = new QLabel(this);
+    QLabel *pic2 = new QLabel(stack);
     pic2->setBackgroundPixmap(background);
     pic2->setPixmap(QPixmap(locate("data", "kgamma/pics/rgbscale.png")));
     pic2->setAlignment(AlignCenter);
-    folder->addTab(pic2,i18n("RGB Scale"));
+    stack->addWidget( pic2 );
 
-    QLabel *pic3 = new QLabel(this);
+    QLabel *pic3 = new QLabel(stack);
     pic3->setBackgroundPixmap(background);
     pic3->setPixmap(QPixmap(locate("data", "kgamma/pics/cmyscale.png")));
     pic3->setAlignment(AlignCenter);
-    folder->addTab(pic3, i18n("CMY Scale"));
+    stack->addWidget( pic3 );
 
-    QLabel *pic4 = new QLabel(this);
+    QLabel *pic4 = new QLabel(stack);
     pic4->setBackgroundPixmap(background);
     pic4->setPixmap(QPixmap(locate("data", "kgamma/pics/darkgrey.png")));
     pic4->setAlignment(AlignCenter);
-    folder->addTab(pic4, i18n("Dark Gray"));
+    stack->addWidget( pic4 );
 
-    QLabel *pic5 = new QLabel(this);
+    QLabel *pic5 = new QLabel(stack);
     pic5->setBackgroundPixmap(background);
     pic5->setPixmap(QPixmap(locate("data", "kgamma/pics/midgrey.png")));
     pic5->setAlignment(AlignCenter);
-    folder->addTab(pic5, i18n("Mid Gray"));
+    stack->addWidget( pic5 );
 
-    QLabel *pic6 = new QLabel(this);
+    QLabel *pic6 = new QLabel(stack);
     pic6->setBackgroundPixmap(background);
     pic6->setPixmap(QPixmap(locate("data", "kgamma/pics/lightgrey.png")));
     pic6->setAlignment(AlignCenter);
-    folder->addTab(pic6, i18n("Light Gray"));
+    stack->addWidget( pic6 );
 
-    topLayout->addWidget(folder);
+    topLayout->addWidget(stack);
 
     //Sliders for gamma correction
     QFrame *frame1 = new QFrame(this);
@@ -537,7 +556,7 @@ void KGamma::changeScreen(int sn) {
 }
 
 int KGamma::buttons () {
-  return KCModule::Default|KCModule::Apply|KCModule::Help;
+  return Default|Apply|Help;
 }
 
 QString KGamma::quickHelp() const
