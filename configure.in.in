@@ -16,6 +16,8 @@ AC_MSG_CHECKING([for XFree86-VidModeExtension])
 
 AC_CACHE_VAL(ac_cv_lib_vm,
  [ac_save_LIBS="$LIBS"
+  kgamma_save_CFLAGS=$CFLAGS
+ CFLAGS="$CFLAGS $all_includes"
  LIBS="-L/usr/X11R6/lib -lXxf86vm -lXext -lX11"
  AC_TRY_LINK( [
               #include <X11/Xlib.h>
@@ -26,6 +28,7 @@ AC_CACHE_VAL(ac_cv_lib_vm,
               eval "ac_cv_lib_vm='-lXxf86vm'",
               eval "ac_cv_lib_vm=no")
  LIBS="$ac_save_LIBS"
+ CFLAGS=$kgamma_save_CFLAGS
 ])
 
 if eval "test ! \"`echo $ac_cv_lib_vm`\" = no"; then
@@ -37,6 +40,8 @@ if eval "test ! \"`echo $ac_cv_lib_vm`\" = no"; then
 
     AC_CACHE_VAL(ac_cv_lib_vmgamma,
     [ac_save_LIBS="$LIBS"
+    kgamma_save_CFLAGS=$CFLAGS
+    CFLAGS="$CFLAGS $all_includes"
     LIBS="-L/usr/X11R6/lib -lXxf86vm -lXext -lX11"
     AC_TRY_LINK( [],
                 [XF86VidModeGetGamma();],
@@ -45,6 +50,7 @@ if eval "test ! \"`echo $ac_cv_lib_vm`\" = no"; then
                  [AC_MSG_RESULT(no)
                  eval "ac_cv_lib_vm=no"])
     LIBS="$ac_save_LIBS"
+    CFLAGS=$kgamma_save_CFLAGS
     if eval "test \"`echo $ac_cv_lib_vm`\" = no"; then
         AC_MSG_ERROR([you need XFree86 4.0 or higher for gamma functions])
     fi
