@@ -90,4 +90,3 @@ X-KDE-Init=kgamma
 X-KDE-FactoryName=kgamma
 X-KDE-Library=kgamma
 X-KDE-ModuleType=Library
-Categories=Qt;KDE;
