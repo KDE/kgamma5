@@ -21,8 +21,8 @@
 #include <X11/extensions/xf86vmode.h>
 
 #include <stdlib.h>
-#include <iostream.h>
-#include <fstream.h>
+#include <iostream>
+#include <fstream>
 
 #include <vector>
 #include <string>
@@ -61,11 +61,11 @@ int XVidExtWrap::_ScreenCount() {
   bool section = false;
   XF86ConfigPath Path;
 
-  ifstream in( Path.get() );
+  std::ifstream in( Path.get() );
 
   if ( in.is_open() ) {
-    string s, buf;
-    vector<string> words;
+    std::string s, buf;
+    std::vector<string> words;
       
     while (getline(in, s,'\n')) {
       words.clear();
