@@ -43,7 +43,7 @@
 #include "kgamma.moc"
 
 typedef KGenericFactory<KGamma, QWidget> KGammaFactory;
-K_EXPORT_COMPONENT_FACTORY ( kcm_kgamma, KGammaFactory( "kcmkgamma" ) )
+K_EXPORT_COMPONENT_FACTORY ( kcm_kgamma, KGammaFactory( "kgamma" ) )
 
 KGamma::KGamma(QWidget *parent, const char *name, const QStringList&)
     :KCModule(parent,name)
