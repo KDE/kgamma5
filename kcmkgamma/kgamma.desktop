@@ -97,4 +97,3 @@ X-KDE-Library=kgamma
 X-KDE-ModuleType=Library
 X-KDE-Test-Module=true
 NoDisplay=true
-Categories=Qt;KDE;Settings;X-KDE-settings-peripherals;
