@@ -10,10 +10,9 @@ Comment[de]=Ein Monitor-Kalibrierungswerkzeug
 Comment[el]=Ένα εργαλείο ρύθμισης της οθόνης
 Comment[es]=Una herramienta de calibración del monitor
 Comment[et]=Monitori kalibreerija
-Comment[fi]=Näytön säätötyökalu
+Comment[fi]=Näytön asetustyökalu
 Comment[fr]=Outil de calibrage de moniteur
 Comment[gl]=Unha utilidade para calibrar o monitor
-Comment[he]=כלי לכיול המסך
 Comment[hi]=मॉनीटर केलिब्रेशन औज़ार
 Comment[hu]=Monitorbeállító program
 Comment[is]=Tól til að stilla skjáinn
@@ -94,3 +93,5 @@ X-KDE-Library=kgamma
 X-KDE-ModuleType=Library
 X-KDE-Test-Module=true
 NoDisplay=false
+Categories=Qt;KDE;Settings;X-KDE-settings-peripherals;
+
