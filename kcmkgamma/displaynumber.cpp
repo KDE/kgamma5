@@ -58,3 +58,4 @@ void DisplayNumber::setNum(double num) {
 }
     
 
+#include "displaynumber.moc"
