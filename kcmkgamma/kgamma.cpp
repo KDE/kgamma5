@@ -516,7 +516,7 @@ int KGamma::buttons () {
 
 QString KGamma::quickHelp() const
 {
-  return i18n("<h1>Monitor Gamma</h1> This is a tool for monitoring gamma"
+  return i18n("<h1>Monitor Gamma</h1> This is a tool for changing monitor gamma"
     " correction. Use the four sliders to define the gamma correction either"
     " as a single value, or separately for the red, green and blue components."
     " You may need to correct the brightness and contrast settings of your"
