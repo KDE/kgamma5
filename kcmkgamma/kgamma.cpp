@@ -21,7 +21,6 @@
 #include <qpixmap.h>
 #include <qstring.h>
 #include <qlayout.h>
-#include <qwidget.h>
 #include <qtabwidget.h>
 #include <qvbox.h>
 #include <qstringlist.h>
@@ -34,6 +33,7 @@
 #include <klocale.h>
 #include <kglobal.h>
 #include <kprocess.h>
+#include <kdialog.h>
 
 #include "config.h"
 #include "xf86configpath.h"
@@ -97,7 +97,7 @@ KGamma::~KGamma() {
 
 /** User interface */
 void KGamma::setupUI() {
-  QBoxLayout *topLayout = new QVBoxLayout(this, 8, 8);
+  QBoxLayout *topLayout = new QVBoxLayout(this, 0, KDialog::spacingHint());
 
   //TabWidget for the pictures
   QTabWidget *folder = new QTabWidget(this);
