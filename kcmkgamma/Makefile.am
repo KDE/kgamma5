@@ -10,8 +10,7 @@ kcm_kgamma_la_LDFLAGS = $(all_libraries) -module $(KDE_PLUGIN)
 
 SUBDIRS = pics 
 
-kgamma_datadir = $(kde_appsdir)/.hidden
-kgamma_data_DATA = kgamma.desktop
+xdg_apps_DATA = kgamma.desktop
 
 messages:
 	$(XGETTEXT) *.cpp -o $(podir)/kgamma.pot

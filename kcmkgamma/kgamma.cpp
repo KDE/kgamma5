@@ -45,13 +45,23 @@
 typedef KGenericFactory<KGamma, QWidget> KGammaFactory;
 K_EXPORT_COMPONENT_FACTORY ( kcm_kgamma, KGammaFactory( "kgamma" ) )
 
+extern "C"
+{
+	bool test_kgamma()
+	{
+		bool retval;
+		(void) new XVidExtWrap(&retval, NULL);
+		return retval;
+	}
+}
+
 KGamma::KGamma(QWidget *parent, const char *name, const QStringList&)
     :KCModule(parent,name)
 {
   bool ok;
   GammaCorrection = true;
   xv = new XVidExtWrap(&ok, NULL);
-  if (ok) {
+  if (ok) { /* KDE 4: Uneccessary test, when all KCM wrappers do conditional loading */
     xv->getGamma(XVidExtWrap::Red, &ok);
     if (ok) {
       ScreenCount = xv->_ScreenCount();
