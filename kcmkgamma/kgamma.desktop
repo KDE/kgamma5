@@ -1,15 +1,39 @@
 [Desktop Entry]
 Comment=A monitor calibration tool
-Comment[de]=Ein Monitor Kalibrierungstool
-Comment[es]=Utilidad para calibrar el monitor
+Comment[cs]=Nástroj pro kalibraci monitoru
+Comment[cy]=Erfyn graddnodi dangosydd
+Comment[da]=Et skærmkalibreringsværktøj
+Comment[es]=Una herramienta de calibración del monitor
+Comment[hu]=Monitorbeállító program
+Comment[pt_BR]=Uma ferramenta de calibragem de monitor
+Comment[ru]=Утилита для калибровки монитора
+Comment[sv]=Ett kalibreringsverktyg för bildskärmen
+Comment[tr]=Monitör kalibrasyon aracı
+Comment[xx]=xxA monitor calibration toolxx
 
 Name=Monitor Gamma
-Name[de]=Monitor Gamma
+Name[cs]=Gamma monitoru
+Name[cy]=Gamma'r Dangosydd
+Name[da]=Skærm-gamma
+Name[es]=Gamma de monitor
+Name[hu]=A monitor gamma-értékei
+Name[pt_BR]=Monitor Gama
+Name[ru]=Гамма монитора
+Name[sv]=Bildskärmens gamma
+Name[tr]=Monitör Gamma
+Name[wa]=Valixhance gama del waitroûle
+Name[xx]=xxMonitor Gammaxx
 
 DocPath=kgamma
 Exec=kcmshell kgamma
 Icon=kgamma
 Keywords=KGamma, kgamma, Gamma, gamma
+Keywords[cs]=KGamma, kgamma, gamma
+Keywords[hu]=KGamma, kgamma, gamma, gamma-korrekció
+Keywords[pt_BR]=KGama, kgama, Gama, gama
+Keywords[ru]=KGamma, kgamma, Gamma, gamma, гамма, монитор
+Keywords[wa]=KGamma, kgamma, Gama, gama
+Keywords[xx]=xxKGamma, kgamma, Gamma, gammaxx
 
 SwallowExec=
 SwallowTitle=
@@ -22,3 +46,5 @@ X-KDE-Library=kgamma
 X-KDE-ModuleType=Library
 X-KDE-SubstituteUID=
 X-KDE-Username=
+
+Categories=Qt;KDE;X-KDE-settings-peripherals
