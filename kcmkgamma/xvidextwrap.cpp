@@ -26,7 +26,14 @@
 
 #include <vector>
 #include <string>
+
+#include <config.h>
+
+#ifdef HAVE_SSTREAM
 #include <sstream>
+#else
+#include <strstream.h>
+#endif
 
 #include "xf86configpath.h"
 #include "xvidextwrap.h"
