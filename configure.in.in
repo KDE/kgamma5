@@ -55,8 +55,6 @@ if eval "test ! \"`echo $ac_cv_lib_vm`\" = no"; then
         AC_MSG_ERROR([you need XFree86 4.0 or higher for gamma functions])
     fi
     ])
-else
-  AC_MSG_ERROR([libXxf86vm not found])
 fi
 
 AC_LANG_SAVE
