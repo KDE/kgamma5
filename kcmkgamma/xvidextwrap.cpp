@@ -32,6 +32,7 @@
 #include <sstream>
 #else
 #include <strstream.h>
+#define istringstream istrstream
 #endif
 
 #include <kdebug.h>
@@ -77,7 +78,7 @@ int XVidExtWrap::_ScreenCount() {
       
     while (getline(in, s,'\n')) {
       words.clear();
-      stringstream ss(s);
+      istringstream ss(s.c_str());
       while (ss >> buf) words.push_back(buf);  // Split "s" into words
 
       if ( !words.empty() ) {
@@ -163,3 +164,7 @@ void XVidExtWrap::setGammaLimits( float min, float max ) {
   mingamma = (min < 0.1) ? 0.1 : min;
   maxgamma = (max > 10.0) ? 10.0 : max;
 }
+
+#ifdef istringstream
+#undef istringstream
+#endif

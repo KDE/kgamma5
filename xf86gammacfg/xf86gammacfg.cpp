@@ -30,6 +30,7 @@
 #include <sstream>
 #else
 #include <strstream.h>
+#define istringstream istrstream
 #endif
 
 using namespace std;
@@ -69,7 +70,7 @@ int main(int argc, char *argv[])
           while (getline(in, s,'\n')) {
             if (!cpyonly) {
               words.clear();
-              std::stringstream ss(s);
+              std::istringstream ss(s.c_str());
               while (ss >> buf) words.push_back(buf);
 
               if ( !words.empty() ) {
@@ -123,3 +124,7 @@ int main(int argc, char *argv[])
 
   return success;
 }
+
+#ifdef istringstream
+#undef istringstream
+#endif
