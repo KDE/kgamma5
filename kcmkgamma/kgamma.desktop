@@ -1,5 +1,6 @@
 [Desktop Entry]
 Comment=A monitor calibration tool
+Comment[ar]=أداة مراقبة وتعيير
 Comment[bg]=Калибриране на монитора
 Comment[bs]=Alat za kalibraciju monitora
 Comment[ca]=Una eina de calibració del monitor
@@ -49,10 +50,11 @@ Name[hu]=Gamma-korrekció
 Name[pt]=Gama
 Name[ru]=Гамма
 Name[sr]=Гама
-Name[sr@Latn]=Гама
+Name[sr@Latn]=Gama
 Name[ta]=காமா
 Name[tg]=Гамма
 Name[th]=แกมมา
+Name[uk]=Гама
 Name[uz]=Гамма
 Name[xh]=Unobumba wesithathu konoobumba besiGrike
 
@@ -81,7 +83,6 @@ Keywords[sl]=KGamma,kgamma,Gamma,gamma,gama,Gama,kgama
 Keywords[sr]=KGamma, kgamma, Gamma, gamma, гама
 Keywords[sr@Latn]=KGamma, kgamma, Gamma, gamma, gama
 Keywords[ta]=கேகாமா, கேகாமா, காமா, காமா
-Keywords[tg]=KGamma,kgamma,Gamma,gamma,гамма,монитор
 Keywords[uk]=KGamma, kgamma, Gamma, gamma, гама, яскравість
 Keywords[uz]=KGamma, kgamma, Гамма, гамма
 Keywords[wa]=KGamma, kgamma, Gama, gama
