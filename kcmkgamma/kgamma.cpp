@@ -110,7 +110,7 @@ void KGamma::setupUI() {
   pic1->setBackgroundPixmap(background);
   pic1->setPixmap(QPixmap(locate("data", "kgamma/pics/greyscale.png")));
   pic1->setAlignment(AlignCenter);
-  folder->addTab(pic1, i18n("Grey Scale"));
+  folder->addTab(pic1, i18n("Gray Scale"));
 
   QLabel *pic2 = new QLabel(this);
   pic2->setBackgroundPixmap(background);
@@ -128,19 +128,19 @@ void KGamma::setupUI() {
   pic4->setBackgroundPixmap(background);
   pic4->setPixmap(QPixmap(locate("data", "kgamma/pics/darkgrey.png")));
   pic4->setAlignment(AlignCenter);
-  folder->addTab(pic4, i18n("Dark Grey"));
+  folder->addTab(pic4, i18n("Dark Gray"));
 
   QLabel *pic5 = new QLabel(this);
   pic5->setBackgroundPixmap(background);
   pic5->setPixmap(QPixmap(locate("data", "kgamma/pics/midgrey.png")));
   pic5->setAlignment(AlignCenter);
-  folder->addTab(pic5, i18n("Mid Grey"));
+  folder->addTab(pic5, i18n("Mid Gray"));
 
   QLabel *pic6 = new QLabel(this);
   pic6->setBackgroundPixmap(background);
   pic6->setPixmap(QPixmap(locate("data", "kgamma/pics/lightgrey.png")));
   pic6->setAlignment(AlignCenter);
-  folder->addTab(pic6, i18n("Light Grey"));
+  folder->addTab(pic6, i18n("Light Gray"));
 
   topLayout->addWidget(folder);
 
