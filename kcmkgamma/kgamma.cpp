@@ -213,24 +213,28 @@ void KGamma::setupUI() {
     gctrl = new GammaCtrl(this, xv);
     connect(gctrl, SIGNAL(gammaChanged(int)), SLOT(Changed()));
     connect(gctrl, SIGNAL(gammaChanged(int)), SLOT(SyncScreens()));
+    gammalabel->setBuddy( gctrl );
 
     rgctrl = new GammaCtrl(this, xv, XVidExtWrap::Red);
     connect(rgctrl, SIGNAL(gammaChanged(int)), SLOT(Changed()));
     connect(rgctrl, SIGNAL(gammaChanged(int)), SLOT(SyncScreens()));
     connect(gctrl, SIGNAL(gammaChanged(int)), rgctrl, SLOT(setCtrl(int)));
     connect(rgctrl, SIGNAL(gammaChanged(int)), gctrl, SLOT(suspend()));
+    redlabel->setBuddy( rgctrl );
 
     ggctrl = new GammaCtrl(this, xv, XVidExtWrap::Green);
     connect(ggctrl, SIGNAL(gammaChanged(int)), SLOT(Changed()));
     connect(ggctrl, SIGNAL(gammaChanged(int)), SLOT(SyncScreens()));
     connect(gctrl, SIGNAL(gammaChanged(int)), ggctrl, SLOT(setCtrl(int)));
     connect(ggctrl, SIGNAL(gammaChanged(int)), gctrl, SLOT(suspend()));
+    greenlabel->setBuddy( ggctrl );
 
     bgctrl = new GammaCtrl(this, xv, XVidExtWrap::Blue);
     connect(bgctrl, SIGNAL(gammaChanged(int)), SLOT(Changed()));
     connect(bgctrl, SIGNAL(gammaChanged(int)), SLOT(SyncScreens()));
     connect(gctrl, SIGNAL(gammaChanged(int)), bgctrl, SLOT(setCtrl(int)));
     connect(bgctrl, SIGNAL(gammaChanged(int)), gctrl, SLOT(suspend()));
+    bluelabel->setBuddy( bgctrl );
 
     QGridLayout *grid = new QGridLayout(4, 9);
     grid->setSpacing(8);
