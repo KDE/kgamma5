@@ -132,7 +132,8 @@ void KGamma::setupUI() {
     QWidgetStack *stack = new QWidgetStack( this );
     stack->setFrameStyle( QFrame::Box | QFrame::Raised );
 
-    connect( combo, SIGNAL( activated( int ) ), stack, SLOT( raiseWidget( int ) ) );
+    connect( combo, SIGNAL( activated( int ) ),
+             stack, SLOT( raiseWidget( int ) ) );
 
     QPixmap background;
     background.load(locate("data", "kgamma/pics/background.png"));
@@ -142,37 +143,37 @@ void KGamma::setupUI() {
     pic1->setBackgroundPixmap(background);
     pic1->setPixmap(QPixmap(locate("data", "kgamma/pics/greyscale.png")));
     pic1->setAlignment(AlignCenter);
-    stack->addWidget( pic1 );
+    stack->addWidget( pic1, 0 );
 
     QLabel *pic2 = new QLabel(stack);
     pic2->setBackgroundPixmap(background);
     pic2->setPixmap(QPixmap(locate("data", "kgamma/pics/rgbscale.png")));
     pic2->setAlignment(AlignCenter);
-    stack->addWidget( pic2 );
+    stack->addWidget( pic2, 1 );
 
     QLabel *pic3 = new QLabel(stack);
     pic3->setBackgroundPixmap(background);
     pic3->setPixmap(QPixmap(locate("data", "kgamma/pics/cmyscale.png")));
     pic3->setAlignment(AlignCenter);
-    stack->addWidget( pic3 );
+    stack->addWidget( pic3, 2 );
 
     QLabel *pic4 = new QLabel(stack);
     pic4->setBackgroundPixmap(background);
     pic4->setPixmap(QPixmap(locate("data", "kgamma/pics/darkgrey.png")));
     pic4->setAlignment(AlignCenter);
-    stack->addWidget( pic4 );
+    stack->addWidget( pic4, 3 );
 
     QLabel *pic5 = new QLabel(stack);
     pic5->setBackgroundPixmap(background);
     pic5->setPixmap(QPixmap(locate("data", "kgamma/pics/midgrey.png")));
     pic5->setAlignment(AlignCenter);
-    stack->addWidget( pic5 );
+    stack->addWidget( pic5, 4 );
 
     QLabel *pic6 = new QLabel(stack);
     pic6->setBackgroundPixmap(background);
     pic6->setPixmap(QPixmap(locate("data", "kgamma/pics/lightgrey.png")));
     pic6->setAlignment(AlignCenter);
-    stack->addWidget( pic6 );
+    stack->addWidget( pic6, 5 );
 
     topLayout->addWidget(stack);
 
