@@ -14,7 +14,6 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#define QT_CLEAN_NAMESPACE
 
 #include <unistd.h>
 
