@@ -14,6 +14,6 @@ kgamma_datadir = $(kde_appsdir)/.hidden
 kgamma_data_DATA = kgamma.desktop
 
 messages:
-	$(XGETTEXT) $(libkcm_kgamma_la_SOURCES) -o $(podir)/kgamma.pot
+	$(XGETTEXT) *.cpp -o $(podir)/kgamma.pot
 
 KDE_OPTIONS = nofinal
