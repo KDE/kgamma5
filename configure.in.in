@@ -1,6 +1,6 @@
 #MIN_CONFIG(3)
 
-AM_INIT_AUTOMAKE(kgamma,0.9.9)
+AM_INIT_AUTOMAKE(kgamma,1.0.2)
 
 dnl CXXFLAGS="$NOOPT_CXXFLAGS" dnl __kdevelop[noopt]__
 dnl CFLAGS="$NOOPT_CFLAGS" dnl __kdevelop[noopt]__
@@ -26,7 +26,8 @@ AC_CACHE_VAL(ac_cv_lib_vm,
               ],
               [],
               eval "ac_cv_lib_vm='-lXxf86vm'",
-              eval "ac_cv_lib_vm=no")
+              [AC_MSG_RESULT(no)
+              eval "ac_cv_lib_vm=no"])
  LIBS="$ac_save_LIBS"
  CFLAGS=$kgamma_save_CFLAGS
 ])
@@ -51,10 +52,11 @@ if eval "test ! \"`echo $ac_cv_lib_vm`\" = no"; then
                  eval "ac_cv_lib_vm=no"])
     LIBS="$ac_save_LIBS"
     CFLAGS=$kgamma_save_CFLAGS
-    if eval "test \"`echo $ac_cv_lib_vm`\" = no"; then
-        AC_MSG_ERROR([you need XFree86 4.0 or higher for gamma functions])
-    fi
     ])
+fi
+
+if eval "test \"`echo $ac_cv_lib_vm`\" = no"; then
+    DO_NOT_COMPILE="$DO_NOT_COMPILE kgamma"
 fi
 
 AC_LANG_SAVE
