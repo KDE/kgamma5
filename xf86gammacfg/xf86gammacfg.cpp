@@ -24,6 +24,14 @@
 #include <string>
 #include <vector>
 
+#include <config.h>
+
+#ifdef HAVE_SSTREAM
+#include <sstream>
+#else
+#include <strstream.h>
+#endif
+
 using namespace std;
 
 int main(int argc, char *argv[])
