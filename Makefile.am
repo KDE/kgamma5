@@ -1,2 +1,2 @@
-#SUBDIRS = kcmkgamma xf86gammacfg
+SUBDIRS = kcmkgamma xf86gammacfg
 
