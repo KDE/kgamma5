@@ -516,12 +516,12 @@ int KGamma::buttons () {
 
 QString KGamma::quickHelp() const
 {
-  return i18n("<h1>Monitor Gamma</h1> This is a tool for monitor gamma"
+  return i18n("<h1>Monitor Gamma</h1> This is a tool for monitoring gamma"
     " correction. Use the four sliders to define the gamma correction either"
     " as a single value, or separately for the red, green and blue components."
     " You may need to correct the brightness and contrast settings of your"
-    " monitor for good results. The test images helps you to find proper"
-    " settings.<br> You can save them system wide to XF86Config (root access"
+    " monitor for good results. The test images help you to find proper"
+    " settings.<br> You can save them system-wide to XF86Config (root access"
     " is required for that) or to your own KDE settings. On multi head"
     " systems you can correct the gamma values separately for all screens.");
 }
