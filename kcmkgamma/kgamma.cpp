@@ -25,7 +25,15 @@
 #include <qdir.h>
 #include <qcheckbox.h>
 #include <qcombobox.h>
-#include <qwidgetstack.h>
+#include <q3widgetstack.h>
+//Added by qt3to4:
+#include <QTextStream>
+#include <QGridLayout>
+#include <Q3Frame>
+#include <QHBoxLayout>
+#include <QBoxLayout>
+#include <Q3ValueList>
+#include <QVBoxLayout>
 
 #include <kstandarddirs.h>
 #include <kconfig.h>
@@ -143,8 +151,8 @@ void KGamma::setupUI() {
     hbox->addWidget( combo );
     hbox->addStretch();
 
-    QWidgetStack *stack = new QWidgetStack( this );
-    stack->setFrameStyle( QFrame::Box | QFrame::Raised );
+    Q3WidgetStack *stack = new Q3WidgetStack( this );
+    stack->setFrameStyle( Q3Frame::Box | Q3Frame::Raised );
 
     connect( combo, SIGNAL( activated( int ) ),
              stack, SLOT( raiseWidget( int ) ) );
@@ -156,47 +164,47 @@ void KGamma::setupUI() {
     pic1->setMinimumSize(530, 171);
     pic1->setBackgroundPixmap(background);
     pic1->setPixmap(QPixmap(locate("data", "kgamma/pics/greyscale.png")));
-    pic1->setAlignment(AlignCenter);
+    pic1->setAlignment(Qt::AlignCenter);
     stack->addWidget( pic1, 0 );
 
     QLabel *pic2 = new QLabel(stack);
     pic2->setBackgroundPixmap(background);
     pic2->setPixmap(QPixmap(locate("data", "kgamma/pics/rgbscale.png")));
-    pic2->setAlignment(AlignCenter);
+	pic2->setAlignment(Qt::AlignCenter);
     stack->addWidget( pic2, 1 );
 
     QLabel *pic3 = new QLabel(stack);
     pic3->setBackgroundPixmap(background);
     pic3->setPixmap(QPixmap(locate("data", "kgamma/pics/cmyscale.png")));
-    pic3->setAlignment(AlignCenter);
+    pic3->setAlignment(Qt::AlignCenter);
     stack->addWidget( pic3, 2 );
 
     QLabel *pic4 = new QLabel(stack);
     pic4->setBackgroundPixmap(background);
     pic4->setPixmap(QPixmap(locate("data", "kgamma/pics/darkgrey.png")));
-    pic4->setAlignment(AlignCenter);
+    pic4->setAlignment(Qt::AlignCenter);
     stack->addWidget( pic4, 3 );
 
     QLabel *pic5 = new QLabel(stack);
     pic5->setBackgroundPixmap(background);
     pic5->setPixmap(QPixmap(locate("data", "kgamma/pics/midgrey.png")));
-    pic5->setAlignment(AlignCenter);
+    pic5->setAlignment(Qt::AlignCenter);
     stack->addWidget( pic5, 4 );
 
     QLabel *pic6 = new QLabel(stack);
     pic6->setBackgroundPixmap(background);
     pic6->setPixmap(QPixmap(locate("data", "kgamma/pics/lightgrey.png")));
-    pic6->setAlignment(AlignCenter);
+    pic6->setAlignment(Qt::AlignCenter);
     stack->addWidget( pic6, 5 );
 
     topLayout->addWidget(stack, 10);
 
     //Sliders for gamma correction
-    QFrame *frame1 = new QFrame(this);
-    frame1->setFrameStyle( QFrame::GroupBoxPanel | QFrame::Plain );
+    Q3Frame *frame1 = new Q3Frame(this);
+    frame1->setFrameStyle( Q3Frame::GroupBoxPanel | Q3Frame::Plain );
 
-    QFrame *frame2 = new QFrame(this);
-    frame2->setFrameStyle( QFrame::GroupBoxPanel | QFrame::Plain );
+    Q3Frame *frame2 = new Q3Frame(this);
+    frame2->setFrameStyle( Q3Frame::GroupBoxPanel | Q3Frame::Plain );
 
     QLabel *gammalabel = new QLabel(this);
     gammalabel->setText(i18n("Gamma:"));
@@ -252,7 +260,7 @@ void KGamma::setupUI() {
     topLayout->addLayout(grid);
 
     //Options
-    QHBox *options = new QHBox(this);
+    Q3HBox *options = new Q3HBox(this);
 
     xf86cfgbox = new QCheckBox( i18n("Save settings to XF86Config"), options );
     connect(xf86cfgbox, SIGNAL(clicked()), SLOT(changeConfig()));
@@ -278,7 +286,7 @@ void KGamma::setupUI() {
     QLabel *error = new QLabel(this);
     error->setText(i18n("Gamma correction is not supported by your"
     " graphics hardware or driver."));
-    error->setAlignment(AlignCenter);
+    error->setAlignment(Qt::AlignCenter);
     topLayout->addWidget(error);
   }
 }
@@ -418,19 +426,19 @@ bool KGamma::loadUserSettings() {
 
 bool KGamma::loadSystemSettings() {
   QStringList Monitor, Screen, ScreenLayout, ScreenMonitor, Gamma;
-  QValueList<int> ScreenNr;
+  Q3ValueList<int> ScreenNr;
   QString Section;
   XF86ConfigPath Path;
 
   QFile f( Path.get() );
-  if ( f.open(IO_ReadOnly) ) {
+  if ( f.open(QIODevice::ReadOnly) ) {
     QTextStream t( &f );
     QString s;
     int sn = 0;
     bool gm = false;
 
     // Analyse Screen<->Monitor assignments of multi-head configurations
-    while ( !t.eof() ) {
+    while ( !t.atEnd() ) {
       s = (t.readLine()).simplifyWhiteSpace();
       QStringList words = QStringList::split(' ', s);
 

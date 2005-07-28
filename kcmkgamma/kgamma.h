@@ -18,6 +18,8 @@
 #define KGAMMA_H_
 
 #include <kcmodule.h>
+//Added by qt3to4:
+#include <Q3ValueList>
 
 class GammaCtrl;
 class QCheckBox;
@@ -64,8 +66,8 @@ class KGamma: public KCModule
       bool saved, GammaCorrection;
       int ScreenCount, currentScreen;
       QStringList rgamma, ggamma, bgamma;
-      QValueList<int> assign;
-      QValueList<float> rbak, gbak, bbak;
+      Q3ValueList<int> assign;
+      Q3ValueList<float> rbak, gbak, bbak;
       GammaCtrl *gctrl, *rgctrl, *ggctrl, *bgctrl;
       QCheckBox *xf86cfgbox, *syncbox;
       QComboBox *screenselect;
