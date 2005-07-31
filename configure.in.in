@@ -39,8 +39,6 @@ if eval "test ! \"`echo $ac_cv_lib_vm`\" = no"; then
 
     AC_MSG_CHECKING([for gamma functions in XFree86-VidModeExtension])
 
-    AC_LANG_SAVE
-    AC_LANG_C
     AC_CACHE_VAL(ac_cv_lib_vmgamma,
     [ac_save_LIBS="$LIBS"
     kgamma_save_CFLAGS=$CFLAGS
@@ -55,7 +53,6 @@ if eval "test ! \"`echo $ac_cv_lib_vm`\" = no"; then
     LIBS="$ac_save_LIBS"
     CFLAGS=$kgamma_save_CFLAGS
     ])
-    AC_LANG_RESTORE
 fi
 
 if eval "test \"`echo $ac_cv_lib_vm`\" = no"; then
