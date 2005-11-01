@@ -49,7 +49,7 @@ GammaCtrl::GammaCtrl(QWidget *parent, XVidExtWrap *xvid, int channel, \
 
   slider = new QSlider(Qt::Horizontal, this);
   slider->setFixedHeight(24);
-  slider->setTickmarks(QSlider::Below);
+  slider->setTickmarks(QSlider::TicksBelow);
   slider->setRange(0, maxslider);
   slider->setTickInterval(2);
   slider->setValue(setslider);
