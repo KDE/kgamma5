@@ -39,6 +39,7 @@ Comment[tg]=Утилита барои калибратсия кардани мо
 Comment[tr]=Monitör kalibrasyon aracı
 Comment[uk]=Засіб для калібрування монітора
 Comment[zh_CN]=监视器校准工具
+Comment[zh_HK]=顯示器調校工具
 
 Name=Gamma
 Name[ar]=غاما
@@ -64,6 +65,7 @@ Name[th]=แกมมา
 Name[uk]=Гама
 Name[uz]=Гамма
 Name[xh]=Unobumba wesithathu konoobumba besiGrike
+Name[zh_HK]=伽馬（Gamma）
 
 DocPath=kgamma
 Exec=kcmshell kgamma
