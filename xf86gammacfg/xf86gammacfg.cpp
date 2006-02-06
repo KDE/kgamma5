@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
     int Screen = 0;
     int ScreenCount = (argc-1) / 3;
     
-    // First, search for XF86Config
+    // First, search for XF86Config or xorg.conf
     vector <string> searchPaths;
     searchPaths.push_back("/etc/X11/XF86Config-4");
     searchPaths.push_back("/etc/X11/XF86Config");
@@ -55,6 +55,14 @@ int main(int argc, char *argv[])
     searchPaths.push_back("/usr/X11R6/etc/X11/XF86Config");
     searchPaths.push_back("/usr/X11R6/lib/X11/XF86Config-4");
     searchPaths.push_back("/usr/X11R6/lib/X11/XF86Config");
+
+    searchPaths.push_back("/etc/X11/xorg.conf-4");
+    searchPaths.push_back("/etc/X11/xorg.conf");
+    searchPaths.push_back("/etc/xorg.conf");
+    searchPaths.push_back("/usr/X11R6/etc/X11/xorg.conf-4");
+    searchPaths.push_back("/usr/X11R6/etc/X11/xorg.conf");
+    searchPaths.push_back("/usr/X11R6/lib/X11/xorg.conf-4");
+    searchPaths.push_back("/usr/X11R6/lib/X11/xorg.conf");
 
     std::vector<string>::iterator it = searchPaths.begin();
     for (; it != searchPaths.end(); ++it ) {

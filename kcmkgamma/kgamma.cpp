@@ -262,7 +262,7 @@ void KGamma::setupUI() {
     //Options
     Q3HBox *options = new Q3HBox(this);
 
-    xf86cfgbox = new QCheckBox( i18n("Save settings to XF86Config"), options );
+    xf86cfgbox = new QCheckBox( i18n("Save settings system wide"), options );
     connect(xf86cfgbox, SIGNAL(clicked()), SLOT(changeConfig()));
 
     syncbox = new QCheckBox( i18n("Sync screens"), options );
