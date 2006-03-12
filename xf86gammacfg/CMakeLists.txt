@@ -1,0 +1,38 @@
+kde4_header()
+
+include_directories( ${KDE4_INCLUDE_DIR} ${QT_INCLUDES} ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}  )
+
+
+########### next target ###############
+
+set(xf86gammacfg_SRCS xf86gammacfg.cpp )
+
+kde4_automoc(${xf86gammacfg_SRCS})
+
+kde4_add_executable(xf86gammacfg ${xf86gammacfg_SRCS})
+
+target_link_libraries(xf86gammacfg  ${QT_AND_KDECORE_LIBS} )
+
+install_targets(/bin xf86gammacfg )
+
+
+########### install files ###############
+
+
+kde4_footer()
+
+
+
+#original Makefile.am contents follow:
+
+#
+#INCLUDES= $(all_includes)
+#
+#bin_PROGRAMS = xf86gammacfg
+#xf86gammacfg_SOURCES = xf86gammacfg.cpp 
+#xf86gammacfg_LDADD   = 
+#xf86gammacfg_METASOURCES =  AUTO
+#noinst_HEADERS =
+#
+#EXTRA_DIST = xf86gammacfg.cpp 
+#
