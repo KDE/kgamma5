@@ -11,7 +11,7 @@ kde4_automoc(${xf86gammacfg_SRCS})
 
 kde4_add_executable(xf86gammacfg ${xf86gammacfg_SRCS})
 
-target_link_libraries(xf86gammacfg  ${QT_AND_KDECORE_LIBS} )
+target_link_libraries(xf86gammacfg  ${KDE4_KDECORE_LIBS} )
 
 install_targets(/bin xf86gammacfg )
 

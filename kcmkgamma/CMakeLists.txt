@@ -20,7 +20,7 @@ kde4_add_plugin(kcm_kgamma ${kcm_kgamma_PART_SRCS})
 
 kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kcm_kgamma )
 
-target_link_libraries(kcm_kgamma  ${QT_AND_KDECORE_LIBS} kdeui )
+target_link_libraries(kcm_kgamma  ${KDE4_KDECORE_LIBS} kdeui )
 
 install_targets(${LIB_INSTALL_DIR}/kde4 kcm_kgamma )
 
