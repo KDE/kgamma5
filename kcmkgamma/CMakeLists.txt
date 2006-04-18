@@ -22,7 +22,7 @@ kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kcm_kgamma )
 
 target_link_libraries(kcm_kgamma  ${KDE4_KDECORE_LIBS} kdeui )
 
-install_targets(${LIB_INSTALL_DIR}/kde4 kcm_kgamma )
+install_targets(${PLUGIN_INSTALL_DIR} kcm_kgamma )
 
 
 ########### install files ###############
