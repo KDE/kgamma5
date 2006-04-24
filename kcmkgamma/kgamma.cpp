@@ -50,12 +50,15 @@
 #include "kgamma.h"
 #include "kgamma.moc"
 
-typedef KGenericFactory<KGamma, QWidget> KGammaFactory;
-K_EXPORT_COMPONENT_FACTORY ( kcm_kgamma, KGammaFactory( "kgamma" ) )
-
 extern "C"
 {
-	bool test_kgamma()
+       KDE_EXPORT KCModule *create_kcm_kgamma( QWidget *parent, const char * )
+       {
+           KInstance *inst = new KInstance( "kgamma" );
+           return new KGamma( inst, parent, QStringList() );
+       }
+
+	bool KDE_EXPORT test_kgamma()
 	{
 		bool retval;
 		(void) new XVidExtWrap(&retval, NULL);
@@ -63,8 +66,8 @@ extern "C"
 	}
 }
 
-KGamma::KGamma(QWidget *parent, const char *name, const QStringList&)
-    :KCModule(parent,name)
+KGamma::KGamma(KInstance* instance, QWidget *parent, const QStringList& args)
+    :KCModule(instance, parent, args)
 {
   bool ok;
   GammaCorrection = true;

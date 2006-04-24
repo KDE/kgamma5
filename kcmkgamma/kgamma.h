@@ -31,7 +31,7 @@ class KGamma: public KCModule
 {
    Q_OBJECT
    public:
-      KGamma(QWidget *parent, const char *name, const QStringList&);
+      KGamma(KInstance* instance, QWidget *parent, const QStringList& args);
       virtual ~KGamma();
 
       void load();

@@ -14,10 +14,6 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#include <X11/Xos.h>
-#include <X11/Xlib.h>
-#include <X11/Xutil.h>
-#include <X11/extensions/xf86vmode.h>
 #include <stdlib.h>
 #include <iostream>
 #include <fstream>
@@ -37,6 +33,13 @@
 #include <kdebug.h>
 
 #include "xf86configpath.h"
+
+#include <X11/Xos.h>
+#include <X11/Xlib.h>
+#include <X11/Xutil.h>
+#include <X11/extensions/xf86vmode.h>
+
+#include <fixx11h.h>
 #include "xvidextwrap.h"
 
 using namespace std;
