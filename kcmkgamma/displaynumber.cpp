@@ -27,10 +27,10 @@ DisplayNumber::DisplayNumber(QWidget *parent, int digits, \
     int prec, const char *name) : QLabel(parent,name) {
 
   setPrecision(prec);
-  setWidth(digits);  
+  setWidth(digits);
 
   setFrameStyle(Q3Frame::Panel | Q3Frame::Sunken);
-  setBackgroundMode(Qt::PaletteBase);
+  setBackgroundRole(QPalette::Base);
   setAlignment(Qt::AlignCenter);
   setFocusPolicy(Qt::NoFocus);
 }
@@ -59,6 +59,6 @@ void DisplayNumber::setNum(double num) {
   QString text;
   setText(text.setNum(num, 'f', precision));
 }
-    
+
 
 #include "displaynumber.moc"
