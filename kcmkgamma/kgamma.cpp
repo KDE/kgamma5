@@ -247,7 +247,7 @@ void KGamma::setupUI() {
     connect(bgctrl, SIGNAL(gammaChanged(int)), gctrl, SLOT(suspend()));
     bluelabel->setBuddy( bgctrl );
 
-    QGridLayout *grid = new QGridLayout(4, 9);
+    QGridLayout *grid = new QGridLayout();
     grid->setSpacing(8);
     grid->addMultiCellWidget(frame1, 0, 2, 0, 3);
     grid->addMultiCellWidget(frame2, 4, 8, 0, 3);
