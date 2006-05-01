@@ -12,7 +12,5 @@ SUBDIRS = pics
 
 xdg_apps_DATA = kgamma.desktop
 
-messages:
-	$(XGETTEXT) *.cpp -o $(podir)/kgamma.pot
 
 KDE_OPTIONS = nofinal
