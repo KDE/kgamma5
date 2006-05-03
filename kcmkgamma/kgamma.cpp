@@ -133,7 +133,9 @@ KGamma::~KGamma() {
 
 /** User interface */
 void KGamma::setupUI() {
-  QBoxLayout *topLayout = new QVBoxLayout(this, 0, KDialog::spacingHint());
+  QBoxLayout *topLayout = new QVBoxLayout(this);
+  topLayout->setSpacing(KDialog::spacingHint());
+  topLayout->setMargin(0);
 
   if (GammaCorrection) {
     QHBoxLayout *hbox = new QHBoxLayout( topLayout );
