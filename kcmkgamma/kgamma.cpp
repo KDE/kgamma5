@@ -138,7 +138,8 @@ void KGamma::setupUI() {
   topLayout->setMargin(0);
 
   if (GammaCorrection) {
-    QHBoxLayout *hbox = new QHBoxLayout( topLayout );
+    QHBoxLayout *hbox = new QHBoxLayout();
+    topLayout->addItem( hbox );
     QLabel *label = new QLabel( i18n( "&Select test picture:" ) , this);
     QComboBox *combo = new QComboBox( this );
     label->setBuddy( combo );
