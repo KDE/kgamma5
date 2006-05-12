@@ -1,4 +1,3 @@
-kde4_header()
 
 add_subdirectory( kcmkgamma ) 
 add_subdirectory( xf86gammacfg ) 
@@ -9,7 +8,6 @@ check_include_files( sstream HAVE_SSTREAM )
 ########### install files ###############
 
 
-kde4_footer()
 
 
 
