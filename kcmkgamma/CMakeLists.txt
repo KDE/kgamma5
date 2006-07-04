@@ -21,12 +21,12 @@ kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kcm_kgamma )
 
 target_link_libraries(kcm_kgamma Xxf86vm ${KDE4_KDECORE_LIBS} kdeui )
 
-install_targets(${PLUGIN_INSTALL_DIR} kcm_kgamma )
+install(TARGETS kcm_kgamma  DESTINATION ${PLUGIN_INSTALL_DIR} )
 
 
 ########### install files ###############
 
-install_files( ${XDG_APPS_DIR} FILES kgamma.desktop )
+install( FILES kgamma.desktop  DESTINATION  ${XDG_APPS_DIR} )
 
 
 
