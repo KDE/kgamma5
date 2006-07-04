@@ -164,7 +164,7 @@ void KGamma::setupUI() {
              stack, SLOT( raiseWidget( int ) ) );
 
     QPixmap background;
-    background.load(locate("data", "kgamma/pics/background.png"));
+    background.load(KStandardDirs::locate("data", "kgamma/pics/background.png"));
 
     QLabel *pic1 = new QLabel(stack);
     pic1->setMinimumSize(530, 171);
