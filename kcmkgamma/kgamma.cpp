@@ -151,7 +151,7 @@ void KGamma::setupUI() {
          << i18n( "Dark Gray" )
          << i18n( "Mid Gray" )
          << i18n( "Light Gray" );
-    combo->insertStringList( list );
+    combo->addItems( list );
 
     hbox->addWidget( label );
     hbox->addWidget( combo );
@@ -277,7 +277,7 @@ void KGamma::setupUI() {
 
     screenselect = new QComboBox( options );
     for ( int i = 0; i < ScreenCount; i++ )
-      screenselect->insertItem( i18n("Screen %1", i+1) );
+      screenselect->addItem( i18n("Screen %1", i+1) );
     screenselect->setCurrentItem(currentScreen);
     connect(screenselect, SIGNAL(activated(int)), SLOT(changeScreen(int)));
 
