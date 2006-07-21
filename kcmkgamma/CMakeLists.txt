@@ -1,4 +1,3 @@
-
 add_subdirectory( pics ) 
 
 
@@ -19,7 +18,7 @@ kde4_add_plugin(kcm_kgamma ${kcm_kgamma_PART_SRCS})
 
 kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kcm_kgamma )
 
-target_link_libraries(kcm_kgamma Xxf86vm ${KDE4_KDECORE_LIBS} kdeui )
+target_link_libraries(kcm_kgamma Xxf86vm ${KDE4_KDEUI_LIBS} )
 
 install(TARGETS kcm_kgamma  DESTINATION ${PLUGIN_INSTALL_DIR} )
 
