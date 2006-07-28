@@ -372,8 +372,8 @@ void KGamma::save() {
       if ( !rootProcess->isRunning() ) {
         QString Arguments = "xf86gammacfg ";
         for (int i = 0; i < ScreenCount; i++)
-          Arguments += rgamma[assign[i]] + " " + ggamma[assign[i]] + " " + \
-          bgamma[assign[i]] + " ";
+          Arguments += rgamma[assign[i]] + ' ' + ggamma[assign[i]] + ' ' + \
+                       bgamma[assign[i]] + ' ';
         rootProcess->clearArguments();
         *rootProcess << "kdesu" << Arguments;
         rootProcess->start();
