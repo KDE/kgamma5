@@ -21,20 +21,20 @@
 #ifndef GAMMACTRL_H
 #define GAMMACTRL_H
 
-#include <q3hbox.h>
+#include <khbox.h>
 #include <qslider.h>
 
 class QString;
 class DisplayNumber;
 class XVidExtWrap;
 
-class GammaCtrl : public Q3HBox  {
+class GammaCtrl : public KHBox  {
 
   Q_OBJECT
   public:
     /** construktor */
-    GammaCtrl(QWidget *parent=0, XVidExtWrap *xvid=0, int channel=0, \
-      const QString& mingamma="0.40", const QString& maxgamma="3.50", \
+    GammaCtrl(QWidget *parent=0, XVidExtWrap *xvid=0, int channel=0, 
+      const QString& mingamma="0.40", const QString& maxgamma="3.50", 
       const QString& setgamma="1.00", const char *name=0 );
     /** destruktor */
     ~GammaCtrl();

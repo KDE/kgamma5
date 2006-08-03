@@ -28,7 +28,7 @@
 
 GammaCtrl::GammaCtrl(QWidget *parent, XVidExtWrap *xvid, int channel, \
   const QString& mingamma, const QString& maxgamma, const QString& setgamma, \
-  const char *name) : Q3HBox(parent, name)
+  const char *name) : KHBox(parent)
 {
   int maxslider = (int)( ( maxgamma.toDouble() - mingamma.toDouble() \
                   + 0.0005 ) * 20 );
@@ -49,7 +49,7 @@ GammaCtrl::GammaCtrl(QWidget *parent, XVidExtWrap *xvid, int channel, \
 
   slider = new QSlider(Qt::Horizontal, this);
   slider->setFixedHeight(24);
-  slider->setTickmarks(QSlider::TicksBelow);
+  slider->setTickPosition(QSlider::TicksBelow);
   slider->setRange(0, maxslider);
   slider->setTickInterval(2);
   slider->setValue(setslider);

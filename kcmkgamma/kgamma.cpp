@@ -25,11 +25,11 @@
 #include <qdir.h>
 #include <qcheckbox.h>
 #include <qcombobox.h>
-#include <q3widgetstack.h>
+#include <QStackedWidget>
 //Added by qt3to4:
 #include <QTextStream>
 #include <QGridLayout>
-#include <Q3Frame>
+#include <QFrame>
 #include <QHBoxLayout>
 #include <QBoxLayout>
 #include <Q3ValueList>
@@ -42,7 +42,7 @@
 #include <kprocess.h>
 #include <kdialog.h>
 #include <kgenericfactory.h>
-
+#include <khbox.h>
 #include "config.h"
 #include "xf86configpath.h"
 #include "gammactrl.h"
@@ -157,11 +157,11 @@ void KGamma::setupUI() {
     hbox->addWidget( combo );
     hbox->addStretch();
 
-    Q3WidgetStack *stack = new Q3WidgetStack( this );
-    stack->setFrameStyle( Q3Frame::Box | Q3Frame::Raised );
+    QStackedWidget  *stack = new QStackedWidget ( this );
+    stack->setFrameStyle( QFrame::Box | QFrame::Raised );
 
     connect( combo, SIGNAL( activated( int ) ),
-             stack, SLOT( raiseWidget( int ) ) );
+             stack, SLOT( setCurrentIndex( int ) ) );
 
     QPixmap background;
     background.load(KStandardDirs::locate("data", "kgamma/pics/background.png"));
@@ -171,46 +171,46 @@ void KGamma::setupUI() {
     pic1->setBackgroundPixmap(background);
     pic1->setPixmap(QPixmap(KStandardDirs::locate("data", "kgamma/pics/greyscale.png")));
     pic1->setAlignment(Qt::AlignCenter);
-    stack->addWidget( pic1, 0 );
+    stack->insertWidget( 0,pic1 );
 
     QLabel *pic2 = new QLabel(stack);
     pic2->setBackgroundPixmap(background);
     pic2->setPixmap(QPixmap(KStandardDirs::locate("data", "kgamma/pics/rgbscale.png")));
 	pic2->setAlignment(Qt::AlignCenter);
-    stack->addWidget( pic2, 1 );
+    stack->insertWidget( 1,pic2 );
 
     QLabel *pic3 = new QLabel(stack);
     pic3->setBackgroundPixmap(background);
     pic3->setPixmap(QPixmap(KStandardDirs::locate("data", "kgamma/pics/cmyscale.png")));
     pic3->setAlignment(Qt::AlignCenter);
-    stack->addWidget( pic3, 2 );
+    stack->insertWidget( 2,pic3 );
 
     QLabel *pic4 = new QLabel(stack);
     pic4->setBackgroundPixmap(background);
     pic4->setPixmap(QPixmap(KStandardDirs::locate("data", "kgamma/pics/darkgrey.png")));
     pic4->setAlignment(Qt::AlignCenter);
-    stack->addWidget( pic4, 3 );
+    stack->insertWidget( 3,pic4 );
 
     QLabel *pic5 = new QLabel(stack);
     pic5->setBackgroundPixmap(background);
     pic5->setPixmap(QPixmap(KStandardDirs::locate("data", "kgamma/pics/midgrey.png")));
     pic5->setAlignment(Qt::AlignCenter);
-    stack->addWidget( pic5, 4 );
+    stack->insertWidget( 4,pic5 );
 
     QLabel *pic6 = new QLabel(stack);
     pic6->setBackgroundPixmap(background);
     pic6->setPixmap(QPixmap(KStandardDirs::locate("data", "kgamma/pics/lightgrey.png")));
     pic6->setAlignment(Qt::AlignCenter);
-    stack->addWidget( pic6, 5 );
+    stack->insertWidget( 5,pic6 );
 
     topLayout->addWidget(stack, 10);
 
     //Sliders for gamma correction
-    Q3Frame *frame1 = new Q3Frame(this);
-    frame1->setFrameStyle( Q3Frame::GroupBoxPanel | Q3Frame::Plain );
+    QFrame *frame1 = new QFrame(this);
+    frame1->setFrameStyle( QFrame::GroupBoxPanel | QFrame::Plain );
 
-    Q3Frame *frame2 = new Q3Frame(this);
-    frame2->setFrameStyle( Q3Frame::GroupBoxPanel | Q3Frame::Plain );
+    QFrame *frame2 = new QFrame(this);
+    frame2->setFrameStyle( QFrame::GroupBoxPanel | QFrame::Plain );
 
     QLabel *gammalabel = new QLabel(this);
     gammalabel->setText(i18n("Gamma:"));
@@ -266,7 +266,7 @@ void KGamma::setupUI() {
     topLayout->addLayout(grid);
 
     //Options
-    Q3HBox *options = new Q3HBox(this);
+    KHBox *options = new KHBox(this);
 
     xf86cfgbox = new QCheckBox( i18n("Save settings system wide"), options );
     connect(xf86cfgbox, SIGNAL(clicked()), SLOT(changeConfig()));
