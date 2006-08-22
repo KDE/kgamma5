@@ -33,6 +33,7 @@ class KGamma: public KCModule
       virtual ~KGamma();
 
       void load();
+      void load(bool useDefaults);
       void save();
       void defaults();
       int buttons();

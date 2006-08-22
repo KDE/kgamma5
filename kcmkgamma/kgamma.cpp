@@ -283,10 +283,17 @@ void KGamma::setupUI() {
   }
 }
 
-/** Restore latest saved gamma values */
 void KGamma::load() {
+	load( false );
+}
+
+/** Restore latest saved gamma values */
+void KGamma::load(bool useDefaults) {
   if (GammaCorrection) {
     KConfig *config = new KConfig("kgammarc");
+
+	 config->setReadDefaults( useDefaults );
+
     config->setGroup("ConfigFile");
 
     // save checkbox status
@@ -322,7 +329,7 @@ void KGamma::load() {
     }
     xv->setScreen(currentScreen);
 
-    emit changed(false);
+    emit changed(useDefaults);
   }
 }
 
@@ -373,16 +380,7 @@ void KGamma::save() {
 }
 
 void KGamma::defaults() {
-  if (GammaCorrection) {
-    for (int i = 0; i < ScreenCount; i++) {
-      xv->setScreen(i);
-      gctrl->setGamma("1.00");
-    }
-    xv->setScreen(currentScreen);
-
-  }
-  xf86cfgbox->setChecked(false);
-  syncbox->setChecked(false);
+	load( true );
 }
 
 bool KGamma::loadSettings() {
