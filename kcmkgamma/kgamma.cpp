@@ -118,6 +118,7 @@ KGamma::~KGamma() {
       }
     delete rootProcess;
   }
+  delete xv;
 }
 
 /** User interface */
