@@ -19,7 +19,7 @@
 #include <qfontmetrics.h>
 //Added by qt3to4:
 #include <QLabel>
-#include <Q3Frame>
+#include <QFrame>
 
 #include "displaynumber.h"
 
@@ -29,7 +29,7 @@ DisplayNumber::DisplayNumber(QWidget *parent, int digits, \
   setPrecision(prec);
   setWidth(digits);
 
-  setFrameStyle(Q3Frame::Panel | Q3Frame::Sunken);
+  setFrameStyle(QFrame::Panel | QFrame::Sunken);
   setBackgroundRole(QPalette::Base);
   setAlignment(Qt::AlignCenter);
   setFocusPolicy(Qt::NoFocus);
