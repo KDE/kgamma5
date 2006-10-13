@@ -6,7 +6,7 @@
 
 set(xf86gammacfg_SRCS xf86gammacfg.cpp )
 
-kde4_automoc(${xf86gammacfg_SRCS})
+kde4_automoc(xf86gammacfg ${xf86gammacfg_SRCS})
 
 kde4_add_executable(xf86gammacfg ${xf86gammacfg_SRCS})
 
