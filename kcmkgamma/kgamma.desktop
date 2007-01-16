@@ -1,15 +1,18 @@
 [Desktop Entry]
 Comment=A monitor calibration tool
+Comment[el]=Ένα εργαλείο ρύθμισης της οθόνης
 Comment[fr]=Outil de calibrage de moniteur
 Comment[x-test]=xxA monitor calibration toolxx
 
 Name=Gamma
+Name[el]=Γάμμα
 Name[x-test]=xxGammaxx
 
 DocPath=kgamma
 Exec=kcmshell kgamma
 Icon=kgamma
 Keywords=KGamma, kgamma, Gamma, gamma
+Keywords[el]=KGamma, kgamma, Γάμμα, γάμμα
 Keywords[x-test]=xxKGamma, kgamma, Gamma, gammaxx
 Type=Application
 X-KDE-Init=kgamma
