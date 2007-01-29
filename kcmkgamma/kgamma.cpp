@@ -54,7 +54,7 @@ extern "C"
 {
        KDE_EXPORT KCModule *create_kcm_kgamma( QWidget *parent, const char * )
        {
-           KInstance *inst = new KInstance( "kgamma" );
+           KComponentData inst( "kgamma" );
            return new KGamma( inst, parent, QStringList() );
        }
 
@@ -66,7 +66,7 @@ extern "C"
 	}
 }
 
-KGamma::KGamma(KInstance* instance, QWidget *parent, const QStringList& args)
+KGamma::KGamma(const KComponentData &instance, QWidget *parent, const QStringList& args)
     :KCModule(instance, parent, args)
 {
   bool ok;
