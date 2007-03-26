@@ -39,7 +39,7 @@
 #include <kconfig.h>
 #include <klocale.h>
 #include <kglobal.h>
-#include <kprocess.h>
+#include <k3process.h>
 #include <kdialog.h>
 #include <kgenericfactory.h>
 #include <khbox.h>
@@ -93,7 +93,7 @@ KGamma::KGamma(const KComponentData &instance, QWidget *parent, const QStringLis
       }
       xv->setScreen(currentScreen);
 
-      rootProcess = new KProcess;
+      rootProcess = new K3Process;
       setupUI();
       saved = false;
 

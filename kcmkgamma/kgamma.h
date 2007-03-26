@@ -25,7 +25,7 @@ class GammaCtrl;
 class QCheckBox;
 class QComboBox;
 class XVidExtWrap;
-class KProcess;
+class K3Process;
 
 class KGamma: public KCModule
 {
@@ -71,7 +71,7 @@ class KGamma: public KCModule
       GammaCtrl *gctrl, *rgctrl, *ggctrl, *bgctrl;
       QCheckBox *xf86cfgbox, *syncbox;
       QComboBox *screenselect;
-      KProcess *rootProcess;
+      K3Process *rootProcess;
       XVidExtWrap *xv;
 };
 
