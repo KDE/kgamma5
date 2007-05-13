@@ -1,7 +1,6 @@
 [Desktop Entry]
 Comment=A monitor calibration tool
 Comment[ar]=أداة مراقبة وتعيير
-Comment[bg]=Калибриране на монитора
 Comment[ca]=Una eina de calibració del monitor
 Comment[cs]=Nástroj pro kalibraci monitoru
 Comment[cy]=Erfyn graddnodi dangosydd
@@ -46,7 +45,6 @@ Comment[zh_TW]=監視器校準工具
 Name=Gamma
 Name[ar]=غاما
 Name[be]=Гама
-Name[bg]=Гама
 Name[cs]=Gama
 Name[cy]=Gama
 Name[el]=Γάμμα
@@ -78,7 +76,6 @@ DocPath=kgamma
 Exec=kcmshell kgamma
 Icon=kgamma
 Keywords=KGamma, kgamma, Gamma, gamma
-Keywords[bg]=калибриране, гама, яркост, цвят, монитор, екран, KGamma, kgamma, Gamma, gamma
 Keywords[cs]=KGamma, kgamma, gama
 Keywords[de]=KGamma,kgamma,Gamma,gamma
 Keywords[el]=KGamma, kgamma, Γάμμα, γάμμα
