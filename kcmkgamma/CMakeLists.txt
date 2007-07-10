@@ -12,7 +12,6 @@ set(kcm_kgamma_PART_SRCS
    gammactrl.cpp 
    kgamma.cpp )
 
-kde4_automoc(${kcm_kgamma_PART_SRCS})
 
 kde4_add_plugin(kcm_kgamma ${kcm_kgamma_PART_SRCS})
 
