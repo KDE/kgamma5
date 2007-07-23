@@ -23,7 +23,7 @@ install(TARGETS kcm_kgamma  DESTINATION ${PLUGIN_INSTALL_DIR} )
 
 ########### install files ###############
 
-install( FILES kgamma.desktop  DESTINATION  ${XDG_APPS_DIR} )
+install( FILES kgamma.desktop  DESTINATION  ${XDG_APPS_INSTALL_DIR} )
 
 
 
