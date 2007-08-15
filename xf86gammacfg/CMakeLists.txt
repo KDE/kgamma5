@@ -1,7 +1,4 @@
 
-
-
-
 ########### next target ###############
 
 set(xf86gammacfg_SRCS xf86gammacfg.cpp )
@@ -14,22 +11,3 @@ target_link_libraries(xf86gammacfg  ${KDE4_KDECORE_LIBS} )
 install(TARGETS xf86gammacfg  DESTINATION ${BIN_INSTALL_DIR} )
 
 
-########### install files ###############
-
-
-
-
-
-#original Makefile.am contents follow:
-
-#
-#INCLUDES= $(all_includes)
-#
-#bin_PROGRAMS = xf86gammacfg
-#xf86gammacfg_SOURCES = xf86gammacfg.cpp 
-#xf86gammacfg_LDADD   = 
-#xf86gammacfg_METASOURCES =  AUTO
-#noinst_HEADERS =
-#
-#EXTRA_DIST = xf86gammacfg.cpp 
-#
