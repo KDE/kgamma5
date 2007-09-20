@@ -42,6 +42,7 @@ Comment[tg]=Утилита барои калибратсия кардани мо
 Comment[tr]=Monitör kalibrasyon aracı
 Comment[uk]=Засіб для калібрування монітора
 Comment[x-test]=xxA monitor calibration toolxx
+Comment[zh_CN]=显示器校准工具
 Comment[zh_HK]=顯示器調校工具
 Comment[zh_TW]=監視器校準工具
 
@@ -111,6 +112,7 @@ Keywords[uk]=KGamma, kgamma, Gamma, gamma, гама, яскравість
 Keywords[uz]=KGamma, kgamma, Гамма, гамма
 Keywords[wa]=KGamma, kgamma, Gama, gama
 Keywords[x-test]=xxKGamma, kgamma, Gamma, gammaxx
+Keywords[zh_CN]=KGamma, kgamma, Gamma, gamma,伽玛
 Type=Application
 X-KDE-Init=kgamma
 X-KDE-FactoryName=kgamma
