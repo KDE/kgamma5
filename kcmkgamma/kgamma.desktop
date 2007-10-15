@@ -78,7 +78,7 @@ Name[xh]=Unobumba wesithathu konoobumba besiGrike
 Name[zh_HK]=伽馬（Gamma）
 
 DocPath=kgamma
-Exec=kcmshell kgamma
+Exec=kcmshell4 kgamma
 Icon=kgamma
 Keywords=KGamma, kgamma, Gamma, gamma
 Keywords[bg]=Keywords=калибриране, гама, яркост, цвят, монитор, екран, KGamma, kgamma, Gamma, gamma
