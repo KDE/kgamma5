@@ -1,8 +1,8 @@
+check_include_files( strstream HAVE_STRSTREAM_H )
+configure_file (config.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config.h)
 
-add_subdirectory( kcmkgamma ) 
+include_directories(${CMAKE_CURRENT_BINARY_DIR})
+
+#add_subdirectory( kcmkgamma ) 
+message(STATUS "Need to port kcmkgamma")
 add_subdirectory( xf86gammacfg ) 
-
-
-# this doesn't have an effect here and seems to be unused, Alex
-# check_include_files( sstream HAVE_SSTREAM )
-

@@ -163,42 +163,33 @@ void KGamma::setupUI() {
     connect( combo, SIGNAL( activated( int ) ),
              stack, SLOT( setCurrentIndex( int ) ) );
 
-    QPixmap background;
-    background.load(KStandardDirs::locate("data", "kgamma/pics/background.png"));
-
     QLabel *pic1 = new QLabel(stack);
     pic1->setMinimumSize(530, 171);
-    pic1->setBackgroundPixmap(background);
     pic1->setPixmap(QPixmap(KStandardDirs::locate("data", "kgamma/pics/greyscale.png")));
     pic1->setAlignment(Qt::AlignCenter);
     stack->insertWidget( 0,pic1 );
 
     QLabel *pic2 = new QLabel(stack);
-    pic2->setBackgroundPixmap(background);
     pic2->setPixmap(QPixmap(KStandardDirs::locate("data", "kgamma/pics/rgbscale.png")));
 	pic2->setAlignment(Qt::AlignCenter);
     stack->insertWidget( 1,pic2 );
 
     QLabel *pic3 = new QLabel(stack);
-    pic3->setBackgroundPixmap(background);
     pic3->setPixmap(QPixmap(KStandardDirs::locate("data", "kgamma/pics/cmyscale.png")));
     pic3->setAlignment(Qt::AlignCenter);
     stack->insertWidget( 2,pic3 );
 
     QLabel *pic4 = new QLabel(stack);
-    pic4->setBackgroundPixmap(background);
     pic4->setPixmap(QPixmap(KStandardDirs::locate("data", "kgamma/pics/darkgrey.png")));
     pic4->setAlignment(Qt::AlignCenter);
     stack->insertWidget( 3,pic4 );
 
     QLabel *pic5 = new QLabel(stack);
-    pic5->setBackgroundPixmap(background);
     pic5->setPixmap(QPixmap(KStandardDirs::locate("data", "kgamma/pics/midgrey.png")));
     pic5->setAlignment(Qt::AlignCenter);
     stack->insertWidget( 4,pic5 );
 
     QLabel *pic6 = new QLabel(stack);
-    pic6->setBackgroundPixmap(background);
     pic6->setPixmap(QPixmap(KStandardDirs::locate("data", "kgamma/pics/lightgrey.png")));
     pic6->setAlignment(Qt::AlignCenter);
     stack->insertWidget( 5,pic6 );

@@ -23,7 +23,7 @@
 
 #include <config.h>
 
-#ifdef HAVE_SSTREAM
+#if !defined(HAVE_STRSTREAM_H)
 #include <sstream>
 #else
 #include <strstream.h>

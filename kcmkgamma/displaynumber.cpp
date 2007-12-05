@@ -24,7 +24,7 @@
 #include "displaynumber.h"
 
 DisplayNumber::DisplayNumber(QWidget *parent, int digits, \
-    int prec, const char *name) : QLabel(parent,name) {
+    int prec) : QLabel(parent) {
 
   setPrecision(prec);
   setWidth(digits);
