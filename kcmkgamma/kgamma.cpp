@@ -52,12 +52,6 @@
 
 extern "C"
 {
-       KDE_EXPORT KCModule *create_kcm_kgamma( QWidget *parent, const char * )
-       {
-           KComponentData inst( "kgamma" );
-           return new KGamma( inst, parent, QStringList() );
-       }
-
 	bool KDE_EXPORT test_kgamma()
 	{
 		bool retval;
@@ -66,8 +60,14 @@ extern "C"
 	}
 }
 
-KGamma::KGamma(const KComponentData &instance, QWidget *parent, const QStringList& args)
-    :KCModule(instance, parent, args)
+K_PLUGIN_FACTORY(KGammaConfigFactory,
+        registerPlugin<KGamma>("kgamma");
+        )
+K_EXPORT_PLUGIN(KGammaConfigFactory("kcmkgamma"))
+
+
+KGamma::KGamma(QWidget* parent_P, const QVariantList &)
+    :KCModule(KGammaConfigFactory::componentData(), parent_P)
 {
   bool ok;
   GammaCorrection = true;
@@ -198,10 +198,10 @@ void KGamma::setupUI() {
 
     //Sliders for gamma correction
     QFrame *frame1 = new QFrame(this);
-    frame1->setFrameStyle( QFrame::GroupBoxPanel | QFrame::Plain );
+    frame1->setFrameStyle( /*QFrame::GroupBoxPanel |*/ QFrame::Plain );
 
     QFrame *frame2 = new QFrame(this);
-    frame2->setFrameStyle( QFrame::GroupBoxPanel | QFrame::Plain );
+    frame2->setFrameStyle( /*QFrame::GroupBoxPanel |*/ QFrame::Plain );
 
     QLabel *gammalabel = new QLabel(this);
     gammalabel->setText(i18n("Gamma:"));
@@ -243,8 +243,8 @@ void KGamma::setupUI() {
 
     QGridLayout *grid = new QGridLayout();
     grid->setSpacing(8);
-    grid->addMultiCellWidget(frame1, 0, 2, 0, 3);
-    grid->addMultiCellWidget(frame2, 4, 8, 0, 3);
+    grid->addWidget(frame1, 0, 2, 0, 3);
+    grid->addWidget(frame2, 4, 8, 0, 3);
     grid->addWidget(gammalabel, 1, 1, Qt::AlignRight);
     grid->addWidget(redlabel, 5, 1, Qt::AlignRight);
     grid->addWidget(greenlabel, 6, 1, Qt::AlignRight);
@@ -292,15 +292,15 @@ void KGamma::setupUI() {
 void KGamma::load() {
   if (GammaCorrection) {
     KConfig *config = new KConfig("kgammarc");
-    config->setGroup("ConfigFile");
+    KConfigGroup group = config->group("ConfigFile");
 
     // save checkbox status
-    if ( xf86cfgbox->isChecked() ) config->writeEntry("use", "XF86Config");
-    else config->writeEntry("use", "kgammarc");
+    if ( xf86cfgbox->isChecked() ) group.writeEntry("use", "XF86Config");
+    else group.writeEntry("use", "kgammarc");
 
     // load syncbox status
-    config->setGroup("SyncBox");
-    if ( config->readEntry("sync") == "yes" ) syncbox->setChecked(true);
+    group = config->group("SyncBox");
+    if ( group.readEntry("sync") == "yes" ) syncbox->setChecked(true);
     else syncbox->setChecked(false);
 
     config->sync();
@@ -342,23 +342,23 @@ void KGamma::save() {
     xv->setScreen(currentScreen);
 
     KConfig *config = new KConfig("kgammarc");
-    config->setGroup("SyncBox");
-    if ( syncbox->isChecked() ) config->writeEntry("sync", "yes");
-    else config->writeEntry("sync", "no");
+    KConfigGroup group = config->group("SyncBox");
+    if ( syncbox->isChecked() ) group.writeEntry("sync", "yes");
+    else group.writeEntry("sync", "no");
 
     if ( !xf86cfgbox->isChecked() ) { //write gamma settings to the users config
       for (int i = 0; i < ScreenCount; i++) {
-        config->setGroup( QString("Screen %1").arg(i) );
-        config->writeEntry("rgamma", rgamma[i]);
-        config->writeEntry("ggamma", ggamma[i]);
-        config->writeEntry("bgamma", bgamma[i]);
+        KConfigGroup screenGroup = config->group( QString("Screen %1").arg(i) );
+        screenGroup.writeEntry("rgamma", rgamma[i]);
+        screenGroup.writeEntry("ggamma", ggamma[i]);
+        screenGroup.writeEntry("bgamma", bgamma[i]);
       }
-      config->setGroup("ConfigFile");
-      config->writeEntry("use", "kgammarc");
+      KConfigGroup confGroup = config->group("ConfigFile");
+      confGroup.writeEntry("use", "kgammarc");
     }
     else {  // write gamma settings to section "Monitor" of XF86Config
-      config->setGroup("ConfigFile");
-      config->writeEntry("use", "XF86Config");
+      KConfigGroup x86group = config->group("ConfigFile");
+      x86group.writeEntry("use", "XF86Config");
 
       if ( !rootProcess->isRunning() ) {
         QString Arguments = "xf86gammacfg ";
@@ -392,10 +392,10 @@ void KGamma::defaults() {
 
 bool KGamma::loadSettings() {
   KConfig *config = new KConfig("kgammarc");
-  config->setGroup("ConfigFile");
-  QString ConfigFile( config->readEntry("use") );
-  config->setGroup("SyncBox");
-  if ( config->readEntry("sync") == "yes" ) syncbox->setChecked(true);
+  KConfigGroup grp = config->group("ConfigFile");
+  QString ConfigFile( grp.readEntry("use") );
+  KConfigGroup syncGroup = config->group("SyncBox");
+  if ( syncGroup.readEntry("sync") == "yes" ) syncbox->setChecked(true);
   delete config;
 
   if ( ConfigFile == "XF86Config" ) {  // parse XF86Config
@@ -411,10 +411,10 @@ bool KGamma::loadUserSettings() {
   KConfig *config = new KConfig("kgammarc");
 
   for (int i = 0; i < ScreenCount; i++) {
-    config->setGroup(QString( "Screen %1" ).arg(i) );
-    rgamma[i] = config->readEntry("rgamma");
-    ggamma[i] = config->readEntry("ggamma");
-    bgamma[i] = config->readEntry("bgamma");
+    KConfigGroup screenGroup = config->group(QString( "Screen %1" ).arg(i) );
+    rgamma[i] = screenGroup.readEntry("rgamma");
+    ggamma[i] = screenGroup.readEntry("ggamma");
+    bgamma[i] = screenGroup.readEntry("bgamma");
   }
   delete config;
 
@@ -437,7 +437,7 @@ bool KGamma::loadSystemSettings() {
     // Analyse Screen<->Monitor assignments of multi-head configurations
     while ( !t.atEnd() ) {
       s = (t.readLine()).simplified();
-      QStringList words = QStringList::split(' ', s);
+      QStringList words = s.split(' ');
 
       if ( !words.empty() ) {
         if ( words[0] == "Section" && words.size() > 1 ) {
@@ -497,7 +497,7 @@ bool KGamma::loadSystemSettings() {
     for ( int i = 0; i < ScreenCount; i++) {
       rgamma[i] = ggamma[i] = bgamma[i] = "";
 
-      QStringList words = QStringList::split(' ', Gamma[assign[i]]);
+      QStringList words = Gamma[assign[i]].split(' ');
       QStringList::ConstIterator it = words.begin();
       if ( words.size() < 4 )
         rgamma[i] = ggamma[i] = bgamma[i] = *(++it);   // single gamma value
@@ -616,13 +616,13 @@ extern "C"
 
       for (int i = 0; i < xv._ScreenCount(); i++) {
         xv.setScreen(i);
-        config->setGroup( QString("Screen %1").arg(i) );
+        KConfigGroup screenGroup = config->group( QString("Screen %1").arg(i) );
 
-        if ((rgamma = config->readEntry("rgamma").toFloat()))
+        if ((rgamma = screenGroup.readEntry("rgamma").toFloat()))
           xv.setGamma(XVidExtWrap::Red, rgamma);
-        if ((ggamma = config->readEntry("ggamma").toFloat()))
+        if ((ggamma = screenGroup.readEntry("ggamma").toFloat()))
           xv.setGamma(XVidExtWrap::Green, ggamma);
-        if ((bgamma = config->readEntry("bgamma").toFloat()))
+        if ((bgamma = screenGroup.readEntry("bgamma").toFloat()))
           xv.setGamma(XVidExtWrap::Blue, bgamma);
       }
       delete config;

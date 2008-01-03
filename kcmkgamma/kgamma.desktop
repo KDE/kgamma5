@@ -121,11 +121,14 @@ X-KDE-Keywords[uz]=KGamma, kgamma, Гамма, гамма
 X-KDE-Keywords[wa]=KGamma, kgamma, Gama, gama
 X-KDE-Keywords[x-test]=xxKGamma, kgamma, Gamma, gammaxx
 X-KDE-Keywords[zh_CN]=KGamma, kgamma, Gamma, gamma,伽玛
-Type=Application
-X-KDE-Init=kgamma
-X-KDE-FactoryName=kgamma
-X-KDE-Library=kgamma
-X-KDE-ModuleType=Library
+Type=Service
+X-KDE-ServiceTypes=KCModule
+
 X-KDE-Test-Module=true
+
+X-KDE-Library=kcm_kgamma
+X-KDE-ParentApp=kcontrol
+
+
 NoDisplay=true
 Categories=Qt;KDE;Settings;X-KDE-settings-peripherals;

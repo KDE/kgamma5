@@ -14,11 +14,12 @@ set(kcm_kgamma_PART_SRCS
 kde4_add_plugin(kcm_kgamma ${kcm_kgamma_PART_SRCS})
 
 
-target_link_libraries(kcm_kgamma Xxf86vm ${KDE4_KDEUI_LIBS} )
+target_link_libraries(kcm_kgamma Xxf86vm ${KDE4_KDEUI_LIBS}
+${KDE4_KDE3SUPPORT_LIBS} )
 
 install(TARGETS kcm_kgamma  DESTINATION ${PLUGIN_INSTALL_DIR} )
 
-install(FILES kgamma.desktop  DESTINATION  ${XDG_APPS_INSTALL_DIR} )
+install(FILES kgamma.desktop  DESTINATION  ${SERVICES_INSTALL_DIR} )
 
 
 
