@@ -130,5 +130,4 @@ X-KDE-Library=kcm_kgamma
 X-KDE-ParentApp=kcontrol
 
 
-NoDisplay=true
 Categories=Qt;KDE;Settings;X-KDE-settings-peripherals;

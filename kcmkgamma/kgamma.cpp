@@ -61,7 +61,7 @@ extern "C"
 }
 
 K_PLUGIN_FACTORY(KGammaConfigFactory,
-        registerPlugin<KGamma>("kgamma");
+        registerPlugin<KGamma>();
         )
 K_EXPORT_PLUGIN(KGammaConfigFactory("kcmkgamma"))
 
@@ -482,32 +482,32 @@ bool KGamma::loadSystemSettings() {
     } // End while
     f.close();
 
-    for ( int i = 0; i < ScreenCount; i++ ) {
-      for ( int j = 0; j < ScreenCount; j++ ) {
-        if ( ScreenLayout[i] == Screen[j] ) {
-          for ( int k = 0; k < ScreenCount; k++ ) {
-            if ( Monitor[k] == ScreenMonitor[j] )
-              assign[ScreenNr[i]] = k;
+    if(!Monitor.isEmpty() && !ScreenMonitor.isEmpty()) {
+      for ( int i = 0; i < ScreenCount; i++ ) {
+        for ( int j = 0; j < ScreenCount; j++ ) {
+          if ( ScreenLayout[i] == Screen[j] ) {
+            for ( int k = 0; k < ScreenCount; k++ ) {
+              if ( Monitor[k] == ScreenMonitor[j] )
+                assign[ScreenNr[i]] = k;
+            }
           }
         }
       }
-    }
+      // Extract gamma values
+      for ( int i = 0; i < ScreenCount; i++) {
+        rgamma[i] = ggamma[i] = bgamma[i] = "";
 
-    // Extract gamma values
-    for ( int i = 0; i < ScreenCount; i++) {
-      rgamma[i] = ggamma[i] = bgamma[i] = "";
-
-      QStringList words = Gamma[assign[i]].split(' ');
-      QStringList::ConstIterator it = words.begin();
-      if ( words.size() < 4 )
-        rgamma[i] = ggamma[i] = bgamma[i] = *(++it);   // single gamma value
-      else  {
-        rgamma[i] = *(++it);  // eventually rgb gamma values
-        ggamma[i] = *(++it);
-        bgamma[i] = *(++it);
+        QStringList words = Gamma[assign[i]].split(' ');
+        QStringList::ConstIterator it = words.begin();
+        if ( words.size() < 4 )
+          rgamma[i] = ggamma[i] = bgamma[i] = *(++it);   // single gamma value
+        else  {
+          rgamma[i] = *(++it);  // eventually rgb gamma values
+          ggamma[i] = *(++it);
+          bgamma[i] = *(++it);
+         }
+       }
       }
-    }
-
   }
   return( validateGammaValues() );
 }
