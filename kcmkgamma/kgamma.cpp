@@ -43,7 +43,7 @@
 #include <kdialog.h>
 #include <kgenericfactory.h>
 #include <khbox.h>
-#include "config.h"
+#include "config-kgamma.h"
 #include "xf86configpath.h"
 #include "gammactrl.h"
 #include "xvidextwrap.h"

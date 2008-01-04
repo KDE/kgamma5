@@ -24,7 +24,7 @@
 #include <string>
 #include <vector>
 
-#include <config.h>
+#include "config-kgamma.h"
 
 #if !defined(HAVE_STRSTREAM_H)
 #include <sstream>
