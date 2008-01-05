@@ -243,8 +243,8 @@ void KGamma::setupUI() {
 
     QGridLayout *grid = new QGridLayout();
     grid->setSpacing(8);
-    grid->addWidget(frame1, 0, 2, 0, 3);
-    grid->addWidget(frame2, 4, 8, 0, 3);
+    grid->addWidget(frame1, 0, 0, 2, 3);
+    grid->addWidget(frame2, 4, 0, 8, 3);
     grid->addWidget(gammalabel, 1, 1, Qt::AlignRight);
     grid->addWidget(redlabel, 5, 1, Qt::AlignRight);
     grid->addWidget(greenlabel, 6, 1, Qt::AlignRight);
