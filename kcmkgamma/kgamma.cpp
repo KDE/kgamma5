@@ -32,7 +32,7 @@
 #include <QFrame>
 #include <QHBoxLayout>
 #include <QBoxLayout>
-#include <Q3ValueList>
+#include <QList>
 #include <QVBoxLayout>
 
 #include <kstandarddirs.h>
@@ -423,7 +423,7 @@ bool KGamma::loadUserSettings() {
 
 bool KGamma::loadSystemSettings() {
   QStringList Monitor, Screen, ScreenLayout, ScreenMonitor, Gamma;
-  Q3ValueList<int> ScreenNr;
+  QList<int> ScreenNr;
   QString Section;
   XF86ConfigPath Path;
 
