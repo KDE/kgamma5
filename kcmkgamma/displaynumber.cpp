@@ -23,8 +23,8 @@
 
 #include "displaynumber.h"
 
-DisplayNumber::DisplayNumber(QWidget *parent, int digits, \
-    int prec) : QLabel(parent) {
+DisplayNumber::DisplayNumber(QWidget *parent, int digits, int prec) 
+  : QLabel(parent) {
 
   setPrecision(prec);
   setWidth(digits);
