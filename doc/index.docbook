@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1.2-Based Variant V1.1//EN"
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.2-Based Variant V1.1//EN"
  "dtd/kdex.dtd" [
   <!ENTITY kgamma '<application>KGamma</application>'>
   <!ENTITY kappname "&kgamma;">
@@ -96,7 +96,7 @@ one screen this option will take no effect.</para>
 
 <itemizedlist>
 <listitem>
-<para>A gray scale with 20 different sections</para>
+<para>A grayscale with 20 different sections</para>
 </listitem>
 <listitem>
 <para>The darkest section pure black</para>
@@ -109,7 +109,7 @@ one screen this option will take no effect.</para>
 </listitem>
 </itemizedlist>
 
-<para>If you can't see all of the 20 sections, use your monitors contrast settings
+<para>If you cannot see all of the 20 sections, use your monitors contrast settings
 or the "Gamma" slider of &kgamma; to correct this. If black is not pure black,
 try to darken the monitor, if white is not pure white, try to lighten
 it. If you see any colors in the gray tones alter the color balance settings of
@@ -134,13 +134,13 @@ should be pure cyan, magenta or yellow.</para>
 
 <itemizedlist>
 <listitem>
-<para>If you can't see all cyan sections, try to lighten or darken red</para>
+<para>If you cannot see all cyan sections, try to lighten or darken red</para>
 </listitem>
 <listitem>
-<para>If you can't see all magenta sections, try to lighten or darken green</para>
+<para>If you cannot see all magenta sections, try to lighten or darken green</para>
 </listitem>
 <listitem>
-<para>If you can't see all yellow sections, try to lighten or darken blue</para>
+<para>If you cannot see all yellow sections, try to lighten or darken blue</para>
 </listitem>
 </itemizedlist>
 </sect1>
@@ -149,7 +149,7 @@ should be pure cyan, magenta or yellow.</para>
 <title>Advanced Test Images</title>
 <para>
 The following three pictures shows you the abilities of your monitor at
-three points of the gray spectrum. If you can't see all of the details,
+three points of the gray spectrum. If you cannot see all of the details,
 don't be worry, or buy better hardware.
 </para>
 <sect2 id="dark-gray">
