@@ -426,7 +426,6 @@ bool KGamma::loadSystemSettings() {
   Q3ValueList<int> ScreenNr;
   QString Section;
   XF86ConfigPath Path;
-
   QFile f( Path.get() );
   if ( f.open(QIODevice::ReadOnly) ) {
     QTextStream t( &f );
@@ -438,7 +437,6 @@ bool KGamma::loadSystemSettings() {
     while ( !t.atEnd() ) {
       s = (t.readLine()).simplified();
       QStringList words = s.split(' ');
-
       if ( !words.empty() ) {
         if ( words[0] == "Section" && words.size() > 1 ) {
           if ( (Section = words[1]) == "\"Monitor\"" ) gm = false;
@@ -481,14 +479,14 @@ bool KGamma::loadSystemSettings() {
       }
     } // End while
     f.close();
-
-    if(!Monitor.isEmpty() && !ScreenMonitor.isEmpty()) {
+    if(!Monitor.isEmpty() && !ScreenMonitor.isEmpty() && !ScreenLayout.isEmpty()) {
       for ( int i = 0; i < ScreenCount; i++ ) {
         for ( int j = 0; j < ScreenCount; j++ ) {
           if ( ScreenLayout[i] == Screen[j] ) {
             for ( int k = 0; k < ScreenCount; k++ ) {
-              if ( Monitor[k] == ScreenMonitor[j] )
+              if ( Monitor[k] == ScreenMonitor[j] ) {
                 assign[ScreenNr[i]] = k;
+              }
             }
           }
         }
