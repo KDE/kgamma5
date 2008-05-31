@@ -12,7 +12,7 @@
 
 <!-- The language must NOT be changed here. -->
 <book lang="&language;">
-<title>The KGamma Handbook</title>
+<title>The &kgamma; Handbook</title>
 
 <bookinfo>
 <authorgroup>
@@ -23,9 +23,9 @@
 <address><email>ostheimm@users.berlios.de</email></address>
 </affiliation>
 </author>
+<!-- TRANS:ROLES_OF_TRANSLATORS -->
 </authorgroup>
 
-<!-- TRANS:ROLES_OF_TRANSLATORS -->
 <copyright>
 <year>2001, 2002, 2003</year>
 <holder>Michael v.Ostheim</holder>
@@ -193,7 +193,6 @@ Documentation copyright 2001, 2002, 2003 Michael v.Ostheim <email>ostheimm@users
 </para>
 
 <!-- TRANS:CREDIT_FOR_TRANSLATORS -->
-
 &underFDL;           <!-- FDL: do not remove. -->
 &underGPL;        	 <!-- GPL License -->
 </chapter>
