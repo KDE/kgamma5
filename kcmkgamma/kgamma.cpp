@@ -67,7 +67,7 @@ K_EXPORT_PLUGIN(KGammaConfigFactory("kcmkgamma"))
 
 
 KGamma::KGamma(QWidget* parent_P, const QVariantList &)
-    :KCModule(KGammaConfigFactory::componentData(), parent_P)
+    :KCModule(KGammaConfigFactory::componentData(), parent_P), rootProcess(0)
 {
   bool ok;
   GammaCorrection = true;
