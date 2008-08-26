@@ -33,8 +33,8 @@
 <!-- Translators: put here the copyright notice of the translation -->
 
 <legalnotice>&FDLNotice;</legalnotice>
-<date>28/08/2003</date>
-<releaseinfo>1.00.20</releaseinfo>
+<date>2008-08-26</date>
+<releaseinfo>4.1.1</releaseinfo>
 
 <!-- Abstract about this handbook -->
 <abstract>
@@ -54,12 +54,12 @@
 <chapter id="introduction">
 <title>Introduction</title>
 
-<para>This document describes &kgamma; version 1.0.2 (&kde; 3.2)</para>
+<para>This document describes &kgamma; for &kde; 4.1.1</para>
 <para>&kgamma; is a tool for monitor gamma correction.  With proper gamma
-settings, your display (websites, images, etc.) will look the same on your
+settings, your display (websites, images, &etc;) will look the same on your
 monitor as on other monitors.</para>
-<para>&kgamma; allows you to alter the monitor's gamma correction of
-XFree86. But that's not all to do. For good results you have to set the
+<para>&kgamma; allows you to alter the monitor's gamma correction of the
+&X-Server;. But that's not all to do. For good results you have to set the
 correct brightness, contrast and color balance of your monitor. This
 may be difficult and you have to repeat every step several times.
 For perfect results you need really good (and expensive) hardware.</para>
@@ -72,21 +72,21 @@ image files.</para>
 <sect1 id="Setting-Gamma">
 <title>Setting Gamma Correction</title>
 <para>Use the four sliders to define the gamma correction either as a single
-value, or separately for the red, green and blue components. The XFree86
+value, or separately for the red, green and blue components. The &X-Server;
 default setting for gamma is 1.00 (&Mac; 1.80, WinXX 2.20). The test images help
 you to find proper settings.</para>
-<para>To store the gamma settings system wide, enable the option 'Store
-settings to XF86Config'. The system settings will be restored at next XFree86
+<para>To store the gamma settings system wide, enable the option <guilabel>Save
+settings system wide</guilabel>. The system settings will be restored at next &X-Server;
 startup. You need root access to use this option. Use this if you want to
 correct the gamma settings for all users and graphical environments on this
 machine.</para>
 <para>To store the gamma settings to your personal &kde; configuration, do not
 enable that option. The user settings will be restored at next &kde; startup and
 replace temporary the system gamma settings. The system settings are not removed by
-that and will be restored at next XFree86 startup.</para>
+that and will be restored at next &X-Server; startup.</para>
 <para>On multi head systems, select the screen you want to alter with the combo
 box. This will also work with xinerama enabled. If you want to set all screens
-to the same gamma values, enable the 'Sync screens' option. On systems with only
+to the same gamma values, enable the <guilabel>Sync screens</guilabel> option. On systems with only
 one screen this option will take no effect.</para>
 </sect1>
 
@@ -110,10 +110,10 @@ one screen this option will take no effect.</para>
 </itemizedlist>
 
 <para>If you cannot see all of the 20 sections, use your monitors contrast settings
-or the "Gamma" slider of &kgamma; to correct this. If black is not pure black,
+or the <guilabel>Gamma</guilabel> slider of &kgamma; to correct this. If black is not pure black,
 try to darken the monitor, if white is not pure white, try to lighten
 it. If you see any colors in the gray tones alter the color balance settings of
-your monitor or the "Red", "Green" and "Blue" slider of &kgamma;.</para>
+your monitor or the <guilabel>Red</guilabel>, <guilabel>Green</guilabel> and <guilabel>Blue</guilabel> slider of &kgamma;.</para>
 </sect1>
 
 <sect1 id="RGB-Scale">
@@ -200,24 +200,10 @@ Documentation copyright 2001, 2002, 2003 Michael v.Ostheim <email>ostheimm@users
 <appendix id="installation">
 <title>Installation</title>
 
-<para>&kgamma;'s home site is
-<ulink url="http://kgamma.berlios.de/index2.php">http://kgamma.berlios.de/index2.php</ulink>
-</para>
+&install.intro.documentation;
 
-<sect1 id="compilation">
-<title>Compilation and Installation</title>
+&install.compile.documentation;
 
-<para>
-In order to compile and install &kgamma; on your system, type the following in the base
-folder of the &kgamma; distribution:
-<screen>
-<prompt>%</prompt> <userinput><command>./configure</command></userinput>
-<prompt>%</prompt> <userinput><command>make</command></userinput>
-<prompt>%</prompt> <userinput><command>make install</command></userinput>
-</screen>
-</para>
-
-</sect1>
 </appendix>
 
 &documentation.index;
