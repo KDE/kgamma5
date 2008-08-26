@@ -85,7 +85,7 @@ Name[x-test]=xxGammaxx
 Name[xh]=Unobumba wesithathu konoobumba besiGrike
 Name[zh_HK]=伽馬（Gamma）
 
-X-DocPath=kgamma
+X-DocPath=kgamma/index.html
 Exec=kcmshell4 kgamma
 Icon=kgamma
 X-KDE-Keywords=KGamma, kgamma, Gamma, gamma
