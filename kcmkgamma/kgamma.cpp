@@ -433,7 +433,7 @@ bool KGamma::loadSystemSettings() {
     int sn = 0;
     bool gm = false;
 
-    // Analyse Screen<->Monitor assignments of multi-head configurations
+    // Analyze Screen<->Monitor assignments of multi-head configurations
     while ( !t.atEnd() ) {
       s = (t.readLine()).simplified();
       QStringList words = s.split(' ');
