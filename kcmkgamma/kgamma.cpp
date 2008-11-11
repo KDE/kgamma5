@@ -496,7 +496,7 @@ bool KGamma::loadSystemSettings() {
         rgamma[i] = ggamma[i] = bgamma[i] = "";
 
         QStringList words = Gamma[assign[i]].split(' ');
-        QStringList::ConstIterator it = words.begin();
+        QStringList::ConstIterator it = words.constBegin();
         if ( words.size() < 4 )
           rgamma[i] = ggamma[i] = bgamma[i] = *(++it);   // single gamma value
         else  {
