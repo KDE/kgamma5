@@ -1,5 +1,6 @@
 [Desktop Entry]
 Comment=A monitor calibration tool
+Comment[ar]=أداة مراقب المعايرة
 Comment[bg]=Калибриране на монитора
 Comment[ca]=Una eina de calibració del monitor
 Comment[cs]=Nástroj pro kalibraci monitoru
@@ -53,6 +54,7 @@ Comment[zh_HK]=顯示器調校工具
 Comment[zh_TW]=監視器校準工具
 
 Name=Gamma
+Name[ar]=جاما
 Name[be]=Гама
 Name[bg]=Гама
 Name[cs]=Gama
