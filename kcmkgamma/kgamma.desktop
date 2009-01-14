@@ -132,5 +132,6 @@ X-KDE-Test-Module=true
 X-KDE-Library=kcm_kgamma
 X-KDE-ParentApp=kcontrol
 
+X-KDE-System-Settings-Parent-Category=display
 
 Categories=Qt;KDE;Settings;X-KDE-settings-peripherals;
