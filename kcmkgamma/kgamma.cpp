@@ -39,7 +39,7 @@
 #include <kconfig.h>
 #include <klocale.h>
 #include <kglobal.h>
-#include <k3process.h>
+#include <kprocess.h>
 #include <kdialog.h>
 #include <kgenericfactory.h>
 #include <khbox.h>
@@ -93,7 +93,7 @@ KGamma::KGamma(QWidget* parent_P, const QVariantList &)
       }
       xv->setScreen(currentScreen);
 
-      rootProcess = new K3Process;
+      rootProcess = new KProcess;
       setupUI();
       saved = false;
 
@@ -360,13 +360,13 @@ void KGamma::save() {
       KConfigGroup x86group = config->group("ConfigFile");
       x86group.writeEntry("use", "XF86Config");
 
-      if ( !rootProcess->isRunning() ) {
+      if ( !(rootProcess->state()==QProcess::Running) ) {
         QString Arguments = "xf86gammacfg ";
         for (int i = 0; i < ScreenCount; i++)
           Arguments += rgamma[assign[i]] + ' ' + ggamma[assign[i]] + ' ' + \
                        bgamma[assign[i]] + ' ';
-        rootProcess->clearArguments();
-        *rootProcess << KStandardDirs::findExe("kdesu") << Arguments;
+        rootProcess->clearProgram();
+        rootProcess->setProgram( KStandardDirs::findExe("kdesu"), Arguments.split(' '));
         rootProcess->start();
       }
     }
