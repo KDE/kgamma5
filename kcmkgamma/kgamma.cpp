@@ -399,8 +399,9 @@ bool KGamma::loadSettings() {
   delete config;
 
   if ( ConfigFile == "XF86Config" ) {  // parse XF86Config
-    xf86cfgbox->setChecked(true);
-    return( loadSystemSettings() );
+    bool validGlobalConfig = loadSystemSettings();
+    xf86cfgbox->setChecked( validGlobalConfig );
+    return( validGlobalConfig );
   }
   else { //get gamma settings from user config
     return( loadUserSettings() );
@@ -492,20 +493,22 @@ bool KGamma::loadSystemSettings() {
         }
       }
       // Extract gamma values
-      for ( int i = 0; i < ScreenCount; i++) {
-        rgamma[i] = ggamma[i] = bgamma[i] = "";
+      if (gm) {
+        for ( int i = 0; i < ScreenCount; i++) {
+          rgamma[i] = ggamma[i] = bgamma[i] = "";
 
-        QStringList words = Gamma[assign[i]].split(' ');
-        QStringList::ConstIterator it = words.constBegin();
-        if ( words.size() < 4 )
-          rgamma[i] = ggamma[i] = bgamma[i] = *(++it);   // single gamma value
-        else  {
-          rgamma[i] = *(++it);  // eventually rgb gamma values
-          ggamma[i] = *(++it);
-          bgamma[i] = *(++it);
-         }
-       }
+          QStringList words = Gamma[assign[i]].split(' ');
+          QStringList::ConstIterator it = words.constBegin();
+          if ( words.size() < 4 )
+            rgamma[i] = ggamma[i] = bgamma[i] = *(++it);   // single gamma value
+          else  {
+            rgamma[i] = *(++it);  // eventually rgb gamma values
+            ggamma[i] = *(++it);
+            bgamma[i] = *(++it);
+          }
+        }
       }
+    }
   }
   return( validateGammaValues() );
 }
