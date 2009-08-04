@@ -270,7 +270,12 @@ void KGamma::setupUI() {
     for ( int i = 0; i < ScreenCount; i++ )
       screenselect->addItem( i18n("Screen %1", i+1) );
     screenselect->setCurrentIndex(currentScreen);
-    connect(screenselect, SIGNAL(activated(int)), SLOT(changeScreen(int)));
+    if ( ScreenCount <= 1 )
+    {
+        screenselect->setEnabled( false );
+    }
+    else
+        connect(screenselect, SIGNAL(activated(int)), SLOT(changeScreen(int)));
 
     options->setSpacing( 10 );
     options->setStretchFactor( xf86cfgbox, 10 );
