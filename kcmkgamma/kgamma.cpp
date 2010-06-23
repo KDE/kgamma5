@@ -119,6 +119,8 @@ KGamma::~KGamma() {
   // and there is no valid kgammarc.
   // Existing user settings overwrite system settings
   if (GammaCorrection) {
+    // Do not emit signals during destruction (bug 221611)
+    bool blocked = blockSignals(true);
     if ( loadUserSettings() ) load();
     else if ( !saved )
       for (int i = 0; i < ScreenCount; i++ ) {
@@ -128,6 +130,7 @@ KGamma::~KGamma() {
         xv->setGamma( XVidExtWrap::Blue, bbak[i] );
       }
     delete rootProcess;
+    blockSignals(blocked);
   }
   delete xv;
 }
