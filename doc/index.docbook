@@ -20,8 +20,8 @@
 <!-- TRANS:ROLES_OF_TRANSLATORS -->
 </authorgroup>
 
-<date>2009-11-16</date>
-<releaseinfo>4.4.0</releaseinfo>
+<date>2010-09-25</date>
+<releaseinfo>&kde; 4.5</releaseinfo>
 
 <keywordset>
 <keyword>KDE</keyword>
@@ -65,7 +65,7 @@ one screen this option will take no effect.</para>
 
 <sect1 id="using_test_images">
 <title>Using the Test Images</title>
-<para>This module provides six different test pictures selectable from the drop down box at the bottom of the window.</para>
+<para>This module provides six different test pictures selectable from the drop down box at the top of the window.</para>
 <sect2 id="grey">
 <title>Grey Scale Test Image</title>
 <para>You should be able to see the following:</para>
