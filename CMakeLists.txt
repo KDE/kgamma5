@@ -15,4 +15,5 @@ add_definitions (${QT_DEFINITIONS} ${QT_QTDBUS_DEFINITIONS} ${KDE4_DEFINITIONS} 
 include_directories (${QDBUS_INCLUDE_DIRS} ${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR} ${CMAKE_CURRENT_BINARY_DIR} ${KDE4_INCLUDES})
 
 add_subdirectory( kcmkgamma ) 
-add_subdirectory( xf86gammacfg ) 
+add_subdirectory( xf86gammacfg )
+add_subdirectory( doc )
