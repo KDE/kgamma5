@@ -9,7 +9,7 @@ include(MacroOptionalAddSubdirectory)
 
 if(X11_FOUND)
   #X11_xf86vmode discovery is done by FindX11
-  macro_log_feature(X11_xf86vmode_FOUND "X11 Video Mode Extension (xf86vm)" "An X11 extension providing access to detailed timings of video modes currently in use, and a means to modify them" "http://www.x.org" TRUE "" "X11 xvidmode extensions are needed to build kgamma.")
+  macro_log_feature(X11_xf86vmode_FOUND "X11 Video Mode Extension (xf86vm)" "Required to build kgamma." "http://www.x.org" TRUE "" "")
 endif(X11_FOUND)
 
 if(X11_FOUND AND X11_xf86vmode_FOUND)
