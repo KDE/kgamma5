@@ -164,8 +164,8 @@ void KGamma::setupUI() {
     QStackedWidget  *stack = new QStackedWidget ( this );
     stack->setFrameStyle( QFrame::Box | QFrame::Raised );
 
-    connect( combo, SIGNAL( activated( int ) ),
-             stack, SLOT( setCurrentIndex( int ) ) );
+    connect( combo, SIGNAL(activated(int)),
+             stack, SLOT(setCurrentIndex(int)) );
 
     QLabel *pic1 = new QLabel(stack);
     pic1->setMinimumSize(530, 171);
