@@ -27,8 +27,8 @@
 #include "gammactrl.moc"
 
 GammaCtrl::GammaCtrl(QWidget *parent, XVidExtWrap *xvid, int channel, \
-  const QString& mingamma, const QString& maxgamma, const QString& setgamma, \
-  const char *name) : KHBox(parent)
+  const QString& mingamma, const QString& maxgamma, const QString& setgamma)
+  : KHBox(parent)
 {
   int maxslider = (int)( ( maxgamma.toDouble() - mingamma.toDouble() \
                   + 0.0005 ) * 20 );

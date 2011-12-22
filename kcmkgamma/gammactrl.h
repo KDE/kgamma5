@@ -35,7 +35,7 @@ class GammaCtrl : public KHBox  {
     /** construktor */
     GammaCtrl(QWidget *parent=0, XVidExtWrap *xvid=0, int channel=0, 
       const QString& mingamma="0.40", const QString& maxgamma="3.50", 
-      const QString& setgamma="1.00", const char *name=0 );
+      const QString& setgamma="1.00");
     /** destruktor */
     ~GammaCtrl();
     /** Return the current gamma value with precision prec */
