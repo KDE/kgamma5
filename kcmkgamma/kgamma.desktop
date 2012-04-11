@@ -145,6 +145,7 @@ Exec=kcmshell4 kgamma
 Icon=preferences-desktop-display-color.png
 X-KDE-Keywords=KGamma, kgamma, Gamma, gamma
 X-KDE-Keywords[ar]=جاما,KGamma, kgamma, Gamma, gamma
+X-KDE-Keywords[bg]=калибриране, гама, кгама, KGamma, kgamma, Gamma, gamma
 X-KDE-Keywords[ca]=KGamma, kgamma, Gamma, gamma
 X-KDE-Keywords[ca@valencia]=KGamma, kgamma, Gamma, gamma
 X-KDE-Keywords[da]=KGamma,kgamma,Gamma,gamma
