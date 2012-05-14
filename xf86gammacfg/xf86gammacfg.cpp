@@ -132,7 +132,7 @@ int main(int argc, char *argv[])
     cerr << "Usage: xf86gammacfg RGAMMA GGAMMA " \
             "BGAMMA [RGAMMA GGAMMA BGAMMA [...]]" << endl;
 
-  return success;
+  return !success;
 }
 
 #ifdef istringstream
