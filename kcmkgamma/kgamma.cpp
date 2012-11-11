@@ -70,7 +70,7 @@ KGamma::KGamma(QWidget* parent_P, const QVariantList &)
     :KCModule(KGammaConfigFactory::componentData(), parent_P), rootProcess(0)
 {
   bool ok;
-  GammaCorrection = true;
+  GammaCorrection = false;
   xv = new XVidExtWrap(&ok, NULL);
   if (ok) { /* KDE 4: Uneccessary test, when all KCM wrappers do conditional loading */
     xv->getGamma(XVidExtWrap::Red, &ok);
@@ -94,6 +94,7 @@ KGamma::KGamma(QWidget* parent_P, const QVariantList &)
       xv->setScreen(currentScreen);
 
       rootProcess = new KProcess;
+      GammaCorrection = true;
       setupUI();
       saved = false;
 
@@ -107,10 +108,9 @@ KGamma::KGamma(QWidget* parent_P, const QVariantList &)
       }
       load();
     }
-    else {  //something is wrong, show only error message
-      GammaCorrection = false;
-      setupUI();
-    }
+  }
+  if (!GammaCorrection) { //something is wrong, show only error message
+    setupUI();
   }
 }
 
