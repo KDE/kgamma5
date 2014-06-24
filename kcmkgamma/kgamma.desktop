@@ -194,11 +194,12 @@ X-KDE-Keywords[x-test]=xxKGamma, kgamma, Gamma, gammaxx
 X-KDE-Keywords[zh_CN]=KGamma, kgamma, Gamma, gamma,伽马,伽玛
 X-KDE-Keywords[zh_TW]=KGamma, kgamma, Gamma, gamma
 Type=Service
-X-KDE-ServiceTypes=KCModule
+X-KDE-ServiceTypes=KCModule,KCModuleInit
 
 X-KDE-Test-Module=true
 
 X-KDE-Library=kcm_kgamma
+X-KDE-Init-Symbol=kgamma
 X-KDE-ParentApp=kcontrol
 
 X-KDE-System-Settings-Parent-Category=display
