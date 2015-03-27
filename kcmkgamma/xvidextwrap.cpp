@@ -30,8 +30,6 @@
 #define istringstream istrstream
 #endif
 
-#include <kdebug.h>
-
 #include "xf86configpath.h"
 
 #include <X11/Xos.h>
@@ -52,7 +50,7 @@ XVidExtWrap::XVidExtWrap(bool* OK, const char* displayname) {
     *OK = true;
   }
   else {
-    kDebug() << "KGamma: unable to open display " << displayname;
+    qDebug() << "KGamma: unable to open display " << displayname;
     *OK = false;
   }
 }
@@ -110,7 +108,7 @@ void XVidExtWrap::setGamma(int channel, float gam, bool* OK) {
 
   if ( gam >= mingamma && gam <= maxgamma ) {
     if (!XF86VidModeGetGamma(dpy, screen, &gamma)) {
-      kDebug() << "KGamma: Unable to query gamma correction";
+      qDebug() << "KGamma: Unable to query gamma correction";
       if ( OK ) *OK = false;
     }
     else {
@@ -127,7 +125,7 @@ void XVidExtWrap::setGamma(int channel, float gam, bool* OK) {
           gamma.blue = gam;
       };
       if (!XF86VidModeSetGamma(dpy, screen, &gamma)) {
-        kDebug() << "KGamma: Unable to set gamma correction";
+        qDebug() << "KGamma: Unable to set gamma correction";
         if ( OK ) *OK = false;
       }
       else {
@@ -143,7 +141,7 @@ float XVidExtWrap::getGamma(int channel, bool* OK) {
   float gam = 0;
 
   if (!XF86VidModeGetGamma(dpy, screen, &gamma)) {
-    kDebug() << "KGamma: Unable to query gamma correction";
+    qDebug() << "KGamma: Unable to query gamma correction";
     if ( OK ) *OK = false;
   }
   else {
