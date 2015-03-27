@@ -8,9 +8,9 @@ set(kcm_kgamma_PART_SRCS
    kgamma.cpp
 )
 
-kde4_add_plugin(kcm_kgamma ${kcm_kgamma_PART_SRCS})
+add_library(kcm_kgamma MODULE ${kcm_kgamma_PART_SRCS})
 
-target_link_libraries(kcm_kgamma Xxf86vm ${KDE4_KDEUI_LIBS} ${X11_LIBRARIES})
+target_link_libraries(kcm_kgamma Xxf86vm  ${X11_LIBRARIES})
 
 install(TARGETS kcm_kgamma DESTINATION ${PLUGIN_INSTALL_DIR})
 
