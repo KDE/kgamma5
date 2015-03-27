@@ -18,6 +18,8 @@
 #ifndef XVIDEXTWRAP_H
 #define XVIDEXTWRAP_H
 
+#include <X11/Xutil.h>
+
 /**A wrapper for XF86VidMode Extension
   *@author Michael v.Ostheim
   */

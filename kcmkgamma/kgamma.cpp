@@ -48,7 +48,6 @@
 #include "gammactrl.h"
 #include "xvidextwrap.h"
 #include "kgamma.h"
-#include "kgamma.moc"
 
 extern "C"
 {

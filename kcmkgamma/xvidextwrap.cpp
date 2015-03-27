@@ -37,7 +37,9 @@
 #include <X11/Xutil.h>
 #include <X11/extensions/xf86vmode.h>
 
-#include <fixx11h.h>
+#include <QDebug>
+
+// #include <fixx11h.h>
 #include "xvidextwrap.h"
 
 using namespace std;

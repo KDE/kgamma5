@@ -15,11 +15,11 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <qstring.h>
-#include <qfontmetrics.h>
-//Added by qt3to4:
+#include <QString>
+#include <QFontMetrics>
 #include <QLabel>
 #include <QFrame>
+#include <QDebug>
 
 #include "displaynumber.h"
 

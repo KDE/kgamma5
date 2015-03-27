@@ -29,7 +29,7 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR})
 add_definitions(-DTRANSLATION_DOMAIN=\"kcm_gamma\")
 
 add_subdirectory(kcmkgamma)
-add_subdirectory(xf86gammacfg)
+# add_subdirectory(xf86gammacfg)
 add_subdirectory(doc)
 
 # macro_display_feature_log()
