@@ -14,6 +14,8 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+#include <QDebug>
+
 #include <stdlib.h>
 #include <iostream>
 #include <fstream>
@@ -37,7 +39,6 @@
 #include <X11/Xutil.h>
 #include <X11/extensions/xf86vmode.h>
 
-#include <QDebug>
 
 // #include <fixx11h.h>
 #include "xvidextwrap.h"

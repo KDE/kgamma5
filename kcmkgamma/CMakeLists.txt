@@ -10,7 +10,7 @@ set(kcm_kgamma_PART_SRCS
 
 add_library(kcm_kgamma MODULE ${kcm_kgamma_PART_SRCS})
 
-target_link_libraries(kcm_kgamma Xxf86vm  ${X11_LIBRARIES} Qt5::Core Qt5::Widget KF5::KDELibs4Support)
+target_link_libraries(kcm_kgamma Xxf86vm  ${X11_LIBRARIES} Qt5::Core Qt5::Widgets KF5::KDELibs4Support)
 
 install(TARGETS kcm_kgamma DESTINATION ${PLUGIN_INSTALL_DIR})
 
