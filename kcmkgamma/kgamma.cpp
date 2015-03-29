@@ -42,7 +42,7 @@
 #include <kprocess.h>
 #include <kdialog.h>
 #include <kgenericfactory.h>
-#include <khbox.h>
+#include <QHBoxLayout>
 #include "config-kgamma.h"
 #include "xf86configpath.h"
 #include "gammactrl.h"
@@ -261,16 +261,21 @@ void KGamma::setupUI() {
     topLayout->addLayout(grid);
 
     //Options
-    KHBox *options = new KHBox(this);
+    QWidget *options = new QWidget(this);
+    QHBoxLayout *optionsHBoxLayout = new QHBoxLayout(options);
+    optionsHBoxLayout->setMargin(0);
 
     xf86cfgbox = new QCheckBox( i18n("Save settings system wide"), options );
+    optionsHBoxLayout->addWidget(xf86cfgbox);
     connect(xf86cfgbox, SIGNAL(clicked()), SLOT(changeConfig()));
 
     syncbox = new QCheckBox( i18n("Sync screens"), options );
+    optionsHBoxLayout->addWidget(syncbox);
     connect(syncbox, SIGNAL(clicked()), SLOT(SyncScreens()));
     connect(syncbox, SIGNAL(clicked()), SLOT(Changed()));
 
     screenselect = new QComboBox( options );
+    optionsHBoxLayout->addWidget(screenselect);
     for ( int i = 0; i < ScreenCount; i++ )
       screenselect->addItem( i18n("Screen %1", i+1) );
     screenselect->setCurrentIndex(currentScreen);
@@ -281,10 +286,10 @@ void KGamma::setupUI() {
     else
         connect(screenselect, SIGNAL(activated(int)), SLOT(changeScreen(int)));
 
-    options->setSpacing( 10 );
-    options->setStretchFactor( xf86cfgbox, 10 );
-    options->setStretchFactor( syncbox, 1 );
-    options->setStretchFactor( screenselect, 1 );
+    optionsHBoxLayout->setSpacing( 10 );
+    optionsHBoxLayout->setStretchFactor( xf86cfgbox, 10 );
+    optionsHBoxLayout->setStretchFactor( syncbox, 1 );
+    optionsHBoxLayout->setStretchFactor( screenselect, 1 );
 
     topLayout->addWidget(options);
   }
