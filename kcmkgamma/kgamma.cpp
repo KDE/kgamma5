@@ -38,7 +38,6 @@
 
 
 #include <kconfig.h>
-#include <kdialog.h>
 #include <kgenericfactory.h>
 #include <QHBoxLayout>
 #include <QStandardPaths>
@@ -137,7 +136,6 @@ KGamma::~KGamma() {
 /** User interface */
 void KGamma::setupUI() {
   QBoxLayout *topLayout = new QVBoxLayout(this);
-  topLayout->setSpacing(KDialog::spacingHint());
   topLayout->setMargin(0);
 
   if (GammaCorrection) {
