@@ -35,7 +35,7 @@
 #include <QList>
 #include <QVBoxLayout>
 
-#include <kstandarddirs.h>
+
 #include <kconfig.h>
 #include <klocale.h>
 #include <kglobal.h>
@@ -43,6 +43,7 @@
 #include <kdialog.h>
 #include <kgenericfactory.h>
 #include <QHBoxLayout>
+#include <QStandardPaths>
 #include "config-kgamma.h"
 #include "xf86configpath.h"
 #include "gammactrl.h"
@@ -169,32 +170,32 @@ void KGamma::setupUI() {
 
     QLabel *pic1 = new QLabel(stack);
     pic1->setMinimumSize(530, 171);
-    pic1->setPixmap(QPixmap(KStandardDirs::locate("data", "kgamma/pics/greyscale.png")));
+    pic1->setPixmap(QPixmap(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kgamma/pics/greyscale.png")));
     pic1->setAlignment(Qt::AlignCenter);
     stack->insertWidget( 0,pic1 );
 
     QLabel *pic2 = new QLabel(stack);
-    pic2->setPixmap(QPixmap(KStandardDirs::locate("data", "kgamma/pics/rgbscale.png")));
+    pic2->setPixmap(QPixmap(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kgamma/pics/rgbscale.png")));
 	pic2->setAlignment(Qt::AlignCenter);
     stack->insertWidget( 1,pic2 );
 
     QLabel *pic3 = new QLabel(stack);
-    pic3->setPixmap(QPixmap(KStandardDirs::locate("data", "kgamma/pics/cmyscale.png")));
+    pic3->setPixmap(QPixmap(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kgamma/pics/cmyscale.png")));
     pic3->setAlignment(Qt::AlignCenter);
     stack->insertWidget( 2,pic3 );
 
     QLabel *pic4 = new QLabel(stack);
-    pic4->setPixmap(QPixmap(KStandardDirs::locate("data", "kgamma/pics/darkgrey.png")));
+    pic4->setPixmap(QPixmap(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kgamma/pics/darkgrey.png")));
     pic4->setAlignment(Qt::AlignCenter);
     stack->insertWidget( 3,pic4 );
 
     QLabel *pic5 = new QLabel(stack);
-    pic5->setPixmap(QPixmap(KStandardDirs::locate("data", "kgamma/pics/midgrey.png")));
+    pic5->setPixmap(QPixmap(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kgamma/pics/midgrey.png")));
     pic5->setAlignment(Qt::AlignCenter);
     stack->insertWidget( 4,pic5 );
 
     QLabel *pic6 = new QLabel(stack);
-    pic6->setPixmap(QPixmap(KStandardDirs::locate("data", "kgamma/pics/lightgrey.png")));
+    pic6->setPixmap(QPixmap(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kgamma/pics/lightgrey.png")));
     pic6->setAlignment(Qt::AlignCenter);
     stack->insertWidget( 5,pic6 );
 
@@ -380,7 +381,7 @@ void KGamma::save() {
           Arguments += rgamma[assign[i]] + ' ' + ggamma[assign[i]] + ' ' + \
                        bgamma[assign[i]] + ' ';
         rootProcess->clearProgram();
-        rootProcess->setProgram( KStandardDirs::findExe("kdesu"), Arguments.split(' '));
+        rootProcess->setProgram( QStandardPaths::findExecutable("kdesu"), Arguments.split(' '));
         rootProcess->start();
       }
     }
