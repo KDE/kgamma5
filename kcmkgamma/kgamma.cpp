@@ -34,12 +34,10 @@
 #include <QBoxLayout>
 #include <QList>
 #include <QVBoxLayout>
+#include <QProcess>
 
 
 #include <kconfig.h>
-#include <klocale.h>
-#include <kglobal.h>
-#include <kprocess.h>
 #include <kdialog.h>
 #include <kgenericfactory.h>
 #include <QHBoxLayout>
@@ -94,7 +92,7 @@ KGamma::KGamma(QWidget* parent_P, const QVariantList &) :
       }
       xv->setScreen(currentScreen);
 
-      rootProcess = new KProcess;
+      rootProcess = new QProcess;
       GammaCorrection = true;
       setupUI();
       saved = false;
@@ -380,8 +378,8 @@ void KGamma::save() {
         for (int i = 0; i < ScreenCount; i++)
           Arguments += rgamma[assign[i]] + ' ' + ggamma[assign[i]] + ' ' + \
                        bgamma[assign[i]] + ' ';
-        rootProcess->clearProgram();
-        rootProcess->setProgram( QStandardPaths::findExecutable("kdesu"), Arguments.split(' '));
+        rootProcess->setProgram(QStandardPaths::findExecutable("kdesu"));
+        rootProcess->setArguments(Arguments.split(' '));
         rootProcess->start();
       }
     }
