@@ -6,5 +6,5 @@ install(FILES
   lightgrey.png
   midgrey.png
   rgbscale.png
-  DESTINATION ${DATA_INSTALL_DIR}/kgamma/pics)
+  DESTINATION ${KDE_INSTALL_DATADIR}/kgamma/pics)
 
