@@ -38,6 +38,7 @@
 
 
 #include <kconfig.h>
+#include <KConfigGroup>
 #include <kgenericfactory.h>
 #include <QHBoxLayout>
 #include <QStandardPaths>
