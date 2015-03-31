@@ -13,6 +13,7 @@ include(FeatureSummary)
 find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS Core Gui Widgets X11Extras)
 
 find_package(KF5 REQUIRED COMPONENTS
+    DocTools
     KDELibs4Support
 )
 
