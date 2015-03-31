@@ -20,7 +20,7 @@ find_package(KF5 REQUIRED COMPONENTS
 find_package(X11 REQUIRED)
 
 # X11_xf86vmode discovery is done by FindX11
-# macro_log_feature(X11_xf86vmode_FOUND "X11 Video Mode Extension (xf86vm)" "Required to build kgamma." "http://www.x.org" TRUE "" "")
+add_feature_info("X11_xf86vmode" X11_xf86vmode_FOUND "Required to build kgamma.")
 
 # check_include_files(strstream HAVE_STRSTREAM_H)
 configure_file(config-kgamma.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kgamma.h)
@@ -33,4 +33,4 @@ add_subdirectory(kcmkgamma)
 # add_subdirectory(xf86gammacfg)
 add_subdirectory(doc)
 
-# macro_display_feature_log()
+feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
