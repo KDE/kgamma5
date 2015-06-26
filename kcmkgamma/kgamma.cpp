@@ -617,7 +617,7 @@ QString KGamma::quickHelp() const
 extern "C"
 {
   // Restore the user gamma settings
-  void kcminit_kgamma()
+  Q_DECL_EXPORT void kcminit_kgamma()
   {
     bool ok;
     XVidExtWrap xv(&ok);

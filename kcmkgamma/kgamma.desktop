@@ -202,6 +202,7 @@ X-KDE-Test-Module=true
 X-KDE-Library=kcm_kgamma
 X-KDE-Init-Symbol=kgamma
 X-KDE-ParentApp=kcontrol
+X-KDE-Init-Phase=0
 
 X-KDE-System-Settings-Parent-Category=display
 
