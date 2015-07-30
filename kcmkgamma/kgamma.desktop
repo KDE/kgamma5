@@ -145,7 +145,7 @@ Name[zh_HK]=伽馬（Gamma）
 Name[zh_TW]=Gamma
 
 X-DocPath=kcontrol/kgamma/index.html
-Exec=kcmshell4 kgamma
+Exec=kcmshell5 kgamma
 Icon=preferences-desktop-display-color.png
 X-KDE-Keywords=KGamma, kgamma, Gamma, gamma
 X-KDE-Keywords[ar]=جاما,KGamma, kgamma, Gamma, gamma
@@ -202,6 +202,7 @@ X-KDE-Test-Module=true
 X-KDE-Library=kcm_kgamma
 X-KDE-Init-Symbol=kgamma
 X-KDE-ParentApp=kcontrol
+X-KDE-Init-Phase=0
 
 X-KDE-System-Settings-Parent-Category=display
 

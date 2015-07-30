@@ -34,25 +34,23 @@
 #include <QBoxLayout>
 #include <QList>
 #include <QVBoxLayout>
+#include <QProcess>
 
-#include <kstandarddirs.h>
+
 #include <kconfig.h>
-#include <klocale.h>
-#include <kglobal.h>
-#include <kprocess.h>
-#include <kdialog.h>
+#include <KConfigGroup>
 #include <kgenericfactory.h>
-#include <khbox.h>
+#include <QHBoxLayout>
+#include <QStandardPaths>
 #include "config-kgamma.h"
 #include "xf86configpath.h"
 #include "gammactrl.h"
 #include "xvidextwrap.h"
 #include "kgamma.h"
-#include "kgamma.moc"
 
 extern "C"
 {
-	bool KDE_EXPORT test_kgamma()
+	bool test_kgamma()
 	{
 		bool retval;
 		(void) new XVidExtWrap(&retval, NULL);
@@ -66,8 +64,9 @@ K_PLUGIN_FACTORY(KGammaConfigFactory,
 K_EXPORT_PLUGIN(KGammaConfigFactory("kcmkgamma"))
 
 
-KGamma::KGamma(QWidget* parent_P, const QVariantList &)
-    :KCModule(KGammaConfigFactory::componentData(), parent_P), rootProcess(0)
+KGamma::KGamma(QWidget* parent_P, const QVariantList &) :
+    KCModule(parent_P),
+    rootProcess(0)
 {
   bool ok;
   GammaCorrection = false;
@@ -93,7 +92,7 @@ KGamma::KGamma(QWidget* parent_P, const QVariantList &)
       }
       xv->setScreen(currentScreen);
 
-      rootProcess = new KProcess;
+      rootProcess = new QProcess;
       GammaCorrection = true;
       setupUI();
       saved = false;
@@ -138,7 +137,6 @@ KGamma::~KGamma() {
 /** User interface */
 void KGamma::setupUI() {
   QBoxLayout *topLayout = new QVBoxLayout(this);
-  topLayout->setSpacing(KDialog::spacingHint());
   topLayout->setMargin(0);
 
   if (GammaCorrection) {
@@ -169,32 +167,32 @@ void KGamma::setupUI() {
 
     QLabel *pic1 = new QLabel(stack);
     pic1->setMinimumSize(530, 171);
-    pic1->setPixmap(QPixmap(KStandardDirs::locate("data", "kgamma/pics/greyscale.png")));
+    pic1->setPixmap(QPixmap(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kgamma/pics/greyscale.png")));
     pic1->setAlignment(Qt::AlignCenter);
     stack->insertWidget( 0,pic1 );
 
     QLabel *pic2 = new QLabel(stack);
-    pic2->setPixmap(QPixmap(KStandardDirs::locate("data", "kgamma/pics/rgbscale.png")));
+    pic2->setPixmap(QPixmap(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kgamma/pics/rgbscale.png")));
 	pic2->setAlignment(Qt::AlignCenter);
     stack->insertWidget( 1,pic2 );
 
     QLabel *pic3 = new QLabel(stack);
-    pic3->setPixmap(QPixmap(KStandardDirs::locate("data", "kgamma/pics/cmyscale.png")));
+    pic3->setPixmap(QPixmap(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kgamma/pics/cmyscale.png")));
     pic3->setAlignment(Qt::AlignCenter);
     stack->insertWidget( 2,pic3 );
 
     QLabel *pic4 = new QLabel(stack);
-    pic4->setPixmap(QPixmap(KStandardDirs::locate("data", "kgamma/pics/darkgrey.png")));
+    pic4->setPixmap(QPixmap(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kgamma/pics/darkgrey.png")));
     pic4->setAlignment(Qt::AlignCenter);
     stack->insertWidget( 3,pic4 );
 
     QLabel *pic5 = new QLabel(stack);
-    pic5->setPixmap(QPixmap(KStandardDirs::locate("data", "kgamma/pics/midgrey.png")));
+    pic5->setPixmap(QPixmap(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kgamma/pics/midgrey.png")));
     pic5->setAlignment(Qt::AlignCenter);
     stack->insertWidget( 4,pic5 );
 
     QLabel *pic6 = new QLabel(stack);
-    pic6->setPixmap(QPixmap(KStandardDirs::locate("data", "kgamma/pics/lightgrey.png")));
+    pic6->setPixmap(QPixmap(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kgamma/pics/lightgrey.png")));
     pic6->setAlignment(Qt::AlignCenter);
     stack->insertWidget( 5,pic6 );
 
@@ -261,16 +259,21 @@ void KGamma::setupUI() {
     topLayout->addLayout(grid);
 
     //Options
-    KHBox *options = new KHBox(this);
+    QWidget *options = new QWidget(this);
+    QHBoxLayout *optionsHBoxLayout = new QHBoxLayout(options);
+    optionsHBoxLayout->setMargin(0);
 
     xf86cfgbox = new QCheckBox( i18n("Save settings system wide"), options );
+    optionsHBoxLayout->addWidget(xf86cfgbox);
     connect(xf86cfgbox, SIGNAL(clicked()), SLOT(changeConfig()));
 
     syncbox = new QCheckBox( i18n("Sync screens"), options );
+    optionsHBoxLayout->addWidget(syncbox);
     connect(syncbox, SIGNAL(clicked()), SLOT(SyncScreens()));
     connect(syncbox, SIGNAL(clicked()), SLOT(Changed()));
 
     screenselect = new QComboBox( options );
+    optionsHBoxLayout->addWidget(screenselect);
     for ( int i = 0; i < ScreenCount; i++ )
       screenselect->addItem( i18n("Screen %1", i+1) );
     screenselect->setCurrentIndex(currentScreen);
@@ -281,10 +284,10 @@ void KGamma::setupUI() {
     else
         connect(screenselect, SIGNAL(activated(int)), SLOT(changeScreen(int)));
 
-    options->setSpacing( 10 );
-    options->setStretchFactor( xf86cfgbox, 10 );
-    options->setStretchFactor( syncbox, 1 );
-    options->setStretchFactor( screenselect, 1 );
+    optionsHBoxLayout->setSpacing( 10 );
+    optionsHBoxLayout->setStretchFactor( xf86cfgbox, 10 );
+    optionsHBoxLayout->setStretchFactor( syncbox, 1 );
+    optionsHBoxLayout->setStretchFactor( screenselect, 1 );
 
     topLayout->addWidget(options);
   }
@@ -374,8 +377,8 @@ void KGamma::save() {
         for (int i = 0; i < ScreenCount; i++)
           Arguments += rgamma[assign[i]] + ' ' + ggamma[assign[i]] + ' ' + \
                        bgamma[assign[i]] + ' ';
-        rootProcess->clearProgram();
-        rootProcess->setProgram( KStandardDirs::findExe("kdesu"), Arguments.split(' '));
+        rootProcess->setProgram(QStandardPaths::findExecutable("kdesu"));
+        rootProcess->setArguments(Arguments.split(' '));
         rootProcess->start();
       }
     }
@@ -614,7 +617,7 @@ QString KGamma::quickHelp() const
 extern "C"
 {
   // Restore the user gamma settings
-  KDE_EXPORT void kcminit_kgamma()
+  Q_DECL_EXPORT void kcminit_kgamma()
   {
     bool ok;
     XVidExtWrap xv(&ok);
@@ -639,3 +642,5 @@ extern "C"
     }
   }
 }
+
+#include "kgamma.moc"

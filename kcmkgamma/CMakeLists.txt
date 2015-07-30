@@ -8,11 +8,11 @@ set(kcm_kgamma_PART_SRCS
    kgamma.cpp
 )
 
-kde4_add_plugin(kcm_kgamma ${kcm_kgamma_PART_SRCS})
+add_library(kcm_kgamma MODULE ${kcm_kgamma_PART_SRCS})
 
-target_link_libraries(kcm_kgamma Xxf86vm ${KDE4_KDEUI_LIBS} ${X11_LIBRARIES})
+target_link_libraries(kcm_kgamma Xxf86vm  ${X11_LIBRARIES} Qt5::Core Qt5::Widgets KF5::KDELibs4Support)
 
-install(TARGETS kcm_kgamma DESTINATION ${PLUGIN_INSTALL_DIR})
+install(TARGETS kcm_kgamma DESTINATION ${KDE_INSTALL_PLUGINDIR})
 
-install(FILES kgamma.desktop DESTINATION ${SERVICES_INSTALL_DIR})
+install(FILES kgamma.desktop DESTINATION ${KDE_INSTALL_KSERVICES5DIR})
 
