@@ -1,12 +1,30 @@
 [Desktop Entry]
 Comment=A monitor calibration tool
+Comment[es]=Una herramienta de calibración de monitores
+Comment[nl]=Gereedschap om de kleurweergave goed in te stellen
+Comment[pt_BR]=Ferramenta de calibração do monitor
+Comment[sv]=Ett kalibreringsverktyg för bildskärm
+Comment[x-test]=xxA monitor calibration toolxx
+Comment[zh_CN]=屏幕矫正工具
 
 Name=Gamma
+Name[es]=Gamma
+Name[nl]=Gamma
+Name[pt_BR]=Gama
+Name[sv]=Gamma
+Name[x-test]=xxGammaxx
+Name[zh_CN]=伽玛
 
 X-DocPath=kcontrol/kgamma/index.html
 Exec=kcmshell5 kgamma
 Icon=preferences-desktop-display-color.png
 X-KDE-Keywords=KGamma, kgamma, Gamma, gamma
+X-KDE-Keywords[es]=KGamma, kgamma, Gamma, gamma
+X-KDE-Keywords[nl]=KGamma, kgamma, Gamma, gamma
+X-KDE-Keywords[pt_BR]=KGamma, kgamma, Gama, gama
+X-KDE-Keywords[sv]=KGamma, kgamma, Gamma, gamma
+X-KDE-Keywords[x-test]=xxKGammaxx,xx kgammaxx,xx Gammaxx,xx gammaxx
+X-KDE-Keywords[zh_CN]=KGamma, kgamma, Gamma, gamma,伽玛
 Type=Service
 X-KDE-ServiceTypes=KCModule,KCModuleInit
 
