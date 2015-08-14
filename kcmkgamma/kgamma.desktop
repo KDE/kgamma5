@@ -11,6 +11,7 @@ Comment[pt_BR]=Ferramenta de calibração do monitor
 Comment[sk]=Nástroj na kalibráciu monitora
 Comment[sl]=Orodje za umerjanje zaslonov
 Comment[sv]=Ett kalibreringsverktyg för bildskärm
+Comment[uk]=Засіб для калібрування монітора
 Comment[x-test]=xxA monitor calibration toolxx
 Comment[zh_CN]=屏幕矫正工具
 
@@ -26,6 +27,7 @@ Name[pt_BR]=Gama
 Name[sk]=Gama
 Name[sl]=Gama
 Name[sv]=Gamma
+Name[uk]=Гама
 Name[x-test]=xxGammaxx
 Name[zh_CN]=伽玛
 
@@ -44,6 +46,7 @@ X-KDE-Keywords[pt_BR]=KGamma, kgamma, Gama, gama
 X-KDE-Keywords[sk]=KGamma, kgamma, Gamma, gamma
 X-KDE-Keywords[sl]=KGamma,kgamma,Gamma,gamma,gama
 X-KDE-Keywords[sv]=KGamma, kgamma, Gamma, gamma
+X-KDE-Keywords[uk]=KGamma,kgamma,Gamma,gamma,гама,рівень,контрастність,рівень контрастності
 X-KDE-Keywords[x-test]=xxKGammaxx,xx kgammaxx,xx Gammaxx,xx gammaxx
 X-KDE-Keywords[zh_CN]=KGamma, kgamma, Gamma, gamma,伽玛
 Type=Service
