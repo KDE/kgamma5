@@ -19,8 +19,6 @@
 #include <qlineedit.h>
 #include <qstring.h>
 
-#include <kdialog.h>
-
 #include "gammactrl.h"
 #include "xvidextwrap.h"
 #include "displaynumber.h"
@@ -44,8 +42,6 @@ GammaCtrl::GammaCtrl(QWidget *parent, XVidExtWrap *xvid, int channel, \
   oldpos = setslider;
   gchannel = channel;
   xv = xvid;
-
-  setSpacing(KDialog::spacingHint());
 
   slider = new QSlider(Qt::Horizontal, this);
   slider->setFixedHeight(24);
