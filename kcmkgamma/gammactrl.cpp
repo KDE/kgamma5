@@ -15,18 +15,20 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "gammactrl.h"
+
+#include <QHBoxLayout>
 #include <qlabel.h>
 #include <qlineedit.h>
 #include <qstring.h>
 
-#include "gammactrl.h"
 #include "xvidextwrap.h"
 #include "displaynumber.h"
 #include "gammactrl.moc"
 
 GammaCtrl::GammaCtrl(QWidget *parent, XVidExtWrap *xvid, int channel, \
   const QString& mingamma, const QString& maxgamma, const QString& setgamma)
-  : KHBox(parent)
+  : QWidget(parent)
 {
   int maxslider = (int)( ( maxgamma.toDouble() - mingamma.toDouble() \
                   + 0.0005 ) * 20 );
@@ -43,18 +45,21 @@ GammaCtrl::GammaCtrl(QWidget *parent, XVidExtWrap *xvid, int channel, \
   gchannel = channel;
   xv = xvid;
 
+  QHBoxLayout *layout = new QHBoxLayout(this);
+
   slider = new QSlider(Qt::Horizontal, this);
   slider->setFixedHeight(24);
   slider->setTickPosition(QSlider::TicksBelow);
   slider->setRange(0, maxslider);
   slider->setTickInterval(2);
   slider->setValue(setslider);
+  layout->addWidget(slider);
   connect(slider, SIGNAL(valueChanged(int)), SLOT(setGamma(int)));
   connect(slider, SIGNAL(sliderPressed()), SLOT(pressed()));
 
   textfield = new DisplayNumber(this, 4, 2);
   textfield->setText(setgamma);
-
+  layout->addWidget(textfield);
 }
 
 GammaCtrl::~GammaCtrl()

@@ -21,14 +21,13 @@
 #ifndef GAMMACTRL_H
 #define GAMMACTRL_H
 
-#include <khbox.h>
 #include <qslider.h>
 
 class QString;
 class DisplayNumber;
 class XVidExtWrap;
 
-class GammaCtrl : public KHBox  {
+class GammaCtrl : public QWidget  {
 
   Q_OBJECT
   public:

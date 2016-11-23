@@ -36,10 +36,10 @@
 #include <QVBoxLayout>
 #include <QProcess>
 
-
 #include <kconfig.h>
 #include <KConfigGroup>
-#include <kgenericfactory.h>
+#include <KLocalizedString>
+#include <KPluginFactory>
 #include <QHBoxLayout>
 #include <QStandardPaths>
 #include "config-kgamma.h"
@@ -61,7 +61,6 @@ extern "C"
 K_PLUGIN_FACTORY(KGammaConfigFactory,
         registerPlugin<KGamma>();
         )
-K_EXPORT_PLUGIN(KGammaConfigFactory("kcmkgamma"))
 
 
 KGamma::KGamma(QWidget* parent_P, const QVariantList &) :

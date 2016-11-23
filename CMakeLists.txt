@@ -18,7 +18,6 @@ find_package(KF5 REQUIRED COMPONENTS
     ConfigWidgets
     DocTools
     I18n
-    KDELibs4Support
 )
 
 find_package(X11 REQUIRED)
