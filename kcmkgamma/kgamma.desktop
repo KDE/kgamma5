@@ -1,7 +1,6 @@
 [Desktop Entry]
 Comment=A monitor calibration tool
 Comment[ar]=أداة مراقب المعايرة
-Comment[ast]=Una ferramienta de calibración de monitores
 Comment[bg]=Калибриране на монитора
 Comment[bs]=Alatka za kalibraciju monitora
 Comment[ca]=Una eina de calibratge del monitor
@@ -71,7 +70,6 @@ Comment[zh_TW]=監視器校準工具
 
 Name=Gamma
 Name[ar]=جاما
-Name[ast]=Gamma
 Name[be]=Гама
 Name[bg]=Гама
 Name[br]=Gamma
@@ -150,7 +148,6 @@ Exec=kcmshell5 kgamma
 Icon=preferences-desktop-display-color.png
 X-KDE-Keywords=KGamma, kgamma, Gamma, gamma
 X-KDE-Keywords[ar]=جاما,KGamma, kgamma, Gamma, gamma
-X-KDE-Keywords[ast]=KGamma, kgamma, Gamma, gamma
 X-KDE-Keywords[bg]=калибриране, гама, кгама, KGamma, kgamma, Gamma, gamma
 X-KDE-Keywords[bs]=KGamma, kgamma, Gamma, gamma,gama
 X-KDE-Keywords[ca]=KGamma, kgamma, Gamma, gamma
