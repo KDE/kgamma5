@@ -48,7 +48,6 @@ GammaCtrl::GammaCtrl(QWidget *parent, XVidExtWrap *xvid, int channel, \
   QHBoxLayout *layout = new QHBoxLayout(this);
 
   slider = new QSlider(Qt::Horizontal, this);
-  slider->setFixedHeight(24);
   slider->setTickPosition(QSlider::TicksBelow);
   slider->setRange(0, maxslider);
   slider->setTickInterval(2);
