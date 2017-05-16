@@ -34,6 +34,7 @@
 #include <QBoxLayout>
 #include <QList>
 #include <QVBoxLayout>
+#include <QFormLayout>
 #include <QProcess>
 
 #include <kconfig.h>
@@ -198,11 +199,6 @@ void KGamma::setupUI() {
     topLayout->addWidget(stack, 10);
 
     //Sliders for gamma correction
-    QFrame *frame1 = new QFrame(this);
-    frame1->setFrameStyle( /*QFrame::GroupBoxPanel |*/ QFrame::Plain );
-
-    QFrame *frame2 = new QFrame(this);
-    frame2->setFrameStyle( /*QFrame::GroupBoxPanel |*/ QFrame::Plain );
 
     QLabel *gammalabel = new QLabel(this);
     gammalabel->setText(i18n("Gamma:"));
@@ -242,20 +238,14 @@ void KGamma::setupUI() {
     connect(bgctrl, SIGNAL(gammaChanged(int)), gctrl, SLOT(suspend()));
     bluelabel->setBuddy( bgctrl );
 
-    QGridLayout *grid = new QGridLayout();
-    grid->setSpacing(8);
-    grid->addWidget(frame1, 0, 0, 2, 3);
-    grid->addWidget(frame2, 4, 0, 8, 3);
-    grid->addWidget(gammalabel, 1, 1, Qt::AlignRight);
-    grid->addWidget(redlabel, 5, 1, Qt::AlignRight);
-    grid->addWidget(greenlabel, 6, 1, Qt::AlignRight);
-    grid->addWidget(bluelabel, 7, 1, Qt::AlignRight);
-    grid->addWidget(gctrl, 1, 2);
-    grid->addWidget(rgctrl, 5, 2);
-    grid->addWidget(ggctrl, 6, 2);
-    grid->addWidget(bgctrl, 7, 2);
+    QFormLayout *form = new QFormLayout;
+    form->addRow(gammalabel, gctrl);
+    form->addItem(new QSpacerItem(0, gammalabel->sizeHint().height() / 3));
+    form->addRow(redlabel, rgctrl);
+    form->addRow(greenlabel, ggctrl);
+    form->addRow(bluelabel, bgctrl);
 
-    topLayout->addLayout(grid);
+    topLayout->addLayout(form);
 
     //Options
     QWidget *options = new QWidget(this);
