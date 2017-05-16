@@ -145,7 +145,7 @@ Name[zh_TW]=Gamma
 
 X-DocPath=kcontrol/kgamma/index.html
 Exec=kcmshell5 kgamma
-Icon=preferences-desktop-display-color.png
+Icon=preferences-desktop-display-color
 X-KDE-Keywords=KGamma, kgamma, Gamma, gamma
 X-KDE-Keywords[ar]=جاما,KGamma, kgamma, Gamma, gamma
 X-KDE-Keywords[bg]=калибриране, гама, кгама, KGamma, kgamma, Gamma, gamma
