@@ -34,11 +34,11 @@ class KGamma: public KCModule
       KGamma(QWidget* parent_P, const QVariantList &args );
       virtual ~KGamma();
 
-      void load();
-      void save();
-      void defaults();
+      void load() Q_DECL_OVERRIDE;
+      void save() Q_DECL_OVERRIDE;
+      void defaults() Q_DECL_OVERRIDE;
       int buttons();
-      QString quickHelp() const;
+      QString quickHelp() const Q_DECL_OVERRIDE;
 
     protected: // Protected methods
       /** The user interface */
