@@ -27,7 +27,7 @@
 class DisplayNumber : public QLabel  {
    Q_OBJECT
 public: 
-  DisplayNumber(QWidget *parent=nullptr, int digits=0, int prec=0);
+  explicit DisplayNumber(QWidget *parent=nullptr, int digits=0, int prec=0);
   ~DisplayNumber() override;
   void setFont( const QFont & f );
   void setNum(double num);

@@ -29,7 +29,7 @@ class XVidExtWrap {
   public:
 
     enum GammaChannel { Value = 0, Red = 1, Green = 2, Blue = 3 };
-    XVidExtWrap(bool *OK, const char* displayname = nullptr);
+    explicit XVidExtWrap(bool *OK, const char* displayname = nullptr);
     ~XVidExtWrap();
 
     /** Returns the default screen */

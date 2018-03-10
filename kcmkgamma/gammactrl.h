@@ -32,7 +32,7 @@ class GammaCtrl : public QWidget  {
   Q_OBJECT
   public:
     /** construktor */
-    GammaCtrl(QWidget *parent=nullptr, XVidExtWrap *xvid=nullptr, int channel=0,
+    explicit GammaCtrl(QWidget *parent=nullptr, XVidExtWrap *xvid=nullptr, int channel=0,
       const QString& mingamma="0.40", const QString& maxgamma="3.50", 
       const QString& setgamma="1.00");
     /** destruktor */
