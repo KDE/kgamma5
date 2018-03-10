@@ -30,7 +30,6 @@
 #include <QTextStream>
 #include <QGridLayout>
 #include <QFrame>
-#include <QHBoxLayout>
 #include <QBoxLayout>
 #include <QList>
 #include <QVBoxLayout>
