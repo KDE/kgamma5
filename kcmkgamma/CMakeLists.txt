@@ -1,3 +1,5 @@
+add_definitions(-DTRANSLATION_DOMAIN=\"kcmkgamma\")
+
 add_subdirectory(pics)
 
 set(kcm_kgamma_PART_SRCS

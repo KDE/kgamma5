@@ -31,9 +31,7 @@ add_feature_info("X11_xf86vmode" X11_xf86vmode_FOUND "Required to build kgamma."
 # check_include_files(strstream HAVE_STRSTREAM_H)
 configure_file(config-kgamma.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kgamma.h)
 
-
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
-add_definitions(-DTRANSLATION_DOMAIN=\"kcmkgamma\")
 
 add_subdirectory(kcmkgamma)
 # add_subdirectory(xf86gammacfg)
