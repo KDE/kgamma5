@@ -1,6 +1,6 @@
-cmake_minimum_required(VERSION 2.8.9)
+cmake_minimum_required(VERSION 3.0)
+
 project(kgamma)
-cmake_minimum_required(VERSION 2.8.12 FATAL_ERROR)
 set(PROJECT_VERSION "5.12.80")
 set(QT_MIN_VERSION "5.4.0")
 find_package(ECM 1.0.0 REQUIRED NO_MODULE)
