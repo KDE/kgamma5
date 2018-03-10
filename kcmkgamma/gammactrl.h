@@ -36,7 +36,7 @@ class GammaCtrl : public QWidget  {
       const QString& mingamma="0.40", const QString& maxgamma="3.50", 
       const QString& setgamma="1.00");
     /** destruktor */
-    ~GammaCtrl();
+    ~GammaCtrl() override;
     /** Return the current gamma value with precision prec */
     QString gamma(int);
     /** Set gamma, slider and textfield */
