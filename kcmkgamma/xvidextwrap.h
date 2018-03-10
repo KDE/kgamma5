@@ -29,7 +29,7 @@ class XVidExtWrap {
   public:
 
     enum GammaChannel { Value = 0, Red = 1, Green = 2, Blue = 3 };
-    XVidExtWrap(bool *OK, const char* displayname = NULL);
+    XVidExtWrap(bool *OK, const char* displayname = nullptr);
     ~XVidExtWrap();
 
     /** Returns the default screen */
@@ -43,9 +43,9 @@ class XVidExtWrap {
     /** Returns the current screen */
     int getScreen() { return screen; };
     /** Sets the gamma value on the current screen */
-    void setGamma( int channel, float gam, bool *OK = NULL );
+    void setGamma( int channel, float gam, bool *OK = nullptr );
     /** Gets the gamma value of the current screen */
-    float getGamma( int channel, bool *OK = NULL );
+    float getGamma( int channel, bool *OK = nullptr );
     /** Limits the possible gamma values (default 0.1-10.0) */
     void setGammaLimits( float min, float max );
 

@@ -54,7 +54,7 @@ extern "C"
 	bool test_kgamma()
 	{
 		bool retval;
-		(void) new XVidExtWrap(&retval, NULL);
+		(void) new XVidExtWrap(&retval, nullptr);
 		return retval;
 	}
 }
@@ -66,11 +66,11 @@ K_PLUGIN_FACTORY(KGammaConfigFactory,
 
 KGamma::KGamma(QWidget* parent_P, const QVariantList &) :
     KCModule(parent_P),
-    rootProcess(0)
+    rootProcess(nullptr)
 {
   bool ok;
   GammaCorrection = false;
-  xv = new XVidExtWrap(&ok, NULL);
+  xv = new XVidExtWrap(&ok, nullptr);
   if (ok) { /* KDE 4: Uneccessary test, when all KCM wrappers do conditional loading */
     xv->getGamma(XVidExtWrap::Red, &ok);
     if (ok) {
