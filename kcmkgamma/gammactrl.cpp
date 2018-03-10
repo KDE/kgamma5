@@ -24,7 +24,6 @@
 
 #include "xvidextwrap.h"
 #include "displaynumber.h"
-#include "gammactrl.moc"
 
 GammaCtrl::GammaCtrl(QWidget *parent, XVidExtWrap *xvid, int channel, \
   const QString& mingamma, const QString& maxgamma, const QString& setgamma)
