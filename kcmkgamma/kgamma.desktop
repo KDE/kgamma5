@@ -143,7 +143,7 @@ Name[zh_CN]=伽玛
 Name[zh_HK]=伽馬（Gamma）
 Name[zh_TW]=Gamma
 
-X-DocPath=kcontrol/kgamma/index.html
+X-DocPath=kcontrol/kgamma5/index.html
 Exec=kcmshell5 kgamma
 Icon=preferences-desktop-display-color
 X-KDE-Keywords=KGamma, kgamma, Gamma, gamma

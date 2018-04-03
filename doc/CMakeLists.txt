@@ -1,1 +1,1 @@
-kdoctools_create_handbook(index.docbook INSTALL_DESTINATION ${KDE_INSTALL_DOCBUNDLEDIR}/en SUBDIR kcontrol/kgamma SUBDIR kcontrol/kgamma)
+kdoctools_create_handbook(index.docbook INSTALL_DESTINATION ${KDE_INSTALL_DOCBUNDLEDIR}/en SUBDIR kcontrol/kgamma5)
