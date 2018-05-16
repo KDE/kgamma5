@@ -26,7 +26,6 @@
 #include <qcheckbox.h>
 #include <qcombobox.h>
 #include <QStackedWidget>
-//Added by qt3to4:
 #include <QTextStream>
 #include <QGridLayout>
 #include <QFrame>

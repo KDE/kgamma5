@@ -32,7 +32,7 @@ public:
   void setFont( const QFont & f );
   void setNum(double num);
   void setWidth(int digits);
-  void setPrecision(int prec) { precision = prec; };
+  void setPrecision(int prec) { precision = prec; }
   
 private:
   int dg, precision;

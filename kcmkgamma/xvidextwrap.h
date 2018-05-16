@@ -39,9 +39,9 @@ class XVidExtWrap {
     /** Returns the displayname */
     const char* DisplayName();
     /** Sets the screen actions are take effect */
-    void setScreen( int scrn ) { screen = scrn; };
+    void setScreen( int scrn ) { screen = scrn; }
     /** Returns the current screen */
-    int getScreen() { return screen; };
+    int getScreen() { return screen; }
     /** Sets the gamma value on the current screen */
     void setGamma( int channel, float gam, bool *OK = nullptr );
     /** Gets the gamma value of the current screen */

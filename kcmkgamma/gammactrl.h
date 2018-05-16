@@ -44,7 +44,7 @@ class GammaCtrl : public QWidget  {
     /** Set slider and textfield */
     void setControl(const QString&);
     /** Disable the slider */
-    void disableSlider() { slider->setDisabled(true);};
+    void disableSlider() { slider->setDisabled(true);}
 
   private:
     QString mgamma;
