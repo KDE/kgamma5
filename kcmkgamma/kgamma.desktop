@@ -208,5 +208,6 @@ X-KDE-ParentApp=kcontrol
 X-KDE-Init-Phase=1
 
 X-KDE-System-Settings-Parent-Category=display
+X-KDE-OnlyShowOnQtPlatforms=xcb
 
 Categories=Qt;KDE;Settings;X-KDE-settings-peripherals;
