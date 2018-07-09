@@ -33,8 +33,8 @@ class GammaCtrl : public QWidget  {
   public:
     /** construktor */
     explicit GammaCtrl(QWidget *parent=nullptr, XVidExtWrap *xvid=nullptr, int channel=0,
-      const QString& mingamma="0.40", const QString& maxgamma="3.50", 
-      const QString& setgamma="1.00");
+      const QString& mingamma=QStringLiteral("0.40"), const QString& maxgamma=QStringLiteral("3.50"),
+      const QString& setgamma=QStringLiteral("1.00"));
     /** destruktor */
     ~GammaCtrl() override;
     /** Return the current gamma value with precision prec */

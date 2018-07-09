@@ -78,9 +78,9 @@ KGamma::KGamma(QWidget* parent_P, const QVariantList &) :
 
       for (int i = 0; i < ScreenCount; i++ ) {
         assign << 0;
-        rgamma << "";
-        ggamma << "";
-        bgamma << "";
+        rgamma << QString();
+        ggamma << QString();
+        bgamma << QString();
 
         // Store the current gamma values
         xv->setScreen(i);
@@ -165,32 +165,32 @@ void KGamma::setupUI() {
 
     QLabel *pic1 = new QLabel(stack);
     pic1->setMinimumSize(530, 171);
-    pic1->setPixmap(QPixmap(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kgamma/pics/greyscale.png")));
+    pic1->setPixmap(QPixmap(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("kgamma/pics/greyscale.png"))));
     pic1->setAlignment(Qt::AlignCenter);
     stack->insertWidget( 0,pic1 );
 
     QLabel *pic2 = new QLabel(stack);
-    pic2->setPixmap(QPixmap(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kgamma/pics/rgbscale.png")));
+    pic2->setPixmap(QPixmap(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("kgamma/pics/rgbscale.png"))));
 	pic2->setAlignment(Qt::AlignCenter);
     stack->insertWidget( 1,pic2 );
 
     QLabel *pic3 = new QLabel(stack);
-    pic3->setPixmap(QPixmap(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kgamma/pics/cmyscale.png")));
+    pic3->setPixmap(QPixmap(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("kgamma/pics/cmyscale.png"))));
     pic3->setAlignment(Qt::AlignCenter);
     stack->insertWidget( 2,pic3 );
 
     QLabel *pic4 = new QLabel(stack);
-    pic4->setPixmap(QPixmap(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kgamma/pics/darkgrey.png")));
+    pic4->setPixmap(QPixmap(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("kgamma/pics/darkgrey.png"))));
     pic4->setAlignment(Qt::AlignCenter);
     stack->insertWidget( 3,pic4 );
 
     QLabel *pic5 = new QLabel(stack);
-    pic5->setPixmap(QPixmap(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kgamma/pics/midgrey.png")));
+    pic5->setPixmap(QPixmap(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("kgamma/pics/midgrey.png"))));
     pic5->setAlignment(Qt::AlignCenter);
     stack->insertWidget( 4,pic5 );
 
     QLabel *pic6 = new QLabel(stack);
-    pic6->setPixmap(QPixmap(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kgamma/pics/lightgrey.png")));
+    pic6->setPixmap(QPixmap(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("kgamma/pics/lightgrey.png"))));
     pic6->setAlignment(Qt::AlignCenter);
     stack->insertWidget( 5,pic6 );
 
@@ -290,7 +290,7 @@ void KGamma::setupUI() {
 /** Restore latest saved gamma values */
 void KGamma::load() {
   if (GammaCorrection) {
-    KConfig *config = new KConfig("kgammarc");
+    KConfig *config = new KConfig(QStringLiteral("kgammarc"));
     KConfigGroup group = config->group("ConfigFile");
 
     // save checkbox status
@@ -299,7 +299,7 @@ void KGamma::load() {
 
     // load syncbox status
     group = config->group("SyncBox");
-    if ( group.readEntry("sync") == "yes" ) syncbox->setChecked(true);
+    if ( group.readEntry("sync") == QLatin1String("yes") ) syncbox->setChecked(true);
     else syncbox->setChecked(false);
 
     config->sync();
@@ -340,14 +340,14 @@ void KGamma::save() {
     }
     xv->setScreen(currentScreen);
 
-    KConfig *config = new KConfig("kgammarc");
+    KConfig *config = new KConfig(QStringLiteral("kgammarc"));
     KConfigGroup group = config->group("SyncBox");
     if ( syncbox->isChecked() ) group.writeEntry("sync", "yes");
     else group.writeEntry("sync", "no");
 
     if ( !xf86cfgbox->isChecked() ) { //write gamma settings to the users config
       for (int i = 0; i < ScreenCount; i++) {
-        KConfigGroup screenGroup = config->group( QString("Screen %1").arg(i) );
+        KConfigGroup screenGroup = config->group( QStringLiteral("Screen %1").arg(i) );
         screenGroup.writeEntry("rgamma", rgamma[i]);
         screenGroup.writeEntry("ggamma", ggamma[i]);
         screenGroup.writeEntry("bgamma", bgamma[i]);
@@ -360,12 +360,12 @@ void KGamma::save() {
       x86group.writeEntry("use", "XF86Config");
 
       if ( !(rootProcess->state()==QProcess::Running) ) {
-        QString Arguments = "xf86gammacfg ";
+        QString Arguments = QStringLiteral("xf86gammacfg ");
         for (int i = 0; i < ScreenCount; i++)
-          Arguments += rgamma[assign[i]] + ' ' + ggamma[assign[i]] + ' ' + \
-                       bgamma[assign[i]] + ' ';
-        rootProcess->setProgram(QStandardPaths::findExecutable("kdesu"));
-        rootProcess->setArguments(Arguments.split(' '));
+          Arguments += rgamma[assign[i]] + QLatin1Char(' ') + ggamma[assign[i]] + QLatin1Char(' ') + \
+                       bgamma[assign[i]] + QLatin1Char(' ');
+        rootProcess->setProgram(QStandardPaths::findExecutable(QStringLiteral("kdesu")));
+        rootProcess->setArguments(Arguments.split(QLatin1Char(' ')));
         rootProcess->start();
       }
     }
@@ -380,7 +380,7 @@ void KGamma::defaults() {
   if (GammaCorrection) {
     for (int i = 0; i < ScreenCount; i++) {
       xv->setScreen(i);
-      gctrl->setGamma("1.00");
+      gctrl->setGamma(QStringLiteral("1.00"));
     }
     xv->setScreen(currentScreen);
 
@@ -390,14 +390,14 @@ void KGamma::defaults() {
 }
 
 bool KGamma::loadSettings() {
-  KConfig *config = new KConfig("kgammarc");
+  KConfig *config = new KConfig(QStringLiteral("kgammarc"));
   KConfigGroup grp = config->group("ConfigFile");
   QString ConfigFile( grp.readEntry("use") );
   KConfigGroup syncGroup = config->group("SyncBox");
-  if ( syncGroup.readEntry("sync") == "yes" ) syncbox->setChecked(true);
+  if ( syncGroup.readEntry("sync") == QStringLiteral("yes") ) syncbox->setChecked(true);
   delete config;
 
-  if ( ConfigFile == "XF86Config" ) {  // parse XF86Config
+  if ( ConfigFile == QLatin1String("XF86Config") ) {  // parse XF86Config
     bool validGlobalConfig = loadSystemSettings();
     xf86cfgbox->setChecked( validGlobalConfig );
     return( validGlobalConfig );
@@ -408,10 +408,10 @@ bool KGamma::loadSettings() {
 }
 
 bool KGamma::loadUserSettings() {
-  KConfig *config = new KConfig("kgammarc");
+  KConfig *config = new KConfig(QStringLiteral("kgammarc"));
 
   for (int i = 0; i < ScreenCount; i++) {
-    KConfigGroup screenGroup = config->group(QString( "Screen %1" ).arg(i) );
+    KConfigGroup screenGroup = config->group(QStringLiteral( "Screen %1" ).arg(i) );
     rgamma[i] = screenGroup.readEntry("rgamma");
     ggamma[i] = screenGroup.readEntry("ggamma");
     bgamma[i] = screenGroup.readEntry("bgamma");
@@ -426,7 +426,7 @@ bool KGamma::loadSystemSettings() {
   QList<int> ScreenNr;
   QString Section;
   XF86ConfigPath Path;
-  QFile f( Path.get() );
+  QFile f( QString::fromUtf8(Path.get()) );
   if ( f.open(QIODevice::ReadOnly) ) {
     QTextStream t( &f );
     QString s;
@@ -436,24 +436,24 @@ bool KGamma::loadSystemSettings() {
     // Analyze Screen<->Monitor assignments of multi-head configurations
     while ( !t.atEnd() ) {
       s = (t.readLine()).simplified();
-      QStringList words = s.split(' ');
+      QStringList words = s.split(QLatin1Char(' '));
       if ( !words.empty() ) {
-        if ( words[0] == "Section" && words.size() > 1 ) {
-          if ( (Section = words[1]) == "\"Monitor\"" ) gm = false;
+        if ( words[0] == QLatin1String("Section") && words.size() > 1 ) {
+          if ( (Section = words[1]) == QLatin1String("\"Monitor\"") ) gm = false;
         }
-        else if ( words[0] == "EndSection" ) {
-          if ( Section == "\"Monitor\"" && !gm ) {
-            Gamma << "";
+        else if ( words[0] == QLatin1String("EndSection") ) {
+          if ( Section == QLatin1String("\"Monitor\"") && !gm ) {
+            Gamma << QString();
             gm = false;
           }
-          Section = "";
+          Section = QString();
         }
-        else if ( words[0] == "Identifier" && words.size() > 1 ) {
-          if ( Section == "\"Monitor\"" ) Monitor << words[1];
-          else if ( Section == "\"Screen\"" ) Screen << words[1];
+        else if ( words[0] == QLatin1String("Identifier") && words.size() > 1 ) {
+          if ( Section == QLatin1String("\"Monitor\"") ) Monitor << words[1];
+          else if ( Section == QLatin1String("\"Screen\"") ) Screen << words[1];
         }
-        else if ( words[0] == "Screen" && words.size() > 1 ) {
-          if ( Section == "\"ServerLayout\"" ) {
+        else if ( words[0] == QLatin1String("Screen") && words.size() > 1 ) {
+          if ( Section == QLatin1String("\"ServerLayout\"") ) {
             bool ok;
             int i = words[1].toInt(&ok);
             if ( ok && words.size() > 2 ) {
@@ -466,12 +466,12 @@ bool KGamma::loadSystemSettings() {
             }
           }
         }
-        else if ( words[0] == "Monitor" && words.size() > 1 ) {
-          if ( Section == "\"Screen\"" )
+        else if ( words[0] == QLatin1String("Monitor") && words.size() > 1 ) {
+          if ( Section == QLatin1String("\"Screen\"") )
             ScreenMonitor << words[1];
         }
-        else if ( words[0] == "Gamma" ) {
-          if ( Section == "\"Monitor\"" ) {
+        else if ( words[0] == QLatin1String("Gamma") ) {
+          if ( Section == QLatin1String("\"Monitor\"") ) {
             Gamma << s;
             gm = true;
           }
@@ -494,9 +494,9 @@ bool KGamma::loadSystemSettings() {
       // Extract gamma values
       if (gm) {
         for ( int i = 0; i < ScreenCount; i++) {
-          rgamma[i] = ggamma[i] = bgamma[i] = "";
+          rgamma[i] = ggamma[i] = bgamma[i] = QString();
 
-          QStringList words = Gamma[assign[i]].split(' ');
+          QStringList words = Gamma[assign[i]].split(QLatin1Char(' '));
           QStringList::ConstIterator it = words.constBegin();
           if ( words.size() < 4 )
             rgamma[i] = ggamma[i] = bgamma[i] = *(++it);   // single gamma value
@@ -612,11 +612,11 @@ extern "C"
     if (ok) {
       xv.setGammaLimits(0.4, 3.5);
       float rgamma, ggamma, bgamma;
-      KConfig *config = new KConfig("kgammarc");
+      KConfig *config = new KConfig(QStringLiteral("kgammarc"));
 
       for (int i = 0; i < xv._ScreenCount(); i++) {
         xv.setScreen(i);
-        KConfigGroup screenGroup = config->group( QString("Screen %1").arg(i) );
+        KConfigGroup screenGroup = config->group( QStringLiteral("Screen %1").arg(i) );
 
         if ((rgamma = screenGroup.readEntry("rgamma").toFloat()))
           xv.setGamma(XVidExtWrap::Red, rgamma);

@@ -45,7 +45,7 @@ void DisplayNumber::setFont( const QFont & f ) {
 
 void DisplayNumber::setWidth(int digits) {
   QFontMetrics fm(font());
-  QString s("0123456789.+-");
+  QString s(QStringLiteral("0123456789.+-"));
   int width = 0, charWidth=0;
 
   for (int i = 0; i < 11; i++, width = fm.width(s[i]))
