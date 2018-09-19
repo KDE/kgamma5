@@ -55,11 +55,11 @@ class GammaCtrl : public QWidget  {
     double ming;
     XVidExtWrap *xv;
 
-  public slots:
+  public Q_SLOTS:
     /** Disable textfield */
     void suspend();
 
-  protected slots:
+  protected Q_SLOTS:
     /** Set slider and textfield */
     void setCtrl(int);
     /** Set gamma and textfield */
@@ -67,7 +67,7 @@ class GammaCtrl : public QWidget  {
     /** Change status of GammaCtrl when pressed */
     void pressed();
 
-  signals:
+  Q_SIGNALS:
     /** Gamma change signal */
     void gammaChanged(int);
 };
