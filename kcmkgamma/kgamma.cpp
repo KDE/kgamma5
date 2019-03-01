@@ -135,7 +135,7 @@ KGamma::~KGamma() {
 /** User interface */
 void KGamma::setupUI() {
   QBoxLayout *topLayout = new QVBoxLayout(this);
-  topLayout->setMargin(0);
+  topLayout->setContentsMargins(0, 0, 0, 0);
 
   if (GammaCorrection) {
     QHBoxLayout *hbox = new QHBoxLayout();
@@ -248,7 +248,7 @@ void KGamma::setupUI() {
     //Options
     QWidget *options = new QWidget(this);
     QHBoxLayout *optionsHBoxLayout = new QHBoxLayout(options);
-    optionsHBoxLayout->setMargin(0);
+    optionsHBoxLayout->setContentsMargins(0, 0, 0, 0);
 
     xf86cfgbox = new QCheckBox( i18n("Save settings system wide"), options );
     optionsHBoxLayout->addWidget(xf86cfgbox);
