@@ -394,7 +394,7 @@ bool KGamma::loadSettings() {
   KConfigGroup grp = config->group("ConfigFile");
   QString ConfigFile( grp.readEntry("use") );
   KConfigGroup syncGroup = config->group("SyncBox");
-  if ( syncGroup.readEntry("sync") == QStringLiteral("yes") ) syncbox->setChecked(true);
+  if ( syncGroup.readEntry("sync") == QLatin1String("yes") ) syncbox->setChecked(true);
   delete config;
 
   if ( ConfigFile == QLatin1String("XF86Config") ) {  // parse XF86Config
