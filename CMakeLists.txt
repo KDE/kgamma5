@@ -32,6 +32,9 @@ add_feature_info("X11_xf86vmode" X11_xf86vmode_FOUND "Required to build kgamma."
 configure_file(config-kgamma.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kgamma.h)
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
+if (EXISTS "${CMAKE_SOURCE_DIR}/.git")
+   add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x060000)
+endif()
 
 add_subdirectory(kcmkgamma)
 # add_subdirectory(xf86gammacfg)
