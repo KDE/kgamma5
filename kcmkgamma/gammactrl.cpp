@@ -53,7 +53,7 @@ GammaCtrl::GammaCtrl(QWidget *parent, XVidExtWrap *xvid, int channel, \
   slider->setValue(setslider);
   layout->addWidget(slider);
   connect(slider, SIGNAL(valueChanged(int)), SLOT(setGamma(int)));
-  connect(slider, SIGNAL(sliderPressed()), SLOT(pressed()));
+  connect(slider, &QAbstractSlider::sliderPressed, this, &GammaCtrl::pressed);
 
   textfield = new DisplayNumber(this, 4, 2);
   textfield->setText(setgamma);

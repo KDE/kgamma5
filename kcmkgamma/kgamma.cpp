@@ -160,8 +160,8 @@ void KGamma::setupUI() {
     QStackedWidget  *stack = new QStackedWidget ( this );
     stack->setFrameStyle( QFrame::Box | QFrame::Raised );
 
-    connect( combo, SIGNAL(activated(int)),
-             stack, SLOT(setCurrentIndex(int)) );
+    connect( combo, &QComboBox::activated,
+             stack, &QStackedWidget::setCurrentIndex );
 
     QLabel *pic1 = new QLabel(stack);
     pic1->setMinimumSize(530, 171);
@@ -211,29 +211,29 @@ void KGamma::setupUI() {
     bluelabel->setText(i18n("Blue:"));
 
     gctrl = new GammaCtrl(this, xv);
-    connect(gctrl, SIGNAL(gammaChanged(int)), SLOT(Changed()));
-    connect(gctrl, SIGNAL(gammaChanged(int)), SLOT(SyncScreens()));
+    connect(gctrl, &GammaCtrl::gammaChanged, this, &KGamma::Changed);
+    connect(gctrl, &GammaCtrl::gammaChanged, this, &KGamma::SyncScreens);
     gammalabel->setBuddy( gctrl );
 
     rgctrl = new GammaCtrl(this, xv, XVidExtWrap::Red);
-    connect(rgctrl, SIGNAL(gammaChanged(int)), SLOT(Changed()));
-    connect(rgctrl, SIGNAL(gammaChanged(int)), SLOT(SyncScreens()));
+    connect(rgctrl, &GammaCtrl::gammaChanged, this, &KGamma::Changed);
+    connect(rgctrl, &GammaCtrl::gammaChanged, this, &KGamma::SyncScreens);
     connect(gctrl, SIGNAL(gammaChanged(int)), rgctrl, SLOT(setCtrl(int)));
-    connect(rgctrl, SIGNAL(gammaChanged(int)), gctrl, SLOT(suspend()));
+    connect(rgctrl, &GammaCtrl::gammaChanged, gctrl, &GammaCtrl::suspend);
     redlabel->setBuddy( rgctrl );
 
     ggctrl = new GammaCtrl(this, xv, XVidExtWrap::Green);
-    connect(ggctrl, SIGNAL(gammaChanged(int)), SLOT(Changed()));
-    connect(ggctrl, SIGNAL(gammaChanged(int)), SLOT(SyncScreens()));
+    connect(ggctrl, &GammaCtrl::gammaChanged, this, &KGamma::Changed);
+    connect(ggctrl, &GammaCtrl::gammaChanged, this, &KGamma::SyncScreens);
     connect(gctrl, SIGNAL(gammaChanged(int)), ggctrl, SLOT(setCtrl(int)));
-    connect(ggctrl, SIGNAL(gammaChanged(int)), gctrl, SLOT(suspend()));
+    connect(ggctrl, &GammaCtrl::gammaChanged, gctrl, &GammaCtrl::suspend);
     greenlabel->setBuddy( ggctrl );
 
     bgctrl = new GammaCtrl(this, xv, XVidExtWrap::Blue);
-    connect(bgctrl, SIGNAL(gammaChanged(int)), SLOT(Changed()));
-    connect(bgctrl, SIGNAL(gammaChanged(int)), SLOT(SyncScreens()));
+    connect(bgctrl, &GammaCtrl::gammaChanged, this, &KGamma::Changed);
+    connect(bgctrl, &GammaCtrl::gammaChanged, this, &KGamma::SyncScreens);
     connect(gctrl, SIGNAL(gammaChanged(int)), bgctrl, SLOT(setCtrl(int)));
-    connect(bgctrl, SIGNAL(gammaChanged(int)), gctrl, SLOT(suspend()));
+    connect(bgctrl, &GammaCtrl::gammaChanged, gctrl, &GammaCtrl::suspend);
     bluelabel->setBuddy( bgctrl );
 
     QFormLayout *form = new QFormLayout;
@@ -252,12 +252,12 @@ void KGamma::setupUI() {
 
     xf86cfgbox = new QCheckBox( i18n("Save settings system wide"), options );
     optionsHBoxLayout->addWidget(xf86cfgbox);
-    connect(xf86cfgbox, SIGNAL(clicked()), SLOT(changeConfig()));
+    connect(xf86cfgbox, &QAbstractButton::clicked, this, &KGamma::changeConfig);
 
     syncbox = new QCheckBox( i18n("Sync screens"), options );
     optionsHBoxLayout->addWidget(syncbox);
-    connect(syncbox, SIGNAL(clicked()), SLOT(SyncScreens()));
-    connect(syncbox, SIGNAL(clicked()), SLOT(Changed()));
+    connect(syncbox, &QAbstractButton::clicked, this, &KGamma::SyncScreens);
+    connect(syncbox, &QAbstractButton::clicked, this, &KGamma::Changed);
 
     screenselect = new QComboBox( options );
     optionsHBoxLayout->addWidget(screenselect);
@@ -269,7 +269,7 @@ void KGamma::setupUI() {
         screenselect->setEnabled( false );
     }
     else
-        connect(screenselect, SIGNAL(activated(int)), SLOT(changeScreen(int)));
+        connect(screenselect, &QComboBox::activated, this, &KGamma::changeScreen);
 
     optionsHBoxLayout->setSpacing( 10 );
     optionsHBoxLayout->setStretchFactor( xf86cfgbox, 10 );
