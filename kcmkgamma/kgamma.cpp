@@ -160,7 +160,7 @@ void KGamma::setupUI() {
     QStackedWidget  *stack = new QStackedWidget ( this );
     stack->setFrameStyle( QFrame::Box | QFrame::Raised );
 
-    connect( combo, &QComboBox::activated,
+    connect( combo, QOverload<int>::of(&QComboBox::activated),
              stack, &QStackedWidget::setCurrentIndex );
 
     QLabel *pic1 = new QLabel(stack);
@@ -269,7 +269,7 @@ void KGamma::setupUI() {
         screenselect->setEnabled( false );
     }
     else
-        connect(screenselect, &QComboBox::activated, this, &KGamma::changeScreen);
+        connect(screenselect, QOverload<int>::of(&QComboBox::activated), this, &KGamma::changeScreen);
 
     optionsHBoxLayout->setSpacing( 10 );
     optionsHBoxLayout->setStretchFactor( xf86cfgbox, 10 );
