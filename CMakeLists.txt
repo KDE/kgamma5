@@ -24,7 +24,7 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     I18n
 )
 
-find_package(X11 REQUIRED)
+find_package(X11 REQUIRED COMPONENTS xf86vmode)
 
 # X11_xf86vmode discovery is done by FindX11
 add_feature_info("X11_xf86vmode" X11_xf86vmode_FOUND "Required to build kgamma.")
