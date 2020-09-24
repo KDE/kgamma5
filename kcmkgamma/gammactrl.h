@@ -1,22 +1,10 @@
-/***************************************************************************
-                          gammactrl.h  -  description
-                             -------------------
-    begin                : Sun Oct 7 2001
-    copyright            : (C) 2001 by Michael v.Ostheim
-    email                : MvOstheim@web.de
- ***************************************************************************/
-
-/***************************************************************************
- *                                                                         *
- *   This program is free software; you can redistribute it and/or modify  *
- *   it under the terms of the GNU General Public License as published by  *
- *   the Free Software Foundation; either version 2 of the License, or     *
- *   (at your option) any later version.                                   *
- *                                                                         *
- ***************************************************************************/
-/**A horizontal slider and a text field for the gamma value.
-  *@author Michael v.Ostheim
-  */
+/*
+ *  A horizontal slider and a text field for the gamma value.
+ *
+ *  SPDX-License-Identifier: GPL-2.0-or-later
+ *
+ *  SPDX-FileCopyrightText: 2001 Michael v.Ostheim <MvOstheim@web>
+ */
 
 #ifndef GAMMACTRL_H
 #define GAMMACTRL_H

@@ -1,19 +1,9 @@
-/***************************************************************************
-                          kgamma.h  -  description
-                             -------------------
-    begin                : Sun Dec 16 13:52:24 CET 2001
-    copyright            : (C) 2001 by Michael v.Ostheim
-    email                : MvOstheim@web.de
- ***************************************************************************/
+/*
+ *  SPDX-License-Identifier: GPL-2.0-or-later
+ *
+ *  SPDX-FileCopyrightText: 2001 Michael v.Ostheim <MvOstheim@web.de>
+ */
 
-/***************************************************************************
- *                                                                         *
- *   This program is free software; you can redistribute it and/or modify  *
- *   it under the terms of the GNU General Public License as published by  *
- *   the Free Software Foundation; either version 2 of the License, or     *
- *   (at your option) any later version.                                   *
- *                                                                         *
- ***************************************************************************/
 #ifndef KGAMMA_H_
 #define KGAMMA_H_
 
