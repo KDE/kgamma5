@@ -85,10 +85,10 @@ one screen this option will take no effect.</para>
 </itemizedlist>
 
 <para>If you cannot see all of the 20 sections, use your monitors contrast settings
-or the <guilabel>Gamma</guilabel> slider to correct this. If black is not pure black,
+or the <guilabel>Gamma:</guilabel> slider to correct this. If black is not pure black,
 try to darken the monitor, if white is not pure white, try to lighten
 it. If you see any colors in the gray tones alter the color balance settings of
-your monitor or the <guilabel>Red</guilabel>, <guilabel>Green</guilabel> and <guilabel>Blue</guilabel> slider.</para>
+your monitor or the <guilabel>Red:</guilabel>, <guilabel>Green:</guilabel> and <guilabel>Blue:</guilabel> sliders.</para>
 </sect2>
 
 <sect2 id="RGB-Scale">
