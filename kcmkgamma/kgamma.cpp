@@ -19,7 +19,6 @@
 #include <QGridLayout>
 #include <QFrame>
 #include <QBoxLayout>
-#include <QList>
 #include <QVBoxLayout>
 #include <QFormLayout>
 #include <QProcess>
