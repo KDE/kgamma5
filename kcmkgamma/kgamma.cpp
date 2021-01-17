@@ -4,16 +4,21 @@
  *  SPDX-FileCopyrightText: 2001 Michael v.Ostheim <MvOstheim@web.de>
  */
 
-#include <unistd.h>
+#include "kgamma.h"
 
-#include <qlabel.h>
-#include <qpixmap.h>
-#include <qstring.h>
-#include <qlayout.h>
-#include <qstringlist.h>
-#include <qdir.h>
-#include <qcheckbox.h>
-#include <qcombobox.h>
+#include <unistd.h>
+#include "config-kgamma.h"
+#include "xf86configpath.h"
+#include "gammactrl.h"
+
+#include <QLabel>
+#include <QPixmap>
+#include <QString>
+#include <QLayout>
+#include <QStringList>
+#include <QDir>
+#include <QCheckBox>
+#include <QComboBox>
 #include <QStackedWidget>
 #include <QTextStream>
 #include <QGridLayout>
@@ -22,18 +27,15 @@
 #include <QVBoxLayout>
 #include <QFormLayout>
 #include <QProcess>
+#include <QStandardPaths>
+#include <QHBoxLayout>
 
-#include <kconfig.h>
+#include <KConfig>
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KPluginFactory>
-#include <QHBoxLayout>
-#include <QStandardPaths>
-#include "config-kgamma.h"
-#include "xf86configpath.h"
-#include "gammactrl.h"
+
 #include "xvidextwrap.h"
-#include "kgamma.h"
 
 extern "C"
 {

@@ -7,7 +7,7 @@
 #ifndef KGAMMA_H_
 #define KGAMMA_H_
 
-#include <kcmodule.h>
+#include <KCModule>
 //Added by qt3to4:
 #include <QList>
 
