@@ -13,8 +13,9 @@
 
 using namespace std;
 
-XF86ConfigPath::XF86ConfigPath(){
-    vector <string> searchPaths;
+XF86ConfigPath::XF86ConfigPath()
+{
+    vector<string> searchPaths;
     searchPaths.push_back("/etc/X11/XF86Config-4");
     searchPaths.push_back("/etc/X11/XF86Config");
     searchPaths.push_back("/etc/XF86Config");
@@ -32,14 +33,17 @@ XF86ConfigPath::XF86ConfigPath(){
     searchPaths.push_back("/usr/X11R6/lib/X11/xorg.conf");
 
     vector<string>::iterator it = searchPaths.begin();
-    for (; it != searchPaths.end(); ++it )
-      if ( !access( (Path = *it).c_str(), F_OK ) ) break;
+    for (; it != searchPaths.end(); ++it)
+        if (!access((Path = *it).c_str(), F_OK))
+            break;
 }
 
-XF86ConfigPath::~XF86ConfigPath(){
+XF86ConfigPath::~XF86ConfigPath()
+{
 }
 
 /** Returns path */
-const char* XF86ConfigPath::get(){
-  return( Path.c_str() );
+const char *XF86ConfigPath::get()
+{
+    return (Path.c_str());
 }

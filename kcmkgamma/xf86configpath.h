@@ -14,18 +14,18 @@
   *@author Michael v.Ostheim
   */
 
-class XF86ConfigPath {
-  
-public: 
-  XF86ConfigPath();
-  ~XF86ConfigPath();
+class XF86ConfigPath
+{
+public:
+    XF86ConfigPath();
+    ~XF86ConfigPath();
 
-  /** Returns Path variable */
-  const char* get();
+    /** Returns Path variable */
+    const char *get();
 
 private: // Private attributes
-  /** Contains the path of XF86Config file */
-  std::string Path;
+    /** Contains the path of XF86Config file */
+    std::string Path;
 };
 
 #endif
