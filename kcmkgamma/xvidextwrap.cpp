@@ -47,8 +47,9 @@ XVidExtWrap::XVidExtWrap(bool *OK, const char *displayname)
 
 XVidExtWrap::~XVidExtWrap()
 {
-    if (dpy)
+    if (dpy) {
         XCloseDisplay(dpy);
+    }
 }
 
 int XVidExtWrap::_DefaultScreen()
@@ -73,24 +74,29 @@ int XVidExtWrap::_ScreenCount()
         while (getline(in, s, '\n')) {
             words.clear();
             istringstream ss(s.c_str());
-            while (ss >> buf)
+            while (ss >> buf) {
                 words.push_back(buf); // Split "s" into words
+            }
 
             if (!words.empty()) {
                 if (words[0] == "Section" && words.size() > 1) {
-                    if (words[1] == "\"ServerLayout\"")
+                    if (words[1] == "\"ServerLayout\"") {
                         section = true;
-                } else if (words[0] == "EndSection")
+                    }
+                } else if (words[0] == "EndSection") {
                     section = false;
-                if (section && words[0] == "Screen")
+                }
+                if (section && words[0] == "Screen") {
                     ++count;
+                }
             }
         } // end while
         in.close();
     }
 
-    if (!count)
+    if (!count) {
         count = 1; // If failed,fill count with a valid value;
+    }
 
     return (count);
 }
@@ -107,8 +113,9 @@ void XVidExtWrap::setGamma(int channel, float gam, bool *OK)
     if (gam >= mingamma && gam <= maxgamma) {
         if (!XF86VidModeGetGamma(dpy, screen, &gamma)) {
             qDebug() << "KGamma: Unable to query gamma correction";
-            if (OK)
+            if (OK) {
                 *OK = false;
+            }
         } else {
             switch (channel) {
             case Value:
@@ -127,12 +134,14 @@ void XVidExtWrap::setGamma(int channel, float gam, bool *OK)
             };
             if (!XF86VidModeSetGamma(dpy, screen, &gamma)) {
                 qDebug() << "KGamma: Unable to set gamma correction";
-                if (OK)
+                if (OK) {
                     *OK = false;
+                }
             } else {
                 XFlush(dpy);
-                if (OK)
+                if (OK) {
                     *OK = true;
+                }
             }
         }
     }
@@ -145,8 +154,9 @@ float XVidExtWrap::getGamma(int channel, bool *OK)
 
     if (!XF86VidModeGetGamma(dpy, screen, &gamma)) {
         qDebug() << "KGamma: Unable to query gamma correction";
-        if (OK)
+        if (OK) {
             *OK = false;
+        }
     } else {
         switch (channel) {
         case Value:
@@ -161,8 +171,9 @@ float XVidExtWrap::getGamma(int channel, bool *OK)
         case Blue:
             gam = gamma.blue;
         };
-        if (OK)
+        if (OK) {
             *OK = true;
+        }
     }
     return (gam);
 }

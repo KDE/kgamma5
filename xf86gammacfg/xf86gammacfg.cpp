@@ -69,8 +69,9 @@ int main(int argc, char *argv[])
                         if (!cpyonly) {
                             words.clear();
                             std::istringstream ss(s.c_str());
-                            while (ss >> buf)
+                            while (ss >> buf) {
                                 words.push_back(buf);
+                            }
 
                             if (!words.empty()) {
                                 if (words[0] == "Section" && words.size() > 1) {
@@ -108,17 +109,19 @@ int main(int argc, char *argv[])
                     if (success) {
                         rename((*it).c_str(), (*it + ".kgammaorig").c_str());
                         rename((*it + ".tmp").c_str(), (*it).c_str());
-                    } else
+                    } else {
                         remove((*it + ".tmp").c_str());
+                    }
                     break;
                 }
             }
         }
     }
-    if (!success)
+    if (!success) {
         cerr << "Usage: xf86gammacfg RGAMMA GGAMMA "
                 "BGAMMA [RGAMMA GGAMMA BGAMMA [...]]"
              << endl;
+    }
 
     return !success;
 }

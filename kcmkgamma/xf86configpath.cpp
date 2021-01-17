@@ -33,9 +33,11 @@ XF86ConfigPath::XF86ConfigPath()
     searchPaths.push_back("/usr/X11R6/lib/X11/xorg.conf");
 
     vector<string>::iterator it = searchPaths.begin();
-    for (; it != searchPaths.end(); ++it)
-        if (!access((Path = *it).c_str(), F_OK))
+    for (; it != searchPaths.end(); ++it) {
+        if (!access((Path = *it).c_str(), F_OK)) {
             break;
+        }
+    }
 }
 
 XF86ConfigPath::~XF86ConfigPath()

@@ -40,8 +40,9 @@ void DisplayNumber::setWidth(int digits)
     QString s(QStringLiteral("0123456789.+-"));
     int width = 0, charWidth = 0;
 
-    for (int i = 0; i < 11; i++, width = fm.boundingRect(s[i]).width())
+    for (int i = 0; i < 11; i++, width = fm.boundingRect(s[i]).width()) {
         charWidth = (width > charWidth) ? width : charWidth;
+    }
 
     dg = digits;
     setMinimumWidth(dg * charWidth + charWidth / 2);

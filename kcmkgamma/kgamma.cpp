@@ -105,15 +105,16 @@ KGamma::~KGamma()
     if (GammaCorrection) {
         // Do not emit signals during destruction (bug 221611)
         bool blocked = blockSignals(true);
-        if (loadUserSettings())
+        if (loadUserSettings()) {
             load();
-        else if (!saved)
+        } else if (!saved) {
             for (int i = 0; i < ScreenCount; i++) {
                 xv->setScreen(i);
                 xv->setGamma(XVidExtWrap::Red, rbak[i]);
                 xv->setGamma(XVidExtWrap::Green, gbak[i]);
                 xv->setGamma(XVidExtWrap::Blue, bbak[i]);
             }
+        }
         delete rootProcess;
         blockSignals(blocked);
     }
@@ -244,13 +245,15 @@ void KGamma::setupUI()
 
         screenselect = new QComboBox(options);
         optionsHBoxLayout->addWidget(screenselect);
-        for (int i = 0; i < ScreenCount; i++)
+        for (int i = 0; i < ScreenCount; i++) {
             screenselect->addItem(i18n("Screen %1", i + 1));
+        }
         screenselect->setCurrentIndex(currentScreen);
         if (ScreenCount <= 1) {
             screenselect->setEnabled(false);
-        } else
+        } else {
             connect(screenselect, QOverload<int>::of(&QComboBox::activated), this, &KGamma::changeScreen);
+        }
 
         optionsHBoxLayout->setSpacing(10);
         optionsHBoxLayout->setStretchFactor(xf86cfgbox, 10);
@@ -276,29 +279,32 @@ void KGamma::load()
         KConfigGroup group = config->group("ConfigFile");
 
         // save checkbox status
-        if (xf86cfgbox->isChecked())
+        if (xf86cfgbox->isChecked()) {
             group.writeEntry("use", "XF86Config");
-        else
+        } else {
             group.writeEntry("use", "kgammarc");
+        }
 
         // load syncbox status
         group = config->group("SyncBox");
-        if (group.readEntry("sync") == QLatin1String("yes"))
+        if (group.readEntry("sync") == QLatin1String("yes")) {
             syncbox->setChecked(true);
-        else
+        } else {
             syncbox->setChecked(false);
+        }
 
         config->sync();
         delete config;
 
         for (int i = 0; i < ScreenCount; i++) {
             xv->setScreen(i);
-            if (rgamma[i] == ggamma[i] && rgamma[i] == bgamma[i])
-                if (i == currentScreen)
+            if (rgamma[i] == ggamma[i] && rgamma[i] == bgamma[i]) {
+                if (i == currentScreen) {
                     gctrl->setGamma(rgamma[i]);
-                else
+                } else {
                     xv->setGamma(XVidExtWrap::Value, rgamma[i].toFloat());
-            else {
+                }
+            } else {
                 if (i == currentScreen) {
                     rgctrl->setGamma(rgamma[i]);
                     ggctrl->setGamma(ggamma[i]);
@@ -330,10 +336,11 @@ void KGamma::save()
 
         KConfig *config = new KConfig(QStringLiteral("kgammarc"));
         KConfigGroup group = config->group("SyncBox");
-        if (syncbox->isChecked())
+        if (syncbox->isChecked()) {
             group.writeEntry("sync", "yes");
-        else
+        } else {
             group.writeEntry("sync", "no");
+        }
 
         if (!xf86cfgbox->isChecked()) { // write gamma settings to the users config
             for (int i = 0; i < ScreenCount; i++) {
@@ -350,8 +357,9 @@ void KGamma::save()
 
             if (!(rootProcess->state() == QProcess::Running)) {
                 QString Arguments = QStringLiteral("xf86gammacfg ");
-                for (int i = 0; i < ScreenCount; i++)
+                for (int i = 0; i < ScreenCount; i++) {
                     Arguments += rgamma[assign[i]] + QLatin1Char(' ') + ggamma[assign[i]] + QLatin1Char(' ') + bgamma[assign[i]] + QLatin1Char(' ');
+                }
                 rootProcess->setProgram(QStandardPaths::findExecutable(QStringLiteral("kdesu")));
                 rootProcess->setArguments(Arguments.split(QLatin1Char(' ')));
                 rootProcess->start();
@@ -383,8 +391,9 @@ bool KGamma::loadSettings()
     KConfigGroup grp = config->group("ConfigFile");
     QString ConfigFile(grp.readEntry("use"));
     KConfigGroup syncGroup = config->group("SyncBox");
-    if (syncGroup.readEntry("sync") == QLatin1String("yes"))
+    if (syncGroup.readEntry("sync") == QLatin1String("yes")) {
         syncbox->setChecked(true);
+    }
     delete config;
 
     if (ConfigFile == QLatin1String("XF86Config")) { // parse XF86Config
@@ -430,8 +439,9 @@ bool KGamma::loadSystemSettings()
             QStringList words = s.split(QLatin1Char(' '));
             if (!words.empty()) {
                 if (words[0] == QLatin1String("Section") && words.size() > 1) {
-                    if ((Section = words[1]) == QLatin1String("\"Monitor\""))
+                    if ((Section = words[1]) == QLatin1String("\"Monitor\"")) {
                         gm = false;
+                    }
                 } else if (words[0] == QLatin1String("EndSection")) {
                     if (Section == QLatin1String("\"Monitor\"") && !gm) {
                         Gamma << QString();
@@ -439,10 +449,11 @@ bool KGamma::loadSystemSettings()
                     }
                     Section = QString();
                 } else if (words[0] == QLatin1String("Identifier") && words.size() > 1) {
-                    if (Section == QLatin1String("\"Monitor\""))
+                    if (Section == QLatin1String("\"Monitor\"")) {
                         Monitor << words[1];
-                    else if (Section == QLatin1String("\"Screen\""))
+                    } else if (Section == QLatin1String("\"Screen\"")) {
                         Screen << words[1];
+                    }
                 } else if (words[0] == QLatin1String("Screen") && words.size() > 1) {
                     if (Section == QLatin1String("\"ServerLayout\"")) {
                         bool ok;
@@ -456,8 +467,9 @@ bool KGamma::loadSystemSettings()
                         }
                     }
                 } else if (words[0] == QLatin1String("Monitor") && words.size() > 1) {
-                    if (Section == QLatin1String("\"Screen\""))
+                    if (Section == QLatin1String("\"Screen\"")) {
                         ScreenMonitor << words[1];
+                    }
                 } else if (words[0] == QLatin1String("Gamma")) {
                     if (Section == QLatin1String("\"Monitor\"")) {
                         Gamma << s;
@@ -486,9 +498,9 @@ bool KGamma::loadSystemSettings()
 
                     QStringList words = Gamma[assign[i]].split(QLatin1Char(' '));
                     QStringList::ConstIterator it = words.constBegin();
-                    if (words.size() < 4)
+                    if (words.size() < 4) {
                         rgamma[i] = ggamma[i] = bgamma[i] = *(++it); // single gamma value
-                    else {
+                    } else {
                         rgamma[i] = *(++it); // eventually rgb gamma values
                         ggamma[i] = *(++it);
                         bgamma[i] = *(++it);
@@ -511,10 +523,11 @@ bool KGamma::validateGammaValues()
         bgamma[i].toFloat(&bOk);
 
         if (!(rOk && gOk && bOk)) {
-            if (rOk)
+            if (rOk) {
                 ggamma[i] = bgamma[i] = rgamma[i];
-            else
+            } else {
                 result = false;
+            }
         }
     }
     return (result);
@@ -524,10 +537,11 @@ void KGamma::changeConfig()
 {
     bool Ok = false;
 
-    if (xf86cfgbox->isChecked())
+    if (xf86cfgbox->isChecked()) {
         Ok = loadSystemSettings();
-    else
+    } else {
         Ok = loadUserSettings();
+    }
 
     if (!Ok) {
         for (int i = 0; i < ScreenCount; i++) {
@@ -575,8 +589,9 @@ void KGamma::changeScreen(int sn)
     rgctrl->setControl(red);
     ggctrl->setControl(green);
     bgctrl->setControl(blue);
-    if (red != green || red != blue)
+    if (red != green || red != blue) {
         gctrl->suspend();
+    }
 }
 
 int KGamma::buttons()
@@ -615,12 +630,15 @@ Q_DECL_EXPORT void kcminit_kgamma()
             xv.setScreen(i);
             KConfigGroup screenGroup = config->group(QStringLiteral("Screen %1").arg(i));
 
-            if ((rgamma = screenGroup.readEntry("rgamma").toFloat()))
+            if ((rgamma = screenGroup.readEntry("rgamma").toFloat())) {
                 xv.setGamma(XVidExtWrap::Red, rgamma);
-            if ((ggamma = screenGroup.readEntry("ggamma").toFloat()))
+            }
+            if ((ggamma = screenGroup.readEntry("ggamma").toFloat())) {
                 xv.setGamma(XVidExtWrap::Green, ggamma);
-            if ((bgamma = screenGroup.readEntry("bgamma").toFloat()))
+            }
+            if ((bgamma = screenGroup.readEntry("bgamma").toFloat())) {
                 xv.setGamma(XVidExtWrap::Blue, bgamma);
+            }
         }
         delete config;
     }
