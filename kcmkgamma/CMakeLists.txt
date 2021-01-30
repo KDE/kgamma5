@@ -12,7 +12,7 @@ set(kcm_kgamma_PART_SRCS
 
 add_library(kcm_kgamma MODULE ${kcm_kgamma_PART_SRCS})
 
-target_link_libraries(kcm_kgamma ${X11_Xxf86vm_LIB} ${X11_LIBRARIES} Qt5::Core Qt5::Widgets KF5::ConfigCore KF5::ConfigWidgets KF5::I18n)
+target_link_libraries(kcm_kgamma ${X11_Xxf86vm_LIB} ${X11_LIBRARIES} Qt::Core Qt::Widgets KF5::ConfigCore KF5::ConfigWidgets KF5::I18n)
 
 install(TARGETS kcm_kgamma DESTINATION ${KDE_INSTALL_PLUGINDIR})
 
