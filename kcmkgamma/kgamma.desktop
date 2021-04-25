@@ -66,7 +66,7 @@ Comment[ug]=كۆزەتكۈچ تەڭشەش قورالى
 Comment[uk]=Засіб для калібрування монітора
 Comment[vi]=Công cụ căn chỉnh màn hình
 Comment[x-test]=xxA monitor calibration toolxx
-Comment[zh_CN]=显示器校准工具
+Comment[zh_CN]=简易显示器校准工具
 Comment[zh_HK]=顯示器調校工具
 Comment[zh_TW]=監視器校準工具
 
@@ -143,7 +143,7 @@ Name[uz]=Gamma
 Name[uz@cyrillic]=Гамма
 Name[xh]=Unobumba wesithathu konoobumba besiGrike
 Name[x-test]=xxGammaxx
-Name[zh_CN]=伽玛
+Name[zh_CN]=伽玛值
 Name[zh_HK]=伽馬（Gamma）
 Name[zh_TW]=Gamma
 
@@ -202,7 +202,7 @@ X-KDE-Keywords[tg]=KGamma, kgamma, Дараҷаи якдигарӣ, дараҷа
 X-KDE-Keywords[tr]=KGamma, kgamma, gamma, gama
 X-KDE-Keywords[uk]=KGamma,kgamma,Gamma,gamma,гама,рівень,контрастність,рівень контрастності
 X-KDE-Keywords[x-test]=xxKGammaxx,xx kgammaxx,xx Gammaxx,xx gammaxx
-X-KDE-Keywords[zh_CN]=KGamma, kgamma, Gamma, gamma,伽马,伽玛
+X-KDE-Keywords[zh_CN]=KGamma, kgamma, Gamma, gamma, 伽马, 伽玛, 伽玛值
 X-KDE-Keywords[zh_TW]=KGamma, kgamma, Gamma, gamma
 Type=Service
 X-KDE-ServiceTypes=KCModule,KCModuleInit
