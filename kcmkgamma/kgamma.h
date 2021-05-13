@@ -46,7 +46,7 @@ private Q_SLOTS:
     /** Called if the user changesd something */
     void Changed()
     {
-        emit changed(true);
+        Q_EMIT changed(true);
     }
     /** Called if the user marked or unmarked the XF86Config checkbox */
     void changeConfig();

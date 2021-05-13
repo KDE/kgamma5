@@ -92,7 +92,7 @@ void GammaCtrl::setGamma(int sliderpos)
         textfield->setNum(xv->getGamma(gchannel));
         oldpos = sliderpos;
         changed = false;
-        emit gammaChanged(sliderpos);
+        Q_EMIT gammaChanged(sliderpos);
     }
 }
 
