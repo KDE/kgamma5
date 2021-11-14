@@ -206,7 +206,7 @@ X-KDE-Keywords[x-test]=xxKGammaxx,xx kgammaxx,xx Gammaxx,xx gammaxx
 X-KDE-Keywords[zh_CN]=KGamma, kgamma, Gamma, gamma, 伽马, 伽玛, 伽玛值
 X-KDE-Keywords[zh_TW]=KGamma, kgamma, Gamma, gamma
 Type=Service
-X-KDE-ServiceTypes=KCModule,KCModuleInit
+X-KDE-ServiceTypes=KCModule
 
 X-KDE-Test-Module=true
 

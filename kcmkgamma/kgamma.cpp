@@ -46,7 +46,7 @@ bool test_kgamma()
 }
 }
 
-K_PLUGIN_FACTORY(KGammaConfigFactory, registerPlugin<KGamma>();)
+K_PLUGIN_CLASS_WITH_JSON(KGamma, "kgamma.json")
 
 KGamma::KGamma(QWidget *parent_P, const QVariantList &)
     : KCModule(parent_P)
@@ -616,7 +616,7 @@ QString KGamma::quickHelp() const
 
 extern "C" {
 // Restore the user gamma settings
-Q_DECL_EXPORT void kcminit_kgamma()
+Q_DECL_EXPORT void kcminit()
 {
     bool ok;
     XVidExtWrap xv(&ok);
