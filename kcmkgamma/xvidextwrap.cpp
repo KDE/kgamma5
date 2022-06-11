@@ -10,17 +10,9 @@
 #include <iostream>
 #include <stdlib.h>
 
+#include <sstream>
 #include <string>
 #include <vector>
-
-#include "config-kgamma.h"
-
-#if !defined(HAVE_STRSTREAM_H)
-#include <sstream>
-#else
-#include <strstream.h>
-#define istringstream istrstream
-#endif
 
 #include "xf86configpath.h"
 
@@ -183,7 +175,3 @@ void XVidExtWrap::setGammaLimits(float min, float max)
     mingamma = (min < 0.1) ? 0.1 : min;
     maxgamma = (max > 10.0) ? 10.0 : max;
 }
-
-#ifdef istringstream
-#undef istringstream
-#endif

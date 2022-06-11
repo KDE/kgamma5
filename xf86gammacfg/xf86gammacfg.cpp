@@ -10,17 +10,9 @@
 
 #include <fstream>
 #include <iostream>
+#include <sstream>
 #include <string>
 #include <vector>
-
-#include "config-kgamma.h"
-
-#if !defined(HAVE_STRSTREAM_H)
-#include <sstream>
-#else
-#include <strstream.h>
-#define istringstream istrstream
-#endif
 
 using namespace std;
 
@@ -125,7 +117,3 @@ int main(int argc, char *argv[])
 
     return !success;
 }
-
-#ifdef istringstream
-#undef istringstream
-#endif

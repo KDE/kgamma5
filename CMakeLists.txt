@@ -31,9 +31,6 @@ find_package(X11 REQUIRED COMPONENTS xf86vmode)
 # X11_xf86vmode discovery is done by FindX11
 add_feature_info("X11_xf86vmode" X11_xf86vmode_FOUND "Required to build kgamma.")
 
-# check_include_files(strstream HAVE_STRSTREAM_H)
-configure_file(config-kgamma.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kgamma.h)
-
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050f02)

@@ -6,7 +6,6 @@
 
 #include "kgamma.h"
 
-#include "config-kgamma.h"
 #include "gammactrl.h"
 #include "xf86configpath.h"
 #include <unistd.h>
