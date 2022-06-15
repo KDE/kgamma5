@@ -9,3 +9,5 @@ Dependencies:
     'frameworks/kconfigwidgets': '@stable'
     'frameworks/kdoctools': '@stable'
     'frameworks/ki18n': '@stable'
+Options:
+  require-passing-tests-on: [ 'Linux', 'FreeBSD']
