@@ -1,0 +1,117 @@
+# Translation of kcmkgamma to Norwegian Nynorsk
+#
+# Gaute Hvoslef Kvalnes <gaute@verdsveven.com>, 2004.
+# Karl Ove Hufthammer <karl@huftis.org>, 2007, 2008.
+msgid ""
+msgstr ""
+"Project-Id-Version: kgamma\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-06-12 00:46+0000\n"
+"PO-Revision-Date: 2008-08-03 19:23+0200\n"
+"Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
+"Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
+"Language: nn\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Environment: kde\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+
+#: kgamma.cpp:132
+#, kde-format
+msgid "&Select test picture:"
+msgstr "&Vel testbilete:"
+
+#: kgamma.cpp:137
+#, kde-format
+msgid "Gray Scale"
+msgstr "Gråtonar"
+
+#: kgamma.cpp:137
+#, kde-format
+msgid "RGB Scale"
+msgstr "RGB-nyansar"
+
+#: kgamma.cpp:137
+#, kde-format
+msgid "CMY Scale"
+msgstr "CMY-nyansar"
+
+#: kgamma.cpp:137
+#, kde-format
+msgid "Dark Gray"
+msgstr "Mørk grå"
+
+#: kgamma.cpp:137
+#, kde-format
+msgid "Mid Gray"
+msgstr "Mellomgrå"
+
+#: kgamma.cpp:137
+#, kde-format
+msgid "Light Gray"
+msgstr "Lys grå"
+
+#: kgamma.cpp:185
+#, kde-format
+msgid "Gamma:"
+msgstr "Gamma:"
+
+#: kgamma.cpp:188
+#, kde-format
+msgid "Red:"
+msgstr "Raud:"
+
+#: kgamma.cpp:191
+#, kde-format
+msgid "Green:"
+msgstr "Grøn:"
+
+#: kgamma.cpp:194
+#, kde-format
+msgid "Blue:"
+msgstr "Blå:"
+
+#: kgamma.cpp:236
+#, kde-format
+msgid "Save settings system wide"
+msgstr "Lagra innstillingane for alle brukarar"
+
+#: kgamma.cpp:240
+#, kde-format
+msgid "Sync screens"
+msgstr "Synkroniser skjermane"
+
+#: kgamma.cpp:248
+#, kde-format
+msgid "Screen %1"
+msgstr "Skjerm %1"
+
+#: kgamma.cpp:266
+#, kde-format
+msgid "Gamma correction is not supported by your graphics hardware or driver."
+msgstr "Maskinvara eller drivaren støttar ikkje gammajustering."
+
+#: kgamma.cpp:604
+#, kde-format
+msgid ""
+"<h1>Monitor Gamma</h1> This is a tool for changing monitor gamma correction. "
+"Use the four sliders to define the gamma correction either as a single "
+"value, or separately for the red, green and blue components. You may need to "
+"correct the brightness and contrast settings of your monitor for good "
+"results. The test images help you to find proper settings.<br> You can save "
+"them system-wide to XF86Config (root access is required for that) or to your "
+"own KDE settings. On multi head systems you can correct the gamma values "
+"separately for all screens."
+msgstr ""
+"<h1>Skjermgamma</h1> Med dette verktøyet kan du justera gammainnstillinga "
+"til skjermen. Du kan bruka dei fire glidebrytarane til å velja justeringa "
+"som éin enkel verdi eller for raudt, grønt og blått kvar for seg. Det kan "
+"henda at du òg treng justera lysstyrken og kontrasten til skjermen. "
+"Testbileta hjelper deg med å finna dei beste innstillingane. <br/>Du kan "
+"lagra innstillingane for heile systemet til XF86Config (treng root-tilgang) "
+"eller til dine eigne KDE-innstillingar. Dersom du har fleire skjermar, kan "
+"du justera gammainnstillingane til kvar skjerm for seg."

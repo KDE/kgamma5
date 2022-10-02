@@ -1,0 +1,115 @@
+# translation of kgamma.po to esperanto
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# Pierre-Marie Pédrot <pedrotpmx@wanadoo.fr>, 2007.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kgamma\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-06-12 00:46+0000\n"
+"PO-Revision-Date: 2007-11-30 20:35+0100\n"
+"Last-Translator: Pierre-Marie Pédrot <pedrotpmx@wanadoo.fr>\n"
+"Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
+"Language: eo\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#: kgamma.cpp:132
+#, kde-format
+msgid "&Select test picture:"
+msgstr "&Elekti testan bildon:"
+
+#: kgamma.cpp:137
+#, kde-format
+msgid "Gray Scale"
+msgstr "Grizoskalo"
+
+#: kgamma.cpp:137
+#, kde-format
+msgid "RGB Scale"
+msgstr "RVB skalo"
+
+#: kgamma.cpp:137
+#, kde-format
+msgid "CMY Scale"
+msgstr "CFF skalo"
+
+#: kgamma.cpp:137
+#, kde-format
+msgid "Dark Gray"
+msgstr "Malhelgrizo"
+
+#: kgamma.cpp:137
+#, kde-format
+msgid "Mid Gray"
+msgstr "Mezgrizo"
+
+#: kgamma.cpp:137
+#, kde-format
+msgid "Light Gray"
+msgstr "Helgrizo"
+
+#: kgamma.cpp:185
+#, kde-format
+msgid "Gamma:"
+msgstr "Gamo:"
+
+#: kgamma.cpp:188
+#, kde-format
+msgid "Red:"
+msgstr "Ruĝo:"
+
+#: kgamma.cpp:191
+#, kde-format
+msgid "Green:"
+msgstr "Verdo:"
+
+#: kgamma.cpp:194
+#, kde-format
+msgid "Blue:"
+msgstr "Bluo:"
+
+#: kgamma.cpp:236
+#, kde-format
+msgid "Save settings system wide"
+msgstr "Konservi la agordon por la tuta sistemo"
+
+#: kgamma.cpp:240
+#, kde-format
+msgid "Sync screens"
+msgstr "Sinkronigi la ekranojn"
+
+#: kgamma.cpp:248
+#, kde-format
+msgid "Screen %1"
+msgstr "Ekrano %1"
+
+#: kgamma.cpp:266
+#, kde-format
+msgid "Gamma correction is not supported by your graphics hardware or driver."
+msgstr "Gama korektado ne estas subtenata per via grafika aparato aŭ pelilo."
+
+#: kgamma.cpp:604
+#, kde-format
+msgid ""
+"<h1>Monitor Gamma</h1> This is a tool for changing monitor gamma correction. "
+"Use the four sliders to define the gamma correction either as a single "
+"value, or separately for the red, green and blue components. You may need to "
+"correct the brightness and contrast settings of your monitor for good "
+"results. The test images help you to find proper settings.<br> You can save "
+"them system-wide to XF86Config (root access is required for that) or to your "
+"own KDE settings. On multi head systems you can correct the gamma values "
+"separately for all screens."
+msgstr ""
+"<h1>Ekrana gamo</h1> Tio estas ilo por ŝanĝi la ekranan gamokorektaĵon. Uzu "
+"la kvar rulumskalojn por difini la gamokorektaĵon ĉu per unu valoro, ĉu "
+"aparte per la ruĝa, verda kaj blua komponantoj. Vi eble bezonus korekti la "
+"helecon kaj konstraston de via ekrano por plibonigi la rezulton. La testaj "
+"bildoj permesas al vi trovi taŭgan agordon.<br> Vi povas konservi la agordon "
+"tutsisteme per XF86Config (sistemestraj permesoj necesaj) aŭ en via propra "
+"KDE agordo. Ĉe plurekranaj sistemoj, vi povas korekti la gaman valoron "
+"aparte sur ĉiu ekrano."

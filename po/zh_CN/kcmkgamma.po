@@ -1,0 +1,112 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeorg\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-06-12 00:46+0000\n"
+"PO-Revision-Date: 2022-09-20 01:55\n"
+"Last-Translator: \n"
+"Language-Team: Chinese Simplified\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Crowdin-Project: kdeorg\n"
+"X-Crowdin-Project-ID: 269464\n"
+"X-Crowdin-Language: zh-CN\n"
+"X-Crowdin-File: /kf5-trunk/messages/kgamma5/kcmkgamma.pot\n"
+"X-Crowdin-File-ID: 4295\n"
+
+#: kgamma.cpp:132
+#, kde-format
+msgid "&Select test picture:"
+msgstr "选择测试图像(&S)："
+
+#: kgamma.cpp:137
+#, kde-format
+msgid "Gray Scale"
+msgstr "灰度色阶"
+
+#: kgamma.cpp:137
+#, kde-format
+msgid "RGB Scale"
+msgstr "RGB 色阶"
+
+#: kgamma.cpp:137
+#, kde-format
+msgid "CMY Scale"
+msgstr "CMY 色阶"
+
+#: kgamma.cpp:137
+#, kde-format
+msgid "Dark Gray"
+msgstr "暗调灰对比"
+
+#: kgamma.cpp:137
+#, kde-format
+msgid "Mid Gray"
+msgstr "中间灰对比"
+
+#: kgamma.cpp:137
+#, kde-format
+msgid "Light Gray"
+msgstr "亮调灰对比"
+
+#: kgamma.cpp:185
+#, kde-format
+msgid "Gamma:"
+msgstr "伽玛值："
+
+#: kgamma.cpp:188
+#, kde-format
+msgid "Red:"
+msgstr "红："
+
+#: kgamma.cpp:191
+#, kde-format
+msgid "Green:"
+msgstr "绿："
+
+#: kgamma.cpp:194
+#, kde-format
+msgid "Blue:"
+msgstr "蓝："
+
+#: kgamma.cpp:236
+#, kde-format
+msgid "Save settings system wide"
+msgstr "保存设置到系统全局"
+
+#: kgamma.cpp:240
+#, kde-format
+msgid "Sync screens"
+msgstr "屏幕同步"
+
+#: kgamma.cpp:248
+#, kde-format
+msgid "Screen %1"
+msgstr "屏幕 %1"
+
+#: kgamma.cpp:266
+#, kde-format
+msgid "Gamma correction is not supported by your graphics hardware or driver."
+msgstr "您的图形硬件或驱动程序不支持伽玛值校正。"
+
+#: kgamma.cpp:604
+#, kde-format
+msgid ""
+"<h1>Monitor Gamma</h1> This is a tool for changing monitor gamma correction. "
+"Use the four sliders to define the gamma correction either as a single "
+"value, or separately for the red, green and blue components. You may need to "
+"correct the brightness and contrast settings of your monitor for good "
+"results. The test images help you to find proper settings.<br> You can save "
+"them system-wide to XF86Config (root access is required for that) or to your "
+"own KDE settings. On multi head systems you can correct the gamma values "
+"separately for all screens."
+msgstr ""
+"<h1>显示器伽玛值调整</h1>此工具用于对显示器的伽玛值进行简易调整。本设置页提供"
+"了四组滑动条，您可以对全体伽玛值进行调整，也可以独立调整红、绿、蓝颜色分量的"
+"伽玛值。为了达到最佳的调整效果，您可能还需要调整显示器的亮度及对比度。请通过"
+"不同的测试图像来辅助调整。<br>您可以将设定值保存到系统全局的 XF86Config 配置"
+"文件 (需要 root 权限)，也可以保存到当前用户的 KDE 设置。在多显示器的系统中，"
+"您可以为分别为每个屏幕调整伽玛值。"
