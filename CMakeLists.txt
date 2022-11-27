@@ -39,6 +39,7 @@ add_definitions(-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x055900)
 add_subdirectory(kcmkgamma)
 # add_subdirectory(xf86gammacfg)
 add_subdirectory(doc)
+kdoctools_install(po)
 
 # add clang-format target for all our real source files
 file(GLOB_RECURSE ALL_CLANG_FORMAT_SOURCE_FILES *.cpp *.h)
