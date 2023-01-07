@@ -2,152 +2,193 @@
 <!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
  "dtd/kdedbx45.dtd" [
   <!ENTITY % addindex "IGNORE">
-  <!ENTITY % English "INCLUDE"><!-- change language only here -->
+  <!ENTITY % German "INCLUDE"
+><!-- change language only here -->
 ]>
 
 <article id="kgamma" lang="&language;">
-<title>Monitor Gamma</title>
+<title
+>Monitor-Gamma</title>
 
 <articleinfo>
 <authorgroup>
-<author>
-<firstname>Michael</firstname>
-<surname>v.Ostheim</surname>
-<affiliation>
-<address><email>ostheimm@users.berlios.de</email></address>
+<author
+><firstname
+>Michael</firstname
+> <surname
+>v.Ostheim</surname
+> <affiliation
+> <address
+><email
+>ostheimm@users.berlios.de</email
+></address>
 </affiliation>
 </author>
-<!-- TRANS:ROLES_OF_TRANSLATORS -->
+<othercredit role="translator"
+><firstname
+>Marco</firstname
+><surname
+>Wegner</surname
+><affiliation
+><address
+><email
+>mail@marcowegner.de</email
+></address
+> </affiliation
+> <contrib
+>Übersetzung</contrib
+></othercredit
+><othercredit role="translator"
+><firstname
+>Kilian</firstname
+><surname
+>Kluge</surname
+> <affiliation
+><address
+><email
+>kilian@klugeworld.de</email
+></address
+></affiliation
+><contrib
+>Deutsche Übersetzung</contrib
+></othercredit
+> 
 </authorgroup>
 
-<date>2015-07-31</date>
-<releaseinfo>Plasma 5.4</releaseinfo>
+<date
+>2015-07-31</date>
+<releaseinfo
+>Plasma 5.4</releaseinfo>
 
 <keywordset>
-<keyword>KDE</keyword>
-<keyword>System Settings</keyword>
-<keyword>Monitor</keyword>
-<keyword>Calibration</keyword>
-<keyword>Gamma</keyword>
+<keyword
+>KDE</keyword>
+<keyword
+>Systemeinstellungen</keyword>
+<keyword
+>Monitor</keyword>
+<keyword
+>Kalibrierung</keyword>
+<keyword
+>Gamma</keyword>
 </keywordset>
 
 </articleinfo>
 
 <sect1 id="introduction">
-<title>Introduction</title>
+<title
+>Einleitung</title>
 
-<para>This module is a tool for monitor gamma correction.  With proper gamma
-settings, your display (websites, images, &etc;) will look the same on your
-monitor as on other monitors.</para>
-<para>It allows you to alter the monitor's gamma correction of the
-&X-Server;. But that's not all to do. For good results you have to set the
-correct brightness, contrast and color balance of your monitor. This
-may be difficult and you have to repeat every step several times.
-For perfect results you need really good (and expensive) hardware.</para>
-<para>Use the four sliders to define the gamma correction either as a single
-value, or separately for the red, green and blue components. The &X-Server;
-default setting for gamma is 1.00 (&Mac; 1.80, WinXX 2.20). The test images help
-you to find proper settings.</para>
-<para>To store the gamma settings system wide, enable the option <guilabel>Save
-settings system wide</guilabel>. The system settings will be restored at next &X-Server;
-startup. You need root access to use this option. Use this if you want to
-correct the gamma settings for all users and graphical environments on this
-machine.</para>
-<para>To store the gamma settings to your personal &plasma; configuration, do not
-enable that option. The user settings will be restored at next &plasma; startup and
-replace temporary the system gamma settings. The system settings are not removed by
-that and will be restored at next &X-Server; startup.</para>
-<para>On multi head systems, select the screen you want to alter with the combo
-box. This will also work with xinerama enabled. If you want to set all screens
-to the same gamma values, enable the <guilabel>Sync screens</guilabel> option. On systems with only
-one screen this option will take no effect.</para>
+<para
+>Dieses Modul ist ein Werkzeug zum Korrigieren der Gamma-Werte Ihres Monitors. Mit den richtigen Gammawerten zeigt Ihr Bildschirm Webseiten, Bilder &etc; genauso an wie andere Monitore.</para>
+<para
+>Sie können die &X-Server;-Gammakorrektur des Monitors ändern. Aber das ist noch nicht alles. Um gute Resultate zu erzielen, müssen Sie die korrekten Werte für Helligkeit, Kontrast und Farbskalierung setzen. Das ist sehr schwierig und Sie werden die einzelnen Schritte mehrmals wiederholen müssen. Für perfekte Ergebnisse brauchen Sie wirklich gute (und teure) Hardware.</para>
+<para
+>Benutzen Sie die vier Regler um die Gammakorrektur entweder insgesamt oder für Rot, Grün und Blau einzeln einzustellen. Der Standardwert vom &X-Server; für Gamma ist 1,00 (Auf &Mac;s ist es 1,80, unter Windows XX 2,20). Die Testbilder helfen Ihnen die korrekten Einstellungen zu finden.</para>
+<para
+>Um die Gammawerte systemweit zu speichern, aktivieren Sie das Kästchen <guilabel
+>Einstellungen systemweit speichern</guilabel
+>. Die Einstellungen werden dann nach einem Neustart des &X-Server;s übernommen. Sie brauchen Systemverwalter-Rechte, wenn Sie diese Option nutzen wollen. Benutzen Sie diese Funktion, wenn Sie die Gammakorrektur für alle Benutzer und grafische Anwendungen auf diesem Computer übernehmen wollen.</para>
+<para
+>Um die Gammawerte nur für Ihre eigene Konfiguration von &plasma; zu verwenden, lassen Sie diese Funktion deaktiviert. Diese persönlichen Einstellungen des Benutzers werden nach dem nächsten Start von &plasma; wirksam und ersetzen dann die systemweiten Einstellungen der Gammawerte. Die Systemwerte werden nicht entfernt oder verändert und beim nächsten Starts des &X-Server;s wieder verwendet.</para>
+<para
+>Auf Systemen mit mehreren Bildschirmen wählen Sie den Schirm, dessen Werte Sie ändern wollen, mit dem Kombinationsfeld in der unteren rechten Ecke. Das funktioniert auch, wenn Xinerama aktiviert ist. Wenn Sie alle Bildschirme auf dieselben Gammawerte einstellen wollen, aktivieren Sie <guilabel
+>Bildschirme synchronisieren</guilabel
+>. Auf Systemen mit nur einem Bildschirm hat das keine Auswirkung.</para>
 </sect1>
 
 <sect1 id="using_test_images">
-<title>Using the Test Images</title>
-<para>This module provides six different test pictures selectable from the drop down box at the top of the window.</para>
+<title
+>Testbilder benutzen</title>
+<para
+>Dieses Modul enthält sechs verschiedene Testbilder, die aus dem Auswahlfeld oben im Dialog ausgewählt werden können.</para>
 <sect2 id="grey">
-<title>Grey Scale Test Image</title>
-<para>You should be able to see the following:</para>
+<title
+>Testbild Grauskala</title>
+<para
+>Sie sollten das Folgende sehen:</para>
 <itemizedlist>
 <listitem>
-<para>A grayscale with 20 different sections</para>
+<para
+>Eine Grauskala mit 20 verschiedenen Abschnitten.</para>
 </listitem>
 <listitem>
-<para>The darkest section pure black</para>
+<para
+>Der dunkelste Abschnitt ist vollkommen schwarz</para>
 </listitem>
 <listitem>
-<para>The lightest section pure white</para>
+<para
+>Der hellste Abschnitt völlig weiß</para>
 </listitem>
 <listitem>
-<para>No hint of any color in the gray tones</para>
+<para
+>Keine Anzeichen irgendwelcher Farben in den Grautönen</para>
 </listitem>
 </itemizedlist>
 
-<para>If you cannot see all of the 20 sections, use your monitors contrast settings
-or the <guilabel>Gamma:</guilabel> slider to correct this. If black is not pure black,
-try to darken the monitor, if white is not pure white, try to lighten
-it. If you see any colors in the gray tones alter the color balance settings of
-your monitor or the <guilabel>Red:</guilabel>, <guilabel>Green:</guilabel> and <guilabel>Blue:</guilabel> sliders.</para>
+<para
+>Wenn Sie nicht alle der 20 Abschnitte sehen können, benutzen Sie die Kontrasteinstellungen des Bildschirms oder den <guilabel
+>Gamma</guilabel
+>regler um dies zu korrigieren. Wenn die schwarze Fläche nicht vollkommen schwarz ist, versuchen Sie die Helligkeit des Bildschirms zu verringern. Ist die weiße Fläche nicht völlig weiß, versuchen Sie die Helligkeit zu erhöhen. Wenn Sie irgendwelche Farben in den Grautönen sehen, verändern Sie die Farbeinstellungen Ihres Monitors oder benutzen Sie die <guilabel
+>Rot</guilabel
+>-, <guilabel
+>Grün</guilabel
+>- und <guilabel
+>Blau</guilabel
+>-regler.</para>
 </sect2>
 
 <sect2 id="RGB-Scale">
-<title>RGB Scale Test Picture</title>
-<para>
-You should be able to see three strips, each with 16 sections of red,
-green or blue tones. The darkest sections should be pure black, the brightest
-should be pure red, green or blue. If you don't see all sections of
-a color strip, try to lighten or darken this color.</para>
+<title
+>Testbild RGB-Skala</title>
+<para
+>Sie sollten drei Streifen sehen können, jeder mit 16 Stufen, jeweils in Rot-, Grün- oder Blautönen. Die dunkelste Stufe sollte vollkommen schwarz, die hellste vollkommen rot, grün oder blau sein. Wenn Sie nicht alle Abstufungen einer Farbe sehen, sollten Sie versuchen, diese Farbe mit dem entsprechenden Regler zu erhellen oder zu verdunkeln.</para>
 </sect2>
 
 <sect2 id="CMY-Scale">
-<title>CMY Scale Test Picture</title>
-<para>
-You should be able to see three strips, each with 11 sections of cyan,
-magenta or yellow tones. The brightest sections should be pure white, the darkest
-should be pure cyan, magenta or yellow.</para>
+<title
+>Testbild CMY-Skala</title>
+<para
+>Sie sollten drei Streifen sehen können, jeder mit 11 Stufen Cyan-, Magenta- oder Gelbtönen. Die hellsten Stufe sollten völlig weiß, die dunkelste rein Cyan, Magenta oder Gelb sein.</para>
 
 <itemizedlist>
 <listitem>
-<para>If you cannot see all cyan sections, try to lighten or darken red</para>
+<para
+>Wenn Sie nicht alle Cyanstufen sehen können, versuchen Sie den Rotwert zu verändern, bis alle Abstufungen erkennbar sind.</para>
 </listitem>
 <listitem>
-<para>If you cannot see all magenta sections, try to lighten or darken green</para>
+<para
+>Wenn Sie nicht alle Magentastufen sehen können, versuchen Sie den Grünwert zu verändern.</para>
 </listitem>
 <listitem>
-<para>If you cannot see all yellow sections, try to lighten or darken blue</para>
+<para
+>Wenn Sie nicht alle Gelbstufen sehen können, versuchen Sie den Gelbwert zu erhellen oder zu verdunkeln.</para>
 </listitem>
 </itemizedlist>
 </sect2>
 
 <sect2 id="advanced">
-<title>Advanced Test Pictures</title>
-<para>
-The following three pictures show you the abilities of your monitor at
-three points of the gray spectrum. If you cannot see all of the details,
-don't be worry, or buy better hardware.
-</para>
+<title
+>Erweiterte Testbilder</title>
+<para
+>Die folgenden drei Bilder zeigen Ihnen die Fähigkeiten Ihres Monitors in bestimmten Bereichen des Grauspektrums. Wenn Sie nicht alle Details sehen können, obwohl Sie die für Ihren Monitor idealen Einstellungen verwenden, liegt es vermutlich an Ihrer Hardware. </para>
 <sect3 id="dark-gray">
-<title>Dark Gray Test Picture</title>
-<para>
-You should be able to see 10 different rectangles of dark gray within a
-black box. The chart shows you 1% steps from black.
-</para>
+<title
+>Testbild Dunkelgrau</title>
+<para
+>Sie sollten zehn verschiedene, dunkelgraue Rechtecke in einem schwarzen Kasten sehen können. Das Diagramm zeigt Ihnen die Graustufen in 1&nbsp;%-Schritten ausgehend von Schwarz. </para>
 </sect3>
 <sect3 id="mid-gray">
-<title>Mid Gray Test Picture</title>
-<para>
-This picture shows you 11 gray rectangles within a 50% gray box. You should be
-able to see all of the rectangles except the middle one. The rectangles represent
-the steps from 45% to 55% gray.
-</para>
+<title
+>Testbild Mittelgrau</title>
+<para
+>Dieses Bild zeigt Ihnen 11 graue Rechtecke in einem 50&nbsp;% grauen Kasten. Sie sollten alle diese Rechtecke bis auf das mittlere sehen können. Die Rechtecke stellen die Stufen von 45&nbsp;% bis 55&nbsp;% Grau dar. </para>
 </sect3>
 <sect3 id="light-gray">
-<title>Light Gray Test Picture</title>
-<para>
-You should be able to see 10 different rectangles of light gray within a white box.
-The chart shows you 1% steps from white.
-</para>
+<title
+>Testbild Hellgrau</title>
+<para
+>Sie sollten zehn verschiedene, hellgraue Rechtecke in einem weißen Kasten sehen. Das Diagramm zeigt Ihnen die Graustufen in Schritten von 1&nbsp;% ausgehend von Weiß . </para>
 </sect3>
 </sect2>
 </sect1>
