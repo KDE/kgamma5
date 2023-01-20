@@ -3,11 +3,11 @@ add_definitions(-DTRANSLATION_DOMAIN=\"kcmkgamma\")
 add_subdirectory(pics)
 
 set(kcm_kgamma_PART_SRCS
-   xf86configpath.cpp
-   xvidextwrap.cpp
-   displaynumber.cpp
-   gammactrl.cpp
-   kgamma.cpp
+   xf86configpath.cpp xf86configpath.h
+   xvidextwrap.cpp xvidextwrap.h
+   displaynumber.cpp displaynumber.h
+   gammactrl.cpp gammactrl.h
+   kgamma.cpp kgamma.h
 )
 
 add_library(kcm_kgamma MODULE ${kcm_kgamma_PART_SRCS})
