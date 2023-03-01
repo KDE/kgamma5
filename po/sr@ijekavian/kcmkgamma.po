@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkgamma\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2019-05-20 03:24+0200\n"
+"POT-Creation-Date: 2022-06-12 00:46+0000\n"
 "PO-Revision-Date: 2015-08-01 14:25+0200\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -20,91 +20,91 @@ msgstr ""
 "X-Text-Markup: kde4\n"
 "X-Environment: kde\n"
 
-#: kgamma.cpp:143
+#: kgamma.cpp:132
 #, kde-format
 msgid "&Select test picture:"
 msgstr "&Изаберите пробну слику:"
 
 # >> @item:inlistbox
-#: kgamma.cpp:148
+#: kgamma.cpp:137
 #, kde-format
 msgid "Gray Scale"
 msgstr "сиве нијансе"
 
 # >> @item:inlistbox
-#: kgamma.cpp:149
+#: kgamma.cpp:137
 #, kde-format
 msgid "RGB Scale"
 msgstr "РГБ нијансе"
 
 # >> @item:inlistbox
-#: kgamma.cpp:150
+#: kgamma.cpp:137
 #, kde-format
 msgid "CMY Scale"
 msgstr "ЦМИ нијансе"
 
 # >> @item:inlistbox
 # well-spelled: тамносиво
-#: kgamma.cpp:151
+#: kgamma.cpp:137
 #, kde-format
 msgid "Dark Gray"
 msgstr "тамносиво"
 
 # >> @item:inlistbox
 # well-spelled: средњесиво
-#: kgamma.cpp:152
+#: kgamma.cpp:137
 #, kde-format
 msgid "Mid Gray"
 msgstr "средњесиво"
 
 # >> @item:inlistbox
 # well-spelled: светлосиво
-#: kgamma.cpp:153
+#: kgamma.cpp:137
 #, kde-format
 msgid "Light Gray"
 msgstr "светлосиво"
 
-#: kgamma.cpp:202
+#: kgamma.cpp:185
 #, kde-format
 msgid "Gamma:"
 msgstr "Гама:"
 
-#: kgamma.cpp:205
+#: kgamma.cpp:188
 #, kde-format
 msgid "Red:"
 msgstr "Црвена:"
 
-#: kgamma.cpp:208
+#: kgamma.cpp:191
 #, kde-format
 msgid "Green:"
 msgstr "Зелена:"
 
-#: kgamma.cpp:211
+#: kgamma.cpp:194
 #, kde-format
 msgid "Blue:"
 msgstr "Плава:"
 
-#: kgamma.cpp:253
+#: kgamma.cpp:236
 #, kde-format
 msgid "Save settings system wide"
 msgstr "Сачувај поставке широм система"
 
-#: kgamma.cpp:257
+#: kgamma.cpp:240
 #, kde-format
 msgid "Sync screens"
 msgstr "Синхронизуј екране"
 
-#: kgamma.cpp:265
+#: kgamma.cpp:248
 #, kde-format
 msgid "Screen %1"
 msgstr "Монитор %1"
 
-#: kgamma.cpp:283
+#: kgamma.cpp:266
 #, kde-format
 msgid "Gamma correction is not supported by your graphics hardware or driver."
 msgstr "Графички хардвер или драјвер не подржава корекцију гаме."
 
-#: kgamma.cpp:591
+#: kgamma.cpp:604
 #, kde-format
 msgid ""
 "<h1>Monitor Gamma</h1> This is a tool for changing monitor gamma correction. "
