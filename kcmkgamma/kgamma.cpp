@@ -45,7 +45,7 @@ bool test_kgamma()
 }
 }
 
-K_PLUGIN_CLASS_WITH_JSON(KGamma, "kgamma.json")
+K_PLUGIN_CLASS_WITH_JSON(KGamma, "kcm_kgamma.json")
 
 KGamma::KGamma(QWidget *parent_P, const QVariantList &)
     : KCModule(parent_P)
