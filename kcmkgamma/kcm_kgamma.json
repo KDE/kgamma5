@@ -1,6 +1,10 @@
 {
     "KPlugin": {
         "Description": "A monitor calibration tool",
+        "Description[es]": "Herramienta de calibración del monitor",
+        "Description[it]": "Uno strumento di calibrazione del monitor",
+        "Description[uk]": "Засіб для калібрування монітора",
+        "Description[x-test]": "xxA monitor calibration toolxx",
         "Icon": "preferences-desktop-display-color",
         "Name": "Gamma",
         "Name[ar]": "جاما",
