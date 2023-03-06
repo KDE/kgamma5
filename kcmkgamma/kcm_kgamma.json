@@ -1,12 +1,15 @@
 {
     "KPlugin": {
         "Description": "A monitor calibration tool",
+        "Description[ca]": "Una eina de calibratge per al monitor",
         "Description[es]": "Herramienta de calibración del monitor",
+        "Description[eu]": "Monitoreak kalibratzeko tresna bat",
         "Description[fr]": "Un outil d'étalonnage d'écran",
         "Description[it]": "Uno strumento di calibrazione del monitor",
         "Description[ka]": "ეკრანის კალიბრაციის პროგრამა",
         "Description[nl]": "Een hulpmiddel voor het kalibreren van de monitor",
         "Description[nn]": "Eit verktøy for å kalibrera skjermen",
+        "Description[sl]": "Orodje za umerjanje zaslonov",
         "Description[tr]": "Bir monitör kalibrasyon aracı",
         "Description[uk]": "Засіб для калібрування монітора",
         "Description[x-test]": "xxA monitor calibration toolxx",
