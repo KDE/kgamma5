@@ -1,6 +1,7 @@
 {
     "KPlugin": {
         "Description": "A monitor calibration tool",
+        "Description[ca@valencia]": "Una eina de calibratge per al monitor",
         "Description[ca]": "Una eina de calibratge per al monitor",
         "Description[es]": "Herramienta de calibración del monitor",
         "Description[eu]": "Monitoreak kalibratzeko tresna bat",
@@ -13,6 +14,7 @@
         "Description[tr]": "Bir monitör kalibrasyon aracı",
         "Description[uk]": "Засіб для калібрування монітора",
         "Description[x-test]": "xxA monitor calibration toolxx",
+        "Description[zh_TW]": "顯示器校準工具",
         "Icon": "preferences-desktop-display-color",
         "Name": "Gamma",
         "Name[ar]": "جاما",
