@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: kdegraphics-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-06-12 00:46+0000\n"
-"PO-Revision-Date: 2023-02-20 17:30+0300\n"
+"PO-Revision-Date: 2023-03-07 17:48+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.2\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: kgamma.cpp:132
 #, kde-format
@@ -29,17 +29,17 @@ msgstr "Sınama re&smini seç:"
 #: kgamma.cpp:137
 #, kde-format
 msgid "Gray Scale"
-msgstr "Gri Ton"
+msgstr "Gri Tonlu"
 
 #: kgamma.cpp:137
 #, kde-format
 msgid "RGB Scale"
-msgstr "KYM Ton"
+msgstr "KYM Tonlu"
 
 #: kgamma.cpp:137
 #, kde-format
 msgid "CMY Scale"
-msgstr "CMY Ton"
+msgstr "CMS Tonlu"
 
 #: kgamma.cpp:137
 #, kde-format
@@ -84,7 +84,7 @@ msgstr "Ayarları sistem geneli için kaydet"
 #: kgamma.cpp:240
 #, kde-format
 msgid "Sync screens"
-msgstr "Ekranı eşitle"
+msgstr "Ekranları eşzamanla"
 
 #: kgamma.cpp:248
 #, kde-format
@@ -108,7 +108,7 @@ msgid ""
 "own KDE settings. On multi head systems you can correct the gamma values "
 "separately for all screens."
 msgstr ""
-"<h1>Monitör Gama</h1>  Bu  monitörün gama düzeltimini değiştirmek için bir "
+"<h1>Monitör Gaması</h1>  Bu  monitörün gama düzeltimini değiştirmek için bir "
 "araçtır. Tek bir değer veya dört adet kaydırma çubuğu ile gama düzeltimini "
 "belirleyebilirsiniz veya ayrı ayrı kırmızı, yeşil ve mavi renkleri "
 "belirleyebilirsiniz. İyi bir sonuç için monitörününüzün parlaklık ve "
