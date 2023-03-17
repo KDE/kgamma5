@@ -1,6 +1,7 @@
 {
     "KPlugin": {
         "Description": "A monitor calibration tool",
+        "Description[ar]": "أداة مراقب المعايرة",
         "Description[bg]": "Инструмент за калибриране на монитора",
         "Description[ca@valencia]": "Una eina de calibratge per al monitor",
         "Description[ca]": "Una eina de calibratge per al monitor",
@@ -10,6 +11,7 @@
         "Description[eu]": "Monitoreak kalibratzeko tresna bat",
         "Description[fi]": "Näytön kalibrointityökalu",
         "Description[fr]": "Un outil d'étalonnage d'écran",
+        "Description[ia]": "Instrumento de calibration de monitor",
         "Description[it]": "Uno strumento di calibrazione del monitor",
         "Description[ka]": "ეკრანის კალიბრაციის პროგრამა",
         "Description[nl]": "Een hulpmiddel voor het kalibreren van de monitor",
