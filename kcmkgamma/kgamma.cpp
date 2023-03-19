@@ -47,8 +47,8 @@ bool test_kgamma()
 
 K_PLUGIN_CLASS_WITH_JSON(KGamma, "kcm_kgamma.json")
 
-KGamma::KGamma(QWidget *parent_P, const QVariantList &)
-    : KCModule(parent_P)
+KGamma::KGamma(QObject *parent, const KPluginMetaData &data, const QVariantList &args)
+    : KCModule(parent, data, args)
     , rootProcess(nullptr)
 {
     bool ok;
@@ -123,14 +123,14 @@ KGamma::~KGamma()
 /** User interface */
 void KGamma::setupUI()
 {
-    QBoxLayout *topLayout = new QVBoxLayout(this);
+    QBoxLayout *topLayout = new QVBoxLayout(widget());
     topLayout->setContentsMargins(0, 0, 0, 0);
 
     if (GammaCorrection) {
         QHBoxLayout *hbox = new QHBoxLayout();
         topLayout->addLayout(hbox);
-        QLabel *label = new QLabel(i18n("&Select test picture:"), this);
-        QComboBox *combo = new QComboBox(this);
+        QLabel *label = new QLabel(i18n("&Select test picture:"), widget());
+        QComboBox *combo = new QComboBox(widget());
         label->setBuddy(combo);
 
         QStringList list;
@@ -141,7 +141,7 @@ void KGamma::setupUI()
         hbox->addWidget(combo);
         hbox->addStretch();
 
-        QStackedWidget *stack = new QStackedWidget(this);
+        QStackedWidget *stack = new QStackedWidget(widget());
         stack->setFrameStyle(QFrame::Box | QFrame::Raised);
 
         connect(combo, QOverload<int>::of(&QComboBox::activated), stack, &QStackedWidget::setCurrentIndex);
@@ -181,39 +181,39 @@ void KGamma::setupUI()
 
         // Sliders for gamma correction
 
-        QLabel *gammalabel = new QLabel(this);
+        QLabel *gammalabel = new QLabel(widget());
         gammalabel->setText(i18n("Gamma:"));
 
-        QLabel *redlabel = new QLabel(this);
+        QLabel *redlabel = new QLabel(widget());
         redlabel->setText(i18n("Red:"));
 
-        QLabel *greenlabel = new QLabel(this);
+        QLabel *greenlabel = new QLabel(widget());
         greenlabel->setText(i18n("Green:"));
 
-        QLabel *bluelabel = new QLabel(this);
+        QLabel *bluelabel = new QLabel(widget());
         bluelabel->setText(i18n("Blue:"));
 
-        gctrl = new GammaCtrl(this, xv);
-        connect(gctrl, &GammaCtrl::gammaChanged, this, &KGamma::Changed);
+        gctrl = new GammaCtrl(widget(), xv);
+        connect(gctrl, &GammaCtrl::gammaChanged, this, &KCModule::markAsChanged);
         connect(gctrl, &GammaCtrl::gammaChanged, this, &KGamma::SyncScreens);
         gammalabel->setBuddy(gctrl);
 
-        rgctrl = new GammaCtrl(this, xv, XVidExtWrap::Red);
-        connect(rgctrl, &GammaCtrl::gammaChanged, this, &KGamma::Changed);
+        rgctrl = new GammaCtrl(widget(), xv, XVidExtWrap::Red);
+        connect(rgctrl, &GammaCtrl::gammaChanged, this, &KCModule::markAsChanged);
         connect(rgctrl, &GammaCtrl::gammaChanged, this, &KGamma::SyncScreens);
         connect(gctrl, SIGNAL(gammaChanged(int)), rgctrl, SLOT(setCtrl(int)));
         connect(rgctrl, &GammaCtrl::gammaChanged, gctrl, &GammaCtrl::suspend);
         redlabel->setBuddy(rgctrl);
 
-        ggctrl = new GammaCtrl(this, xv, XVidExtWrap::Green);
-        connect(ggctrl, &GammaCtrl::gammaChanged, this, &KGamma::Changed);
+        ggctrl = new GammaCtrl(widget(), xv, XVidExtWrap::Green);
+        connect(ggctrl, &GammaCtrl::gammaChanged, this, &KCModule::markAsChanged);
         connect(ggctrl, &GammaCtrl::gammaChanged, this, &KGamma::SyncScreens);
         connect(gctrl, SIGNAL(gammaChanged(int)), ggctrl, SLOT(setCtrl(int)));
         connect(ggctrl, &GammaCtrl::gammaChanged, gctrl, &GammaCtrl::suspend);
         greenlabel->setBuddy(ggctrl);
 
-        bgctrl = new GammaCtrl(this, xv, XVidExtWrap::Blue);
-        connect(bgctrl, &GammaCtrl::gammaChanged, this, &KGamma::Changed);
+        bgctrl = new GammaCtrl(widget(), xv, XVidExtWrap::Blue);
+        connect(bgctrl, &GammaCtrl::gammaChanged, this, &KCModule::markAsChanged);
         connect(bgctrl, &GammaCtrl::gammaChanged, this, &KGamma::SyncScreens);
         connect(gctrl, SIGNAL(gammaChanged(int)), bgctrl, SLOT(setCtrl(int)));
         connect(bgctrl, &GammaCtrl::gammaChanged, gctrl, &GammaCtrl::suspend);
@@ -229,7 +229,7 @@ void KGamma::setupUI()
         topLayout->addLayout(form);
 
         // Options
-        QWidget *options = new QWidget(this);
+        QWidget *options = new QWidget(widget());
         QHBoxLayout *optionsHBoxLayout = new QHBoxLayout(options);
         optionsHBoxLayout->setContentsMargins(0, 0, 0, 0);
 
@@ -240,7 +240,7 @@ void KGamma::setupUI()
         syncbox = new QCheckBox(i18n("Sync screens"), options);
         optionsHBoxLayout->addWidget(syncbox);
         connect(syncbox, &QAbstractButton::clicked, this, &KGamma::SyncScreens);
-        connect(syncbox, &QAbstractButton::clicked, this, &KGamma::Changed);
+        connect(syncbox, &QAbstractButton::clicked, this, &KCModule::markAsChanged);
 
         screenselect = new QComboBox(options);
         optionsHBoxLayout->addWidget(screenselect);
@@ -261,7 +261,7 @@ void KGamma::setupUI()
 
         topLayout->addWidget(options);
     } else {
-        QLabel *error = new QLabel(this);
+        QLabel *error = new QLabel(widget());
         error->setText(
             i18n("Gamma correction is not supported by your"
                  " graphics hardware or driver."));
@@ -318,7 +318,7 @@ void KGamma::load()
         }
         xv->setScreen(currentScreen);
 
-        Q_EMIT changed(false);
+        setNeedsSave(false);
     }
 }
 
@@ -367,7 +367,7 @@ void KGamma::save()
         config->sync();
         delete config;
         saved = true;
-        Q_EMIT changed(false);
+        setNeedsSave(false);
     }
 }
 
@@ -596,19 +596,6 @@ void KGamma::changeScreen(int sn)
 int KGamma::buttons()
 {
     return Default | Apply | Help;
-}
-
-QString KGamma::quickHelp() const
-{
-    return i18n(
-        "<h1>Monitor Gamma</h1> This is a tool for changing monitor gamma"
-        " correction. Use the four sliders to define the gamma correction either"
-        " as a single value, or separately for the red, green and blue components."
-        " You may need to correct the brightness and contrast settings of your"
-        " monitor for good results. The test images help you to find proper"
-        " settings.<br> You can save them system-wide to XF86Config (root access"
-        " is required for that) or to your own KDE settings. On multi head"
-        " systems you can correct the gamma values separately for all screens.");
 }
 
 // ------------------------------------------------------------------------

@@ -21,14 +21,13 @@ class KGamma : public KCModule
 {
     Q_OBJECT
 public:
-    KGamma(QWidget *parent_P, const QVariantList &args);
+    KGamma(QObject *parent, const KPluginMetaData &data, const QVariantList &args);
     ~KGamma() override;
 
     void load() override;
     void save() override;
     void defaults() override;
     int buttons();
-    QString quickHelp() const override;
 
 protected: // Protected methods
     /** The user interface */
@@ -43,11 +42,6 @@ protected: // Protected methods
     bool validateGammaValues();
 
 private Q_SLOTS:
-    /** Called if the user changesd something */
-    void Changed()
-    {
-        Q_EMIT changed(true);
-    }
     /** Called if the user marked or unmarked the XF86Config checkbox */
     void changeConfig();
     /** Called if the user marked or unmarked the sync screen checkbox */

@@ -13,7 +13,7 @@ target_sources(kcm_kgamma PRIVATE
    kgamma.cpp kgamma.h
 )
 
-target_link_libraries(kcm_kgamma ${X11_Xxf86vm_LIB} ${X11_LIBRARIES} Qt${QT_MAJOR_VERSION}::Core Qt${QT_MAJOR_VERSION}::Widgets KF6::ConfigCore KF6::ConfigWidgets KF6::I18n)
+target_link_libraries(kcm_kgamma ${X11_Xxf86vm_LIB} ${X11_LIBRARIES} Qt${QT_MAJOR_VERSION}::Core Qt${QT_MAJOR_VERSION}::Widgets KF6::ConfigCore KF6::KCMUtils KF6::I18n)
 
 add_custom_command(TARGET kcm_kgamma POST_BUILD
                    COMMAND ${CMAKE_COMMAND} -E create_symlink ../kcms/systemsettings/kcm_kgamma.so kcm_kgamma_init.so)
