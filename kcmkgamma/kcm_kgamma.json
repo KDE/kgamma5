@@ -2,6 +2,7 @@
     "KPlugin": {
         "Description": "A monitor calibration tool",
         "Description[ar]": "أداة مراقب المعايرة",
+        "Description[ast]": "Una ferramienta pa calibrar monitores",
         "Description[bg]": "Инструмент за калибриране на монитора",
         "Description[ca@valencia]": "Una eina de calibratge per al monitor",
         "Description[ca]": "Una eina de calibratge per al monitor",
