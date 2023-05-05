@@ -126,7 +126,7 @@
 
 <sect2 id="RGB-Scale">
 <title
->KYM Tonlu Sınama Resmi</title>
+>RGB Tonlu Sınama Resmi</title>
 <para
 >Her biri 16 bölümden oluşan kırmızı, yeşil veya mavi tonlardan oluşan üç şerit görebilmeniz gerekir. En koyu bölümler saf siyah, en parlak bölümler ise saf kırmızı, yeşil veya mavi olmalıdır. Bir renk şeridinin tüm bölümlerini görmüyorsanız bu rengi açmayı veya koyulaştırmayı deneyin.</para>
 </sect2>
