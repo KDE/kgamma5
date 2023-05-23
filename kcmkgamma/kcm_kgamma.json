@@ -28,6 +28,7 @@
         "Description[tr]": "Bir monitör kalibrasyon aracı",
         "Description[uk]": "Засіб для калібрування монітора",
         "Description[x-test]": "xxA monitor calibration toolxx",
+        "Description[zh_CN]": "简易显示器校准工具",
         "Description[zh_TW]": "顯示器校準工具",
         "Icon": "preferences-desktop-display-color",
         "Name": "Gamma",
