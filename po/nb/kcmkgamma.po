@@ -68,8 +68,8 @@ msgstr ""
 "Carter 4.html\t2007-Oct-01 14:19:17\t21.0K\tapplication/octet-streamWilliam "
 "Redman Carter 5.html\t2007-Oct-01 14:19:18\t20.5K\tapplication/octet-"
 "streamWilliam Redman Carter 6.html\t2007-Oct-01 14:19:19\t22.7K\tapplication/"
-"octet-streamWilliam Redman Carter 7.html\t2007-Oct-05 05:41:01\t22.2K"
-"\tapplication/octet-streamWilliam Redman Carter 8"
+"octet-streamWilliam Redman Carter 7.html\t2007-Oct-05 "
+"05:41:01\t22.2K\tapplication/octet-streamWilliam Redman Carter 8"
 
 #: kgamma.cpp:191
 #, kde-format
