@@ -47,8 +47,8 @@ bool test_kgamma()
 
 K_PLUGIN_CLASS_WITH_JSON(KGamma, "kcm_kgamma.json")
 
-KGamma::KGamma(QObject *parent, const KPluginMetaData &data, const QVariantList &args)
-    : KCModule(parent, data, args)
+KGamma::KGamma(QObject *parent, const KPluginMetaData &data)
+    : KCModule(parent, data)
     , rootProcess(nullptr)
 {
     bool ok;

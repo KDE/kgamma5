@@ -21,7 +21,7 @@ class KGamma : public KCModule
 {
     Q_OBJECT
 public:
-    KGamma(QObject *parent, const KPluginMetaData &data, const QVariantList &args);
+    KGamma(QObject *parent, const KPluginMetaData &data);
     ~KGamma() override;
 
     void load() override;
