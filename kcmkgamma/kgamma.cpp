@@ -632,3 +632,5 @@ Q_DECL_EXPORT void kcminit()
 }
 
 #include "kgamma.moc"
+
+#include "moc_kgamma.cpp"

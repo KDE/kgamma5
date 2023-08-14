@@ -53,3 +53,5 @@ void DisplayNumber::setNum(double num)
     QString text;
     setText(text.setNum(num, 'f', precision));
 }
+
+#include "moc_displaynumber.cpp"

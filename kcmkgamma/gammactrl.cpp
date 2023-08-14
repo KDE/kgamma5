@@ -127,3 +127,5 @@ void GammaCtrl::pressed()
         setGamma(slider->value());
     }
 }
+
+#include "moc_gammactrl.cpp"
