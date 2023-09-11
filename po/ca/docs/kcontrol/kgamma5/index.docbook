@@ -56,7 +56,7 @@
 <para
 >Us permet modificar la correcció de la gamma del monitor del &X-Server;. Però això no és tot. Per a obtenir bons resultats cal establir la lluminositat, contrast i equilibri de color correctes del vostre monitor. Això pot ser difícil i cal repetir tots els passos diverses vegades. Per a un resultat perfecte és realment necessari un maquinari bo (i car).</para>
 <para
->Utilitzeu els quatre controls lliscants per a definir la correcció de la gamma, sigui com un sol valor, o per separat dels components vermell, verd i blau. La configuració predeterminada del &X-Server; per a la gamma és de 1,00 (1,80 per a Mac, 2,20 per a WinXX). Les imatges de prova us ajudaran a trobar la configuració adequada.</para>
+>Utilitzeu els quatre controls lliscants per a definir la correcció de la gamma, sigui com un sol valor, o per separat dels components vermell, verd i blau. La configuració predeterminada del &X-Server; per a la gamma és d'1,00 (1,80 per a Mac, 2,20 per a WinXX). Les imatges de prova us ajudaran a trobar la configuració adequada.</para>
 <para
 >Per a emmagatzemar la configuració de la gamma per a tot el sistema, habiliteu l'opció <guilabel
 >Desa els paràmetres per a tot el sistema</guilabel
